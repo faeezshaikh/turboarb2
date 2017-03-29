@@ -15,18 +15,18 @@ import { Page3 } from '../pages/page3/page3';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Page1;
+  rootPage: any = Page2;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Page One', component: Page1 },
-      { title: 'Page Two', component: Page2 },
-      { title: 'Page Three', component: Page3 }
+      { title: 'Page One', component: Page1, icon: 'basketball' },
+      { title: 'Page Two', component: Page2, icon: 'clock' },
+      { title: 'Page Three', component: Page3, icon: 'mail' }
     ];
 
   }
