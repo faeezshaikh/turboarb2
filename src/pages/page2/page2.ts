@@ -10,7 +10,11 @@ import { Page3 } from '../page3/page3';
 export class Page2 {
   selectedItem: any;
   icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
+  topics: Array<{no: number, title: string, note: string, icon: string}> = [
+                            {no:1,title : 'Practice Set 1',note:'10 questions, 15 minutes',icon:'flask'},
+                            {no:2,title : 'Practice Set 2',note:'10 questions, 15 minutes',icon:'wifi'},
+                            {no:3,title : 'Practice Set 3',note:'10 questions, 15 minutes',icon:'beer'},
+                            {no:4,title : 'Practice Set 4',note:'10 questions, 15 minutes',icon:'basketball'}];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     // If we navigated to this page, we will have an item available as a nav param
@@ -20,20 +24,20 @@ export class Page2 {
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
     'american-football', 'boat', 'bluetooth', 'build'];
 
-    this.items = [];
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+    // this.items = [];
+    // for (let i = 1; i < 11; i++) {
+    //   this.items.push({
+    //     title: 'Item ' + i,
+    //     note: 'This is item #' + i,
+    //     icon: this.icons[Math.floor(Math.random() * this.icons.length)]
+    //   });
+    // }
   }
 
-  itemTapped(event, item) {
+  itemTapped(event, topic) {
     // That's right, we're pushing to ourselves!
     this.navCtrl.push(Page3, {
-      item: item
+      topic: topic
     });
   }
 }

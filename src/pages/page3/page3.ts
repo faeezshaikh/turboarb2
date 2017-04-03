@@ -1,24 +1,26 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { DataService } from '../../providers/data-service';
+
 
 @Component({
   selector: 'page-page3',
   templateUrl: 'page3.html'
 })
 export class Page3 {
-  selectedItem: any;
+  selectedTopic: any;
 
-  questions : string[] = ["first","second","third","fourth","fifth","sixth"];
-  question: string = this.questions[0];
+  questions: string[];
+  question: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    if(navParams.get('item') != null) {
-      this.selectedItem = navParams.get('item');
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dataService: DataService) {
+    if (navParams.get('topic') != null) {
+      this.selectedTopic = navParams.get('topic');
+      this.questions = dataService.getQuestions(this.selectedTopic.no);
+      this.question = this.questions[0];
     } else {
-      this.selectedItem = {note : "blah"};
+      this.selectedTopic = { note: "blah" };
     }
-
-
   }
 
   ionViewDidLoad() {
@@ -39,15 +41,15 @@ export class Page3 {
   }
 
   isAnswered(index: number) {
-    if(index % 2 == 0 ) return 'Answered';
+    if (index % 2 == 0) return 'Answered';
   }
   goTo(index: number) {
-    	if (index > 0 && index <= this.questions.length) {
-        this.question = this.questions[index-1];
-			}
-			console.log("scrolling");
-			// $ionicScrollDelegate.$getByHandle('mainScroll').scrollTop(true);
+    if (index > 0 && index <= this.questions.length) {
+      this.question = this.questions[index - 1];
+    }
+    console.log("scrolling");
+    // $ionicScrollDelegate.$getByHandle('mainScroll').scrollTop(true);
   }
-  
+
 
 }
