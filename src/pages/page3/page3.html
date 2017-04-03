@@ -13,20 +13,32 @@
 <ion-content padding>
   {{selectedTopic.title || "sdfsdf"}}
 
-  <button (click)="left()"><</button>
-    {{question}}
+  <button (click)="left()"><</button> {{question}}
   <button (click)="right()">></button>
 
 
-      <div class="review" >
 
-            <p></p>
 
-           
 
-             <div *ngFor="let question of questions; let i = index;">
-                <div (click)="goTo(i + 1)" class="{{ isAnswered(i) == 'Answered'? 'answered': 'not-answered' }}">{{i + 1}}. {{ question }}</div>
-            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="review">
+    <p></p>
+    <div *ngFor="let question of questions; let i = index;">
+      <div (click)="goTo(i + 1)" class="{{ isAnswered(i) == 'Answered'? 'answered': 'not-answered' }}">{{i + 1}}. {{ question }}</div>
     </div>
+  </div>
 
 </ion-content>

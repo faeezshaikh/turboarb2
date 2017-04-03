@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar  color="salmon">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -14,7 +14,7 @@
   <ion-list>
     <ion-item  *ngFor="let topic of topics" (click)="itemTapped($event, topic)">
       <ion-thumbnail item-left>
-        <img src="img/thumbnail-totoro.png">
+        <img src="{{topic.icon}}">
       </ion-thumbnail>
       <h2>{{topic.title}}</h2>
       <p>{{topic.note}}</p>
