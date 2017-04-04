@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { DataService } from '../../providers/data-service';
+
+import { Content } from 'ionic-angular';
 
 
 @Component({
@@ -14,6 +16,12 @@ export class Page3 {
   questions: string[];
   question: string;
   showReview : boolean = false;
+  scrollContent: any;
+
+  @ViewChild(Content) content: Content;
+  scrollToTop() {
+    this.content.scrollToTop();
+  }
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dataService: DataService) {
     if (navParams.get('topic') != null) {
@@ -43,6 +51,7 @@ export class Page3 {
     let ix = increment + this.questions.findIndex(c => c === this.question);
     ix = Math.min(this.questions.length - 1, Math.max(0, ix));
     this.question = this.questions[ix];
+    this.scrollToTop();
   }
   left() {
     this.shift(-1);
