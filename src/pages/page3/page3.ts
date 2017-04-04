@@ -13,6 +13,7 @@ export class Page3 {
   data: any = {};
   questions: string[];
   question: string;
+  showReview : boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dataService: DataService) {
     if (navParams.get('topic') != null) {
@@ -57,9 +58,18 @@ export class Page3 {
     if (index > 0 && index <= this.questions.length) {
       this.question = this.questions[index - 1];
     }
+    this.showReview = false;
     console.log("scrolling");
     // $ionicScrollDelegate.$getByHandle('mainScroll').scrollTop(true);
   }
+
+  review() {
+    this.showReview = true;
+  }
+  closeReview() {
+    this.showReview = false;
+  }
+
 
 
 }

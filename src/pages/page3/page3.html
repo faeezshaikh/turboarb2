@@ -4,7 +4,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>page3</ion-title>
+    <ion-title>Practice Exam</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,7 +15,7 @@
 
 <p></p>
 
- <div id="quiz"  *ngIf="data != undefined && data.quiz != undefined">
+ <div id="quiz"  *ngIf="data != undefined && data.quiz != undefined && !showReview">
             <div class="center">
                 <img height="80" width="80" src="{{data.quiz.logo}}" />
                 <h1>  {{selectedTopic.title || "sdfsdf"}}</h1>
@@ -79,7 +79,7 @@
                         <br />
                         <div style="text-align:center">
                            
-                            <button (click)="left()" ion-button icon-left>
+                            <button (click)="review()" ion-button icon-left>
                               <ion-icon name="list"></ion-icon>
                               Review
                             </button>
@@ -115,11 +115,13 @@
 
 
 
-  <div class="review">
+  <div *ngIf="showReview" class="review">
     <p></p>
     <div *ngFor="let question of questions; let i = index;">
       <div (click)="goTo(i + 1)" class="{{ isAnswered(i) == 'Answered'? 'answered': 'not-answered' }}">{{i + 1}}. {{ question }}</div>
     </div>
+    <p></p>
+     <button  ion-button (click)="closeReview()"> Back </button>
   </div>
 
 </ion-content>

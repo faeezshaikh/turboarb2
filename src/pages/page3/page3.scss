@@ -24,5 +24,13 @@ ion-label {
 .center {
     text-align:center;
 }
-
+div.review{
+    text-align:center;
+}
+div.review > div {
+    cursor:pointer;
+    display:inline-block;
+    margin:2px;
+    width: 25%;
+}
 }
