@@ -7,7 +7,7 @@ import { Page3 } from '../page3/page3';
   selector: 'page-page2',
   templateUrl: 'page2.html'
 })
-export class Page2 {
+export class TopicPage {
   selectedItem: any;
   icons: string[];
   topics: Array<{no: number, title: string, note: string, icon: string}> = [
