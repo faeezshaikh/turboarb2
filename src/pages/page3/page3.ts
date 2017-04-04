@@ -10,14 +10,24 @@ import { DataService } from '../../providers/data-service';
 export class Page3 {
   selectedTopic: any;
 
+  data: any = {};
   questions: string[];
   question: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dataService: DataService) {
     if (navParams.get('topic') != null) {
       this.selectedTopic = navParams.get('topic');
-      this.questions = dataService.getQuestions(this.selectedTopic.no);
-      this.question = this.questions[0];
+
+      dataService.getData(this.selectedTopic.no).then(theResult => {
+          this.data =   theResult;
+          this.questions = theResult.questions;
+          this.question = this.questions[0];
+          console.log("Data => ",this.data);
+          console.log("Questions => ",theResult.questions);
+        });
+      
+      // this.questions = dataService.getQuestions(this.selectedTopic.no);
+      // this.question = this.questions[0];
     } else {
       this.selectedTopic = { note: "blah" };
     }
