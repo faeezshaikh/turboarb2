@@ -35,7 +35,6 @@ export class TopicsListPage {
   }
 
   itemTapped(event, topic) {
-    // That's right, we're pushing to ourselves!
     this.navCtrl.push(Page3, {
       topic: topic
     });

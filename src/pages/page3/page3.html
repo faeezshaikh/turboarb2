@@ -103,7 +103,7 @@
   <div *ngIf="mode=='review'" class="review">
     <p></p>
     <div *ngFor="let question of questions; let i = index;">
-      <div (click)="goTo(i + 1)" class="{{ isAnswered(i) == 'Answered'? 'answered': 'not-answered' }}">{{i + 1}}. {{ question }}</div>
+      <div (click)="goTo(i + 1)" class="{{ isAnswered(question) == 'Answered'? 'answered': 'not-answered' }}">{{i + 1}}. {{ isAnswered(question) }}</div>
     </div>
     <p></p>
      <button  ion-button (click)="setMode('quiz')"> Back </button>
@@ -157,7 +157,7 @@
                     <!-- <img class="full-image" height="150" width="100" ng-src="data/img/table.jpg"> -->
                     <p class="center">
 
-                        <button ion-button (click)="setMode('quiz')">Close</button>
+                        <button ion-button (click)="closeResults()">Close</button>
                     </p>
 
                 </div>
@@ -183,16 +183,15 @@
                         </div>
                     </div>
                     <p></p>
-                    <!--<button   ngClass=" {{ isCorrect(question) == 'Correct'? 'light': 'danger'}}">{{isCorrect(question)}} answer.</button>-->
-      <button ion-button color="primary" *ngIf="isCorrect(question) == 'Correct'">Correct Answer.</button>
+      <button ion-button color="secondary" *ngIf="isCorrect(question) == 'Correct'">Correct Answer.</button>
       <button ion-button color="danger" *ngIf="isCorrect(question) != 'Correct'">Wrong Answer.</button>
 
-                    <button *ngIf="question.Explanation" ion-button>Explanation</button>
+                    <button *ngIf="question.Explanation" (click)="openExplanationModal(question)" ion-button>Explanation</button>
 
                 </div>
             </div>
             <div class="center">
-                <button ion-button (click)="setMode('quiz')">Close</button>
+                <button ion-button (click)="closeResults()">Close</button>
             </div>
 
 

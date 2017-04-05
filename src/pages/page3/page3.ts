@@ -2,7 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { DataService } from '../../providers/data-service';
 
-import { Content } from 'ionic-angular';
+import { ModalController, Content } from 'ionic-angular';
+import { ExplanationModal } from '../../modals/explanationModal';
 
 
 @Component({
@@ -25,7 +26,8 @@ export class Page3 {
     this.content.scrollToTop();
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public dataService: DataService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dataService: DataService,
+              public modalCtrl: ModalController) {
     if (navParams.get('topic') != null) {
       this.selectedTopic = navParams.get('topic');
 
@@ -62,8 +64,18 @@ export class Page3 {
     this.shift(1);
   }
 
-  isAnswered(index: number) {
-    if (index % 2 == 0) return 'Answered';
+  // isAnswered(index: number) {
+  //   if (index % 2 == 0) return 'Answered';
+  // }
+  isAnswered(question: any) {
+	    var answered = 'Not Answered';
+			question.Options.forEach(function (element, index, array) {
+				if (element.Selected == true) {
+					answered = 'Answered';
+					return false;
+				}
+			});
+			return answered;
   }
   goTo(index: number) {
     if (index > 0 && index <= this.questions.length) {
@@ -106,6 +118,15 @@ export class Page3 {
 		};
 
 
+    closeResults() {
+      // setMode('quiz');
+      this.navCtrl.pop();
+    }
 
+
+    openExplanationModal(question) {
+      let modal = this.modalCtrl.create(ExplanationModal, question);
+    modal.present();
+  }
 
 }
