@@ -18,6 +18,7 @@ export class Page3 {
   showReview : boolean = false;
   scrollContent: any;
   mode: string = 'quiz';
+  // result: string = 'Correct';
 
   @ViewChild(Content) content: Content;
   scrollToTop() {
@@ -79,6 +80,32 @@ export class Page3 {
     this.scrollToTop();
     
   }
+
+		toBoolVal(val:any){
+			if (val == 'undefined' || val == null || val == '' || val == 'false' || val == 'False')
+				return false;
+			else if (val == true || val == 'true' || val == 'True')
+				return true;
+			// else
+			// 	return 'unidentified';
+		}
+		;
+
+  	isCorrect(question) {
+      let result = 'Correct';
+      let self = this;
+			question.Options.forEach(function (option, index, array) {
+        
+				if (self.toBoolVal(option.Selected) != option.IsAnswer) {
+          // if (option.Selected != option.IsAnswer) {
+          result = 'Wrong';
+					return false;
+				}
+			});
+			return result;
+		};
+
+
 
 
 }

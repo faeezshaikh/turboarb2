@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar color="salmon">
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -49,7 +49,7 @@
 
                                           <ion-item>
     
-                                          <ion-checkbox color="salmon" checked="false"></ion-checkbox>
+                                          <ion-checkbox color="primary" checked="false" [(ngModel)]="option.Selected"></ion-checkbox>
                                             <ion-label> {{option.Name}}</ion-label>
                                           </ion-item>
                                     </div>
@@ -175,7 +175,7 @@
                     <div class="result-options">
                         <div *ngFor="let Option of question.Options">
                             <label  class="{{  Option.IsAnswer ? 'result-correct': 'result-incorrect' }}"> 
-                                <input id="{{Option.Id}}" type="checkbox" disabled="disabled" readonly="readonly"  /> {{Option.Name}}
+                                <input id="{{Option.Id}}" type="checkbox" disabled="disabled" readonly="readonly" [(ngModel)]="Option.Selected" /> {{Option.Name}}
                             </label>
                            <!--<label ng-click="onSelect(Option);" class="{{  Option.IsAnswer ? 'result-correct': 'result-incorrect' }}"> 
                                 <input id="{{Option.Id}}" type="checkbox" disabled="disabled" readonly="readonly" ng-model="Option.Selected" /> {{Option.Name}}
@@ -183,7 +183,10 @@
                         </div>
                     </div>
                     <p></p>
-                    <button ion-button>{{true}} answer.</button>
+                    <!--<button   ngClass=" {{ isCorrect(question) == 'Correct'? 'light': 'danger'}}">{{isCorrect(question)}} answer.</button>-->
+      <button ion-button color="primary" *ngIf="isCorrect(question) == 'Correct'">Correct Answer.</button>
+      <button ion-button color="danger" *ngIf="isCorrect(question) != 'Correct'">Wrong Answer.</button>
+
                     <button *ngIf="question.Explanation" ion-button>Explanation</button>
 
                 </div>
