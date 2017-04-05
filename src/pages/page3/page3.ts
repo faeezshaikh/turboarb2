@@ -17,6 +17,7 @@ export class Page3 {
   question: string;
   showReview : boolean = false;
   scrollContent: any;
+  mode: string = 'quiz';
 
   @ViewChild(Content) content: Content;
   scrollToTop() {
@@ -67,18 +68,17 @@ export class Page3 {
     if (index > 0 && index <= this.questions.length) {
       this.question = this.questions[index - 1];
     }
-    this.showReview = false;
-    console.log("scrolling");
-    // $ionicScrollDelegate.$getByHandle('mainScroll').scrollTop(true);
+    this.mode = 'quiz';
   }
 
-  review() {
-    this.showReview = true;
-  }
-  closeReview() {
-    this.showReview = false;
-  }
 
+
+  setMode(mode) {
+    this.mode = mode;
+    console.log('Mode set to:', mode);
+    this.scrollToTop();
+    
+  }
 
 
 }
