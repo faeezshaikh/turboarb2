@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { DataService } from '../../providers/data-service';
-
 import { ModalController, Content } from 'ionic-angular';
 import { ExplanationModal } from '../../modals/explanationModal';
 
@@ -19,32 +18,34 @@ export class Page3 {
   showReview : boolean = false;
   scrollContent: any;
   mode: string = 'quiz';
-  // result: string = 'Correct';
   
   verdict: string;
   correct: number = 0;
   score : number = 0;
+  // theResult:any = {};
 
   @ViewChild(Content) content: Content;
   scrollToTop() {
     this.content.scrollToTop();
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public dataService: DataService,
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+              public dataService: DataService,
               public modalCtrl: ModalController) {
     if (navParams.get('topic') != null) {
+
       this.selectedTopic = navParams.get('topic');
 
       dataService.getData(this.selectedTopic.no).then(theResult => {
           this.data =   theResult;
-          this.questions = theResult.questions;
-          this.question = this.questions[0];
-          console.log("Data => ",this.data);
-          console.log("Questions => ",theResult.questions);
+          // if(theResult.questions){
+            this.questions = theResult.questions;
+            this.question = this.questions[0];
+            console.log("Data => ",this.data);
+            console.log("Questions => ",theResult.questions);
+          // }
         });
       
-      // this.questions = dataService.getQuestions(this.selectedTopic.no);
-      // this.question = this.questions[0];
     } else {
       this.selectedTopic = { note: "blah" };
     }
