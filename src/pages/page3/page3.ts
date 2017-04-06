@@ -14,12 +14,16 @@ export class Page3 {
   selectedTopic: any;
 
   data: any = {};
-  questions: string[];
+  questions: any[];
   question: string;
   showReview : boolean = false;
   scrollContent: any;
   mode: string = 'quiz';
   // result: string = 'Correct';
+  
+  verdict: string;
+  correct: number = 0;
+  score : number = 0;
 
   @ViewChild(Content) content: Content;
   scrollToTop() {
@@ -64,9 +68,7 @@ export class Page3 {
     this.shift(1);
   }
 
-  // isAnswered(index: number) {
-  //   if (index % 2 == 0) return 'Answered';
-  // }
+  
   isAnswered(question: any) {
 	    var answered = 'Not Answered';
 			question.Options.forEach(function (element, index, array) {
@@ -77,6 +79,7 @@ export class Page3 {
 			});
 			return answered;
   }
+
   goTo(index: number) {
     if (index > 0 && index <= this.questions.length) {
       this.question = this.questions[index - 1];
@@ -85,6 +88,14 @@ export class Page3 {
   }
 
 
+  reset() {
+    this.questions.forEach(function(q, index, array){
+      	q.Options.forEach(function (option, index, array) {
+            option.Selected = false;
+			});
+    });
+    
+  }
 
   setMode(mode) {
     this.mode = mode;
@@ -120,6 +131,7 @@ export class Page3 {
 
     closeResults() {
       // setMode('quiz');
+      this.reset();
       this.navCtrl.pop();
     }
 
@@ -129,4 +141,34 @@ export class Page3 {
     modal.present();
   }
 
+
+
+  ////// [ Scoring ] ///////
+
+
+
+	 calculateAndUpdateScore() {
+
+			let wrong = 0;
+      let that = this;
+			// $scope.$broadcast('timer-stop');
+
+			this.questions.forEach(function (q, index) {
+				if (that.isCorrect(q) == 'Correct') {
+
+				} else {
+					wrong++;
+				}
+
+			});
+
+			this.correct = this.questions.length - wrong;
+			this.score = Math.round((Number(this.correct) / this.questions.length) * 100);
+			this.verdict = (this.score > 65) ? 'Pass' : 'Fail';
+			// awsService.updateScoreForTopics(examTopic, $scope.score);
+			// $scope.mode.value = 'result';
+      this.setMode('result');
+		}
+
+    ////// [ Scoring ] ///////
 }

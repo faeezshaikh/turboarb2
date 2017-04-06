@@ -85,7 +85,7 @@
                             </button>
 
 
-                             <button (click)="setMode('result')" ion-button icon-left>
+                             <button (click)="calculateAndUpdateScore()" ion-button icon-left>
                               Submit &nbsp;
                                <ion-icon name="checkmark-circle-outline"></ion-icon>
                             </button>
@@ -115,43 +115,40 @@
 
     <div class="center result" *ngIf="mode=='result'">
             <p></p>
-            <!--<div class="center" id="circle"></div>-->
-                 <ion-card>
-
-
-                 <ion-item>
-                  <ion-avatar item-left>
-                    <img src="../../assets/img/exam.jpg">
-                  </ion-avatar>
-                  <h2>Score Card</h2>
-                  <p>Fail</p>
+            <ion-card>
+                <ion-item>
+                    <ion-avatar item-left>
+                        <img src="../../assets/img/exam.jpg">
+                    </ion-avatar>
+                    <h2>Score Card</h2>
+                    <p>Fail</p>
                 </ion-item>
-                  <hr/>
+                <hr/>
 
                 <div class="item item-body">
 
                     <div class="row">
                         <div class="col col-80">Total Questions</div>
-                        <div class="col col-20">{{10}}</div>
+                        <div class="col col-20">{{questions.length}}</div>
                     </div>
 
                     <div class="row">
                         <div class="col col-80">Correct Answers</div>
-                        <div class="col col-20">{{6}}</div>
+                        <div class="col col-20">{{correct}}</div>
                     </div>
 
                     <div class="row">
                         <div class="col col-80">Incorrect Answers</div>
-                        <div class="col col-20">{{6}}</div>
+                        <div class="col col-20">{{questions.length - correct}}</div>
                     </div>
 
                     <div class="row">
                         <div class="col col-80">Total</div>
-                        <div class="col col-20"><strong>{{66}} %</strong></div>
+                        <div class="col col-20"><strong>{{score}} %</strong></div>
                     </div>
                     <div class="row">
                         <div class="col col-80"><strong>Result</strong></div>
-                        <div class="col col-20"><strong>{{'Pass'}}</strong></div>
+                        <div class="col col-20"><strong>{{verdict}}</strong></div>
                     </div>
                     <hr/>
                     <!-- <img class="full-image" height="150" width="100" ng-src="data/img/table.jpg"> -->
@@ -174,19 +171,19 @@
                     <h3>{{i + 1}}. {{question.Name}}</h3>
                     <div class="result-options">
                         <div *ngFor="let Option of question.Options">
-                            <label  class="{{  Option.IsAnswer ? 'result-correct': 'result-incorrect' }}"> 
-                                <input id="{{Option.Id}}" type="checkbox" disabled="disabled" readonly="readonly" [(ngModel)]="Option.Selected" /> {{Option.Name}}
-                            </label>
-                           <!--<label ng-click="onSelect(Option);" class="{{  Option.IsAnswer ? 'result-correct': 'result-incorrect' }}"> 
-                                <input id="{{Option.Id}}" type="checkbox" disabled="disabled" readonly="readonly" ng-model="Option.Selected" /> {{Option.Name}}
-                            </label>-->
+                            <label class="{{  Option.IsAnswer ? 'result-correct': 'result-incorrect' }}"> 
+                                            <input id="{{Option.Id}}" type="checkbox" disabled="disabled" readonly="readonly" [(ngModel)]="Option.Selected" /> {{Option.Name}}
+                                        </label>
+                            <!--<label ng-click="onSelect(Option);" class="{{  Option.IsAnswer ? 'result-correct': 'result-incorrect' }}"> 
+                                            <input id="{{Option.Id}}" type="checkbox" disabled="disabled" readonly="readonly" ng-model="Option.Selected" /> {{Option.Name}}
+                                        </label>-->
                         </div>
                     </div>
                     <p></p>
-      <button ion-button color="secondary" *ngIf="isCorrect(question) == 'Correct'">Correct Answer.</button>
-      <button ion-button color="danger" *ngIf="isCorrect(question) != 'Correct'">Wrong Answer.</button>
+                    <button ion-button color="secondary" *ngIf="isCorrect(question) == 'Correct'" round>Correct Answer.</button>
+                    <button ion-button color="danger" *ngIf="isCorrect(question) != 'Correct'" round>Wrong Answer.</button>
 
-                    <button *ngIf="question.Explanation" (click)="openExplanationModal(question)" ion-button>Explanation</button>
+                    <button *ngIf="question.Explanation" (click)="openExplanationModal(question)" ion-button round>Explanation</button>
 
                 </div>
             </div>
@@ -195,7 +192,7 @@
             </div>
 
 
-        </div>
+</div>
 
 
        
