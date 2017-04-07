@@ -5,10 +5,10 @@ files:
     destination: /home/ec2-user/Ionic2App/
 hooks:
   AfterInstall:
-    - location: install_dependencies.sh
+    - location: /home/ec2-user/scripts/install_dependencies.sh
       timeout: 300
       runas: root
   ApplicationStart:
-    - location: start_server.sh
+    - location: /home/ec2-user/scripts/start_server.sh
       timeout: 300
       runas: root
