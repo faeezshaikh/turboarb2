@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ec2-user/Ionic2App/
+    destination: /var/www/Ionic2App/
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies.sh
