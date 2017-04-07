@@ -1,4 +1,4 @@
 #!/bin/bash
 rm -rf node_modules
-npm install @ionic/app-scripts@latest --save-dev
-npm install
+/usr/local/bin/npm install @ionic/app-scripts@latest --save-dev
+/usr/local/bin/npm install
