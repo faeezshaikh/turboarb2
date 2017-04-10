@@ -1,6 +1,6 @@
 {
-  "name": "ionic-hello-world",
-  "author": "Ionic Framework",
+  "name": "awsSolArchNew",
+  "author": "Faeez Shaikh",
   "homepage": "http://ionicframework.com/",
   "private": true,
   "scripts": {
@@ -30,7 +30,7 @@
     "zone.js": "0.7.2"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "1.2.2",
+    "@ionic/app-scripts": "^1.3.1",
     "typescript": "2.0.9"
   },
   "cordovaPlugins": [
@@ -49,5 +49,5 @@
       "locator": "ios"
     }
   ],
-  "description": "awsSolArchPro: An Ionic project"
+  "description": "awsSolArchPro: An AWS Quiz Project"
 }

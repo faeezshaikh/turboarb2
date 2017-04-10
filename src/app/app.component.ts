@@ -1,12 +1,14 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Events, Platform, MenuController, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Page1 } from '../pages/page1/page1';
 import { TopicsListPage } from '../pages/page2/page2';
-import { Page3 } from '../pages/page3/page3';
 
+
+import {LoginPage, LogoutPage} from "../pages/auth/auth";
+import {AwsUtil} from "../providers/aws.service";
 
 
 @Component({
@@ -16,17 +18,24 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = TopicsListPage;
-
   pages: Array<{title: string, component: any, icon: string}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  public loginPage = LoginPage;
+  public logoutPage = LogoutPage;
+  // public homePage = ControlPanelPage;
+  // public settingsPage = ControlPanelPage;
+
+  constructor(public platform: Platform, 
+              public statusBar: StatusBar,
+              public splashScreen: SplashScreen,
+              public events:Events,
+              public awsUtil:AwsUtil,
+              public menu:MenuController) {
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Practice Exams', component: TopicsListPage, icon: 'list' },
       { title: 'Contact Us', component: Page1, icon: 'people' }
-      // { title: 'Page Three', component: Page3, icon: 'mail' }
     ];
 
   }
@@ -37,6 +46,11 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+       this.awsUtil.initAwsService();
+       this.rootPage = this.loginPage;
+       this.listenToLoginEvents();
+
     });
   }
 
@@ -44,5 +58,29 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+    // this.nav.setRoot(page);
+  }
+
+    openPage2(page) {
+    // Reset the content nav to have just this page
+    // we wouldn't want the back button to show in this scenario
+    this.nav.setRoot(page);
+    // this.nav.setRoot(page);
+  }
+
+  listenToLoginEvents() {
+    this.events.subscribe('user:login', () => {
+      this.enableMenu(true);
+    });
+
+
+    this.events.subscribe('user:logout', () => {
+      this.enableMenu(false);
+    });
+  }
+
+  enableMenu(loggedIn) {
+    this.menu.enable(loggedIn, 'loggedInMenu');
+    this.menu.enable(!loggedIn, 'loggedOutMenu');
   }
 }

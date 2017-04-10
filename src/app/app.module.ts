@@ -5,13 +5,37 @@ import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-
-
 import { Page1 } from '../pages/page1/page1';
 import { TopicsListPage } from '../pages/page2/page2';
 import { Page3 } from '../pages/page3/page3';
 import { DataService } from '../providers/data-service';
 import { ExplanationModal } from '../modals/explanationModal';
+
+
+
+import {
+  CognitoUtil,
+  UserLoginService,
+  UserParametersService,
+  UserRegistrationService
+} from "../providers/cognito.service";
+import {AwsUtil} from "../providers/aws.service";
+import {
+  LoginPage,
+  LogoutPage,
+  RegisterPage,
+  ConfirmRegistrationPage,
+  ResendCodePage,
+  ForgotPasswordStep1Page,
+  ForgotPasswordStep2Page
+} from "../pages/auth/auth";
+// import {Storage} from "@ionic/storage";
+import {EventsService} from "../providers/events.service";
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -19,7 +43,14 @@ import { ExplanationModal } from '../modals/explanationModal';
     Page1,
     TopicsListPage,
     Page3,
-    ExplanationModal
+    ExplanationModal,
+    LoginPage,
+    LogoutPage,
+    RegisterPage,
+    ConfirmRegistrationPage,
+    ResendCodePage,
+    ForgotPasswordStep1Page,
+    ForgotPasswordStep2Page
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -30,13 +61,28 @@ import { ExplanationModal } from '../modals/explanationModal';
     Page1,
     TopicsListPage,
     Page3,
-    ExplanationModal
+    ExplanationModal,
+    LoginPage,
+    LogoutPage,
+    RegisterPage,
+    ConfirmRegistrationPage,
+    ResendCodePage,
+    ForgotPasswordStep1Page,
+    ForgotPasswordStep2Page
+
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DataService
+    DataService,
+    CognitoUtil,
+    AwsUtil,
+    UserLoginService,
+    UserParametersService,
+    UserRegistrationService,
+    // Storage,
+    EventsService
   ]
 })
 export class AppModule {}
