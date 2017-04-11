@@ -4,7 +4,13 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Practice Exams</ion-title>
+  <ion-buttons end>
+      <button ion-button icon-only (click)="reorderNow()">
+        <ion-icon [name]="reorderIcon"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
+  
 </ion-header>
 
 
@@ -19,7 +25,7 @@
 
   <ion-list>
 
-    <ion-item-group reorder="true" (ionItemReorder)="reorderTopics($event)">
+    <ion-item-group [reorder]="reorder" (ionItemReorder)="reorderTopics($event)">
 
       <ion-item-sliding *ngFor="let topic of topics">
         <ion-item (click)="itemTapped($event, topic)" detail-push>
@@ -48,7 +54,7 @@
       Practice Exams
     </ion-item-divider>
 
-    <ion-item-group reorder="true" (ionItemReorder)="reorderExams($event)">
+    <ion-item-group [reorder]="reorder" (ionItemReorder)="reorderExams($event)">
       <ion-item *ngFor="let exam of exams" (click)="itemTapped($event, exam)" detail-push>
         <ion-thumbnail item-left>
           <img src="{{exam.icon}}">

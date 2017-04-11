@@ -266,6 +266,10 @@ export class ResendCodePage implements CognitoCallback {
   }
 
   resendCode() {
+     if (this.email == null) {
+      this.doAlert("Error", "All fields are required");
+      return;
+    }
     this.registrationService.resendCode(this.email, this);
   }
 
@@ -311,6 +315,10 @@ export class ForgotPasswordStep1Page implements CognitoCallback {
   }
 
   onNext() {
+     if (this.email == null) {
+      this.doAlert("Error", "All fields are required");
+      return;
+    }
     this.userService.forgotPassword(this.email, this);
   }
 
@@ -354,6 +362,10 @@ export class ForgotPasswordStep2Page implements CognitoCallback {
   }
 
   onNext() {
+     if (this.email == null || this.password == null || this.verificationCode==null) {
+      this.doAlert("Error", "All fields are required");
+      return;
+    }
     this.userService.confirmNewPassword(this.email, this.verificationCode, this.password, this);
   }
 

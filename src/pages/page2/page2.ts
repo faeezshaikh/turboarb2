@@ -13,7 +13,8 @@ export class TopicsListPage {
   icons: string[];
   topics: Array<{no: number, title: string, note: string, icon: string}>;
 
-
+  reorder: boolean = false;
+  reorderIcon: string = "options";
 
   exams: Array<{no: number, title: string, note: string, icon: string}>;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -39,6 +40,11 @@ export class TopicsListPage {
     this.navCtrl.push(Page3, {
       topic: topic
     });
+  }
+
+  reorderNow () {
+    this.reorder = !this.reorder;
+    this.reorderIcon = this.reorder ? "close-circle" : "options";
   }
 
   reorderTopics(indexes) {
