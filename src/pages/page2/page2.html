@@ -34,6 +34,7 @@
           </ion-thumbnail>
           <h2>{{topic.title}}</h2>
           <p>{{topic.note}}</p>
+          <p>Last Score: {{topic.hiScore || '(Not attempted)'}} {{topic.hiScore ? '%' : '' }}</p>
         </ion-item>
 
         <ion-item-options side="left">
@@ -44,9 +45,6 @@
         <ion-item-options side="right">
           <button ion-button color="danger" (click)="unread(item)"><ion-icon name="trash"></ion-icon>Delete</button>
         </ion-item-options>
-
-
-
 
       </ion-item-sliding>
     </ion-item-group>
@@ -61,6 +59,7 @@
         </ion-thumbnail>
         <h2>{{exam.title}}</h2>
         <p>{{exam.note}}</p>
+        <p>{{exam.hiScore}}</p>
       </ion-item>
     </ion-item-group>
   </ion-list>

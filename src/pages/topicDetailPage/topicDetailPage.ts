@@ -1,15 +1,18 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { DataService } from '../../providers/data-service';
+import { MyLocalStorage } from '../../providers/my-local-storage';
+// import { MyLocalStorage } from '../../providers/my-local-storage1';
 import { ModalController, Content } from 'ionic-angular';
 import { ExplanationModal } from '../../modals/explanationModal';
+// import {TopicsListPage} from '../page2/page2';
 
 
 @Component({
   selector: 'page-page3',
-  templateUrl: 'page3.html'
+  templateUrl: 'topicDetailPage.html'
 })
-export class Page3 {
+export class TopicDetailPage {
   selectedTopic: any;
 
   data: any = {};
@@ -31,7 +34,8 @@ export class Page3 {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
               public dataService: DataService,
-              public modalCtrl: ModalController) {
+              public modalCtrl: ModalController,
+              public storage: MyLocalStorage) {
     if (navParams.get('topic') != null) {
 
       this.selectedTopic = navParams.get('topic');
@@ -52,7 +56,7 @@ export class Page3 {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Page3Page');
+    console.log('ionViewDidLoad TopicDetailPage');
   }
 
 
@@ -134,6 +138,7 @@ export class Page3 {
       // setMode('quiz');
       this.reset();
       this.navCtrl.pop();
+      // this.navCtrl.push(TopicsListPage);
     }
 
 
@@ -169,6 +174,7 @@ export class Page3 {
 			// awsService.updateScoreForTopics(examTopic, $scope.score);
 			// $scope.mode.value = 'result';
       this.setMode('result');
+      this.storage.saveScore(this.selectedTopic.no,this.score);
 		}
 
     ////// [ Scoring ] ///////

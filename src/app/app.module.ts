@@ -7,11 +7,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Page1 } from '../pages/page1/page1';
 import { TopicsListPage } from '../pages/page2/page2';
-import { Page3 } from '../pages/page3/page3';
+import { TopicDetailPage } from '../pages/topicDetailPage/topicDetailPage';
 import { DataService } from '../providers/data-service';
+import { MyLocalStorage } from '../providers/my-local-storage';
 import { ExplanationModal } from '../modals/explanationModal';
-
-
+import { IonicStorageModule } from '@ionic/storage';
+import { NativeStorage } from '@ionic-native/native-storage';
 
 import {
   CognitoUtil,
@@ -42,7 +43,7 @@ import {EventsService} from "../providers/events.service";
     MyApp,
     Page1,
     TopicsListPage,
-    Page3,
+    TopicDetailPage,
     ExplanationModal,
     LoginPage,
     LogoutPage,
@@ -53,14 +54,15 @@ import {EventsService} from "../providers/events.service";
     ForgotPasswordStep2Page
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     Page1,
     TopicsListPage,
-    Page3,
+    TopicDetailPage,
     ExplanationModal,
     LoginPage,
     LogoutPage,
@@ -81,8 +83,9 @@ import {EventsService} from "../providers/events.service";
     UserLoginService,
     UserParametersService,
     UserRegistrationService,
-    // Storage,
-    EventsService
+    MyLocalStorage,
+    EventsService,
+    NativeStorage
   ]
 })
 export class AppModule {}
