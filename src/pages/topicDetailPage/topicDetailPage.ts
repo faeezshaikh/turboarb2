@@ -78,7 +78,7 @@ export class TopicDetailPage {
 
       this.alert = this.alertCtrl.create({
       title: 'Time\'s up!',
-      subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
+      subTitle: 'Your time is up. Please tap OK to view the results!',
       enableBackdropDismiss : false,
       buttons: [ {
           text: 'Ok',
