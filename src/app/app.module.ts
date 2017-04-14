@@ -12,7 +12,7 @@ import { DataService } from '../providers/data-service';
 import { MyLocalStorage } from '../providers/my-local-storage';
 import { ExplanationModal } from '../modals/explanationModal';
 import { IonicStorageModule } from '@ionic/storage';
-import { NativeStorage } from '@ionic-native/native-storage';
+import { SimpleTimer } from 'ng2-simple-timer';
 
 import {
   CognitoUtil,
@@ -30,12 +30,7 @@ import {
   ForgotPasswordStep1Page,
   ForgotPasswordStep2Page
 } from "../pages/auth/auth";
-// import {Storage} from "@ionic/storage";
 import {EventsService} from "../providers/events.service";
-
-
-
-
 
 
 @NgModule({
@@ -85,7 +80,8 @@ import {EventsService} from "../providers/events.service";
     UserRegistrationService,
     MyLocalStorage,
     EventsService,
-    NativeStorage
+    SimpleTimer
+    // NativeStorage
   ]
 })
 export class AppModule {}

@@ -6,6 +6,8 @@ import { MyLocalStorage } from '../../providers/my-local-storage';
 import { ModalController, Content } from 'ionic-angular';
 import { ExplanationModal } from '../../modals/explanationModal';
 // import {TopicsListPage} from '../page2/page2';
+// import {CountDown} from "../../../node_modules/angular2-simple-countdown/countdown";
+import {SimpleTimer} from 'ng2-simple-timer';
 
 
 @Component({
@@ -27,6 +29,18 @@ export class TopicDetailPage {
   score : number = 0;
   // theResult:any = {};
 
+  // text: any = { "Weeks": "Weeks", 
+  //   "Days": "Days", "Hours": "Hours",
+  //    Minutes: "Minutes", "Seconds": "Seconds",
+  //   "MilliSeconds":"MilliSeconds" };
+
+
+	counter0 = 10;
+	timer0Id: string;
+
+	counter1 = 20;
+	timer1Id: string;
+
   @ViewChild(Content) content: Content;
   scrollToTop() {
     this.content.scrollToTop();
@@ -35,7 +49,8 @@ export class TopicDetailPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, 
               public dataService: DataService,
               public modalCtrl: ModalController,
-              public storage: MyLocalStorage) {
+              public storage: MyLocalStorage,
+              private st: SimpleTimer) {
     if (navParams.get('topic') != null) {
 
       this.selectedTopic = navParams.get('topic');
@@ -53,7 +68,49 @@ export class TopicDetailPage {
     } else {
       this.selectedTopic = { note: "blah" };
     }
+
+    this.st.newTimer('1sec',1);
+		this.st.newTimer('5sec',5);
+		this.subscribeTimer0();
+		this.subscribeTimer1();
   }
+
+  	subscribeTimer0() {
+		if (this.timer0Id) {
+			// Unsubscribe if timer Id is defined
+			this.st.unsubscribe(this.timer0Id);
+			this.timer0Id = undefined;
+			console.log('timer 0 Unsubscribed.');
+		} else {
+			// Subscribe if timer Id is undefined
+			this.timer0Id = this.st.subscribe('1sec', e => this.timer0callback());
+			console.log('timer 0 Subscribed.');
+		}
+		console.log(this.st.getSubscription());
+	}
+
+	subscribeTimer1() {
+		if (this.timer1Id) {
+			// Unsubscribe if timer Id is defined
+			this.st.unsubscribe(this.timer1Id);
+			this.timer1Id = undefined;
+			console.log('timer 1 Unsubscribed.');
+		} else {
+			// Subscribe if timer Id is undefined
+			this.timer1Id = this.st.subscribe('5sec', e => this.timer1callback());
+			console.log('timer 1 Subscribed.');
+		}
+		console.log(this.st.getSubscription());
+	}
+
+
+	timer0callback() {
+		this.counter0--;
+	}
+
+	timer1callback() {
+		this.counter1--;
+	}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TopicDetailPage');
