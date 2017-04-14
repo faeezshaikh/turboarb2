@@ -15,18 +15,18 @@
 
 
 <ion-content>
-<ion-searchbar
+<!--<ion-searchbar
   [(ngModel)]="myInput"
   [showCancelButton]="shouldShowCancel"
   (ionInput)="onInput($event)"
   (ionCancel)="onCancel($event)">
-</ion-searchbar>
+</ion-searchbar>-->
 
 
   <ion-list>
 
+    <ion-item-divider color="light">Practice </ion-item-divider>
     <ion-item-group [reorder]="reorder" (ionItemReorder)="reorderTopics($event)">
-
       <ion-item-sliding *ngFor="let topic of topics">
         <ion-item (click)="itemTapped($event, topic)" detail-push>
           <ion-thumbnail item-left>
@@ -48,10 +48,8 @@
 
       </ion-item-sliding>
     </ion-item-group>
-    <ion-item-divider>
-      Practice Exams
-    </ion-item-divider>
-
+   
+    <ion-item-divider color="light">Mock Exams</ion-item-divider>
     <ion-item-group [reorder]="reorder" (ionItemReorder)="reorderExams($event)">
       <ion-item *ngFor="let exam of exams" (click)="itemTapped($event, exam)" detail-push>
         <ion-thumbnail item-left>

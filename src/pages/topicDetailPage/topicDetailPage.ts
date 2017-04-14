@@ -80,7 +80,13 @@ export class TopicDetailPage {
       title: 'Time\'s up!',
       subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
       enableBackdropDismiss : false,
-      buttons: ['OK']
+      buttons: [ {
+          text: 'Ok',
+          handler: data => {
+            console.log('Cancel clicked');
+            this.calculateAndUpdateScore();
+          }
+        }]
     });
   }
 

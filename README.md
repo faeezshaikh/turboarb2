@@ -1,13 +1,12 @@
 # awsSolArchPro
 
 Back Button in  Review Mode in Navbar goes to Menu.
+Share
+Testing
+
+
 Timer
 Best Score
-Share
-
-
-
-
 Contact Us
 Explanation
 Login
