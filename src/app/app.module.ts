@@ -13,6 +13,7 @@ import { MyLocalStorage } from '../providers/my-local-storage';
 import { ExplanationModal } from '../modals/explanationModal';
 import { IonicStorageModule } from '@ionic/storage';
 import { SimpleTimer } from 'ng2-simple-timer';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 import {
   CognitoUtil,
@@ -80,7 +81,8 @@ import {EventsService} from "../providers/events.service";
     UserRegistrationService,
     MyLocalStorage,
     EventsService,
-    SimpleTimer
+    SimpleTimer,
+    SocialSharing
     // NativeStorage
   ]
 })
