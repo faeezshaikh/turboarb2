@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams,AlertController } from 'ionic-angular';
 import { DataService } from '../../providers/data-service';
 import { MyLocalStorage } from '../../providers/my-local-storage';
 // import { MyLocalStorage } from '../../providers/my-local-storage1';
@@ -35,12 +35,13 @@ export class TopicDetailPage {
   //   "MilliSeconds":"MilliSeconds" };
 
 
-	counter0 = 10;
-	timer0Id: string;
+	minutes = 2;
+	mtTimerId: string;
 
-	counter1 = 20;
-	timer1Id: string;
+	seconds = 5;
+	secondsTimerId: string;
 
+  alert: any;
   @ViewChild(Content) content: Content;
   scrollToTop() {
     this.content.scrollToTop();
@@ -50,7 +51,8 @@ export class TopicDetailPage {
               public dataService: DataService,
               public modalCtrl: ModalController,
               public storage: MyLocalStorage,
-              private st: SimpleTimer) {
+              private st: SimpleTimer,
+              public alertCtrl: AlertController) {
     if (navParams.get('topic') != null) {
 
       this.selectedTopic = navParams.get('topic');
@@ -69,51 +71,70 @@ export class TopicDetailPage {
       this.selectedTopic = { note: "blah" };
     }
 
-    this.st.newTimer('1sec',1);
-		this.st.newTimer('5sec',5);
-		this.subscribeTimer0();
-		this.subscribeTimer1();
+    this.st.newTimer('mt',5);
+		this.st.newTimer('sec',1);
+		this.subscribeMinuteTimer();
+		this.subscribeSecondsTimer();
+
+      this.alert = this.alertCtrl.create({
+      title: 'Time\'s up!',
+      subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
+      enableBackdropDismiss : false,
+      buttons: ['OK']
+    });
   }
 
-  	subscribeTimer0() {
-		if (this.timer0Id) {
+  	subscribeMinuteTimer () {
+		if (this.mtTimerId) {
 			// Unsubscribe if timer Id is defined
-			this.st.unsubscribe(this.timer0Id);
-			this.timer0Id = undefined;
+			this.st.unsubscribe(this.mtTimerId);
+			this.mtTimerId = undefined;
 			console.log('timer 0 Unsubscribed.');
 		} else {
 			// Subscribe if timer Id is undefined
-			this.timer0Id = this.st.subscribe('1sec', e => this.timer0callback());
+			this.mtTimerId = this.st.subscribe('mt', e => this.mtTimercallback());
 			console.log('timer 0 Subscribed.');
 		}
 		console.log(this.st.getSubscription());
 	}
 
-	subscribeTimer1() {
-		if (this.timer1Id) {
+	subscribeSecondsTimer() {
+		if (this.secondsTimerId) {
 			// Unsubscribe if timer Id is defined
-			this.st.unsubscribe(this.timer1Id);
-			this.timer1Id = undefined;
+			this.st.unsubscribe(this.secondsTimerId);
+			this.secondsTimerId = undefined;
 			console.log('timer 1 Unsubscribed.');
 		} else {
 			// Subscribe if timer Id is undefined
-			this.timer1Id = this.st.subscribe('5sec', e => this.timer1callback());
+			this.secondsTimerId = this.st.subscribe('sec', e => this.secondsTimercallback());
 			console.log('timer 1 Subscribed.');
 		}
 		console.log(this.st.getSubscription());
 	}
 
 
-	timer0callback() {
-		this.counter0--;
+	mtTimercallback() {
+		this.minutes--;
+    if(this.minutes == 0) {
+      this.minutes = 0;
+      this.seconds = 0;
+      this.subscribeSecondsTimer();
+      this.subscribeMinuteTimer();
+      this.alert.present();
+    }
 	}
 
-	timer1callback() {
-		this.counter1--;
+	secondsTimercallback() {
+    console.log('Decrementing Seconds Counter..');
+    
+		this.seconds--;
+    if(this.seconds == 0) this.seconds = 10;
 	}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TopicDetailPage');
+    // this.subscribeMinuteTimer()
+    // this.subscribeSecondsTimer();
   }
 
 

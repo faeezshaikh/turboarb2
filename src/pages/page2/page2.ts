@@ -67,12 +67,12 @@ export class TopicsListPage {
   }
 
   getHiScores() {
-    console.log('Retrieving HiScore');
+    // console.log('Retrieving HiScore');
     this.topics.forEach(topic => {
       this.storage.getScore(topic.no).then(result => {
         topic.hiScore = result;
-        console.log('Set Topics ' + topic.no + ' hiscore to:' + result);
-        console.log('TOPIC:',topic);
+        console.log('Retrieving Topics Score ...Set Topics ' + topic.no + ' hiscore to:' + result);
+        // console.log('TOPIC:',topic);
         
       })
       

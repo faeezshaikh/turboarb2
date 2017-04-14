@@ -15,7 +15,7 @@ export class MyLocalStorage {
     
     this.storage.ready().then(() => {
        this.storage.set(examTopic.toString(),JSON.stringify(hiScore));
-         this.storage.set('name', 'Max');
+        //  this.storage.set('name', 'Max');
        console.log('Score Saved Successfully.MAX Saved!');
        
      });
