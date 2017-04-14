@@ -4,11 +4,11 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Practice Exams</ion-title>
-  <ion-buttons end>
+  <!--<ion-buttons end>
       <button ion-button icon-only (click)="reorderNow()">
         <ion-icon [name]="reorderIcon"></ion-icon>
       </button>
-    </ion-buttons>
+    </ion-buttons>-->
   </ion-navbar>
   
 </ion-header>
@@ -27,8 +27,10 @@
 
     <ion-item-divider color="light">Practice </ion-item-divider>
     <ion-item-group [reorder]="reorder" (ionItemReorder)="reorderTopics($event)">
-      <ion-item-sliding *ngFor="let topic of topics">
-        <ion-item (click)="itemTapped($event, topic)" detail-push>
+      <!--<ion-item-sliding *ngFor="let topic of topics">
+        <ion-item (click)="itemTapped($event, topic)" detail-push>-->
+
+        <ion-item  *ngFor="let topic of topics" (click)="itemTapped($event, topic)" detail-push>
           <ion-thumbnail item-left>
             <img src="{{topic.icon}}">
           </ion-thumbnail>
@@ -37,16 +39,16 @@
           <p>Last Score: {{topic.hiScore || '(Not attempted)'}} {{topic.hiScore ? '%' : '' }}</p>
         </ion-item>
 
-        <ion-item-options side="left">
+        <!--<ion-item-options side="left">
           <button ion-button (click)="favorite(item)"><ion-icon name="star"></ion-icon>Favorite</button>
           <button ion-button color="danger" (click)="share(item)"><ion-icon name="share"></ion-icon>Share</button>
         </ion-item-options>
 
         <ion-item-options side="right">
           <button ion-button color="danger" (click)="unread(item)"><ion-icon name="trash"></ion-icon>Delete</button>
-        </ion-item-options>
+        </ion-item-options>-->
 
-      </ion-item-sliding>
+      <!--</ion-item-sliding>-->
     </ion-item-group>
    
     <ion-item-divider color="light">Mock Exams</ion-item-divider>
