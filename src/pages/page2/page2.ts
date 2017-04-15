@@ -1,6 +1,6 @@
 import { Component,ViewChild } from '@angular/core';
 
-import { NavController, NavParams ,AlertController,Content} from 'ionic-angular';
+import { NavController, NavParams ,AlertController,Content,ToastController} from 'ionic-angular';
 import { TopicDetailPage } from '../topicDetailPage/topicDetailPage';
 import { reorderArray } from 'ionic-angular';
 import { MyLocalStorage } from '../../providers/my-local-storage';
@@ -20,7 +20,8 @@ export class TopicsListPage {
   @ViewChild(Content) content: Content;
 
   exams: Array<{ no: number, title: string, note: string, icon: string, hiScore: string }>;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: MyLocalStorage,private socialSharing: SocialSharing,private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: MyLocalStorage,
+              private socialSharing: SocialSharing,private alertCtrl: AlertController,public toastCtrl: ToastController) {
 
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
@@ -99,7 +100,7 @@ export class TopicsListPage {
             // Error!
             let msg = 'Sharing via Facebook not possible. Check if you have the appropriate app installed.';
             console.log(msg);
-            this.presentAlert(msg);
+            this.presentToast(msg);
           });;
   }
 
@@ -111,7 +112,7 @@ export class TopicsListPage {
             // Error!
             let msg = 'Sharing via Twitter not possible. Check if you have the appropriate app installed.';
             console.log(msg);
-            this.presentAlert(msg);
+            this.presentToast(msg);
           });
   }
 
@@ -123,7 +124,7 @@ export class TopicsListPage {
             // Error!
             let msg = 'Sharing via WhatsApp not possible. Check if you have the appropriate app installed.';
             console.log(msg);
-            this.presentAlert(msg);
+            this.presentToast(msg);
           });;
   }
 
@@ -136,7 +137,7 @@ export class TopicsListPage {
             // Error!
             let msg = 'Sharing via Instagram not possible. Check if you have the appropriate app installed.';
             console.log(msg);
-            this.presentAlert(msg);
+            this.presentToast(msg);
           });;
   }
 
@@ -148,7 +149,7 @@ export class TopicsListPage {
             // Error!
             let msg = 'Sharing via SMS not possible. Check if you have the appropriate app installed.';
             console.log(msg);
-            this.presentAlert(msg);
+            this.presentToast(msg);
           });;
   }
 
@@ -160,7 +161,7 @@ export class TopicsListPage {
             // Error!
             let msg = 'Oops. There was some issue while opening your share slide.';
             console.log(msg);
-            this.presentAlert(msg);
+            this.presentToast(msg);
           });; 
   }
 
@@ -177,13 +178,13 @@ export class TopicsListPage {
             // Error!
             let msg = 'Sharing via email was possible but there was some issue.';
             console.log(msg);
-            this.presentAlert(msg);
+            this.presentToast(msg);
           });
     }).catch(() => {
       // Sharing via email is not possible
       let msg = 'Sharing via email not possible. Check if you have the appropriate app to share via email installed.';
       console.log(msg);
-      this.presentAlert(msg);
+      this.presentToast(msg);
       
     });
   }
@@ -205,4 +206,12 @@ export class TopicsListPage {
   });
   alert.present();
 }
+
+ presentToast(msg:string) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 3000
+    });
+    toast.present();
+  }
 }
