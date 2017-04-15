@@ -1,14 +1,16 @@
 # awsSolArchPro
 
 
-Scoring accuracy
-Randomize Questions and within questions randomize options
+bug: Timer up causes page to crash when scrollToTop fails on menu list home page.
+
 Share Mesage Verbiage
 Test Sharing on Device
 Testing
 Login Page styling - remaining pages 
 
 
+Scoring accuracy
+Randomize Questions and within questions randomize options
 Back Button in  Review Mode in Navbar goes to Menu.
 Bug: going back to list while timer is running will elapse timer on the lists page
 Timer

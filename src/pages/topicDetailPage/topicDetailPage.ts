@@ -1,8 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { DataService } from '../../providers/data-service';
 import { MyLocalStorage } from '../../providers/my-local-storage';
-import { ModalController, Content } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 import { ExplanationModal } from '../../modals/explanationModal';
 import { SimpleTimer } from 'ng2-simple-timer';
 
@@ -25,26 +25,22 @@ export class TopicDetailPage {
   correct: number = 0;
   score: number = 0;
 
+
+  minutes = 2;
+  mtTimerId: string;
+
+  seconds = 3;
+  secondsTimerId: string;
+
+  timeupAlert: any;
+  confirmAbortAlert: any;
+
+  questionNumber: number;   // this is to support shuffling of array. the question.id is no longer used to display 'Question 1 of 10' ..
+
   // text: any = { "Weeks": "Weeks", 
   //   "Days": "Days", "Hours": "Hours",
   //    Minutes: "Minutes", "Seconds": "Seconds",
   //   "MilliSeconds":"MilliSeconds" };
-
-
-  minutes = 3;
-  mtTimerId: string;
-
-  seconds = 5;
-  secondsTimerId: string;
-
-  alert: any;
-  confirmAbortAlert: any;
-  @ViewChild(Content) content: Content;
-
-
-  scrollToTop() {
-    this.content.scrollToTop();
-  }
 
   ////////// [Start of Constructor] ///////////
   constructor(public navCtrl: NavController, public navParams: NavParams,
@@ -54,14 +50,15 @@ export class TopicDetailPage {
     private st: SimpleTimer,
     public alertCtrl: AlertController) {
 
-
+    this.questionNumber = 1;  // wil always start at 1.
     if (navParams.get('topic') != null) {
 
-      this.selectedTopic = navParams.get('topic');
+      this.selectedTopic = navParams.get('topic');  // TODO: Sliding ion-item can provide users to select if they want to randomize a question set. Use Local Storage and if selecetd cll shuffle
 
       dataService.getData(this.selectedTopic.no).then(theResult => {
         this.data = theResult;
         this.questions = theResult.questions;
+        this.questions = this.shuffle(this.questions);   /// TODO: Make shuffling of question order user configurable
         this.question = this.questions[0];
         console.log("Data => ", this.data);
         console.log("Questions => ", theResult.questions);
@@ -72,13 +69,13 @@ export class TopicDetailPage {
     }
 
 
-    this.st.newTimer('mt', 5);
+    this.st.newTimer('mt', 3); // decrement the 'minutes' counter after 59 counts of the 'seconds' counter
     this.st.newTimer('sec', 1);
     this.subscribeMinuteTimer();
     this.subscribeSecondsTimer();
 
 
-    this.alert = this.alertCtrl.create({
+    this.timeupAlert = this.alertCtrl.create({
       title: 'Time\'s up!',
       subTitle: 'Your time is up. Please tap OK to view the results!',
       enableBackdropDismiss: false,
@@ -97,6 +94,17 @@ export class TopicDetailPage {
 
 
   ////////// [End of Constructor] ///////////
+
+ ///// [Shuffling of Questions ] //////////
+ shuffle(a) {
+    for (let i = a.length; i; i--) {
+        let j = Math.floor(Math.random() * i);
+        [a[i - 1], a[j]] = [a[j], a[i - 1]];
+    }
+    return a;
+}
+
+
 
   /////// [ Timer code begins ] ///////
   subscribeMinuteTimer() {
@@ -133,14 +141,13 @@ export class TopicDetailPage {
     if (this.minutes == 0) {
       this.minutes = 0;
       this.seconds = 0;
-      this.subscribeSecondsTimer();
-      this.subscribeMinuteTimer();
-      this.alert.present();
+      this.stopTimers();
+      this.timeupAlert.present();
     }
   }
 
   secondsTimercallback() {
-    console.log('Decrementing Seconds Counter..');
+    // console.log('Decrementing Seconds Counter..');
 
     this.seconds--;
     if (this.seconds == 0) this.seconds = 10;
@@ -164,11 +171,21 @@ export class TopicDetailPage {
   }
   left() {
     this.shift(-1);
+     if(this.questionNumber ==1) {
+
+    } else {
+      this.questionNumber--;
+    }
   }
   right() {
     this.shift(1);
-  }
+    if(this.questionNumber == this.questions.length) {
 
+    } else {
+      this.questionNumber++;
+    }
+  }
+  
 
   isAnswered(question: any) {
     var answered = 'Not Answered';
@@ -184,6 +201,7 @@ export class TopicDetailPage {
   goTo(index: number) {
     if (index > 0 && index <= this.questions.length) {
       this.question = this.questions[index - 1];
+      this.questionNumber = index;
     }
     this.mode = 'quiz';
   }
@@ -243,6 +261,8 @@ export class TopicDetailPage {
 
   calculateAndUpdateScore() {
 
+    this.stopTimers();
+
     let wrong = 0;
     let that = this;
     // $scope.$broadcast('timer-stop');
@@ -284,8 +304,7 @@ export class TopicDetailPage {
         handler: () => {
           console.log('Yes clicked');
           // Stop the timers and go back
-          this.subscribeMinuteTimer();
-          this.subscribeSecondsTimer();
+         this.stopTimers();
           this.navCtrl.pop();
 
 
@@ -296,4 +315,17 @@ export class TopicDetailPage {
   this.confirmAbortAlert.present();
 }
 
+ionViewWillLeave() {
+  this.stopTimers();
+}
+  ionViewDidLeave() {
+    console.log('Page leaving..stopping the timers');
+    this.stopTimers();
+
+  }
+
+  stopTimers() {
+        this.subscribeSecondsTimer();
+      this.subscribeMinuteTimer();
+  }
 }

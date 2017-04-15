@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild } from '@angular/core';
 
-import { NavController, NavParams ,AlertController} from 'ionic-angular';
+import { NavController, NavParams ,AlertController,Content} from 'ionic-angular';
 import { TopicDetailPage } from '../topicDetailPage/topicDetailPage';
 import { reorderArray } from 'ionic-angular';
 import { MyLocalStorage } from '../../providers/my-local-storage';
@@ -17,6 +17,7 @@ export class TopicsListPage {
   topics: Array<{ no: number, title: string, note: string, icon: string, hiScore: string }>;
   reorder: boolean = false;
   reorderIcon: string = "options";
+  @ViewChild(Content) content: Content;
 
   exams: Array<{ no: number, title: string, note: string, icon: string, hiScore: string }>;
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: MyLocalStorage,private socialSharing: SocialSharing,private alertCtrl: AlertController) {
@@ -39,6 +40,11 @@ export class TopicsListPage {
 
     this.getHiScores();
 
+  }
+
+  scrollToTop() {
+    if(this.content)
+        this.content.scrollToTop();
   }
 
   ionViewWillEnter() {

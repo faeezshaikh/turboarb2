@@ -44,7 +44,7 @@
 
 
             <ion-item>
-                <p style="text-align:center">Question {{question.Id}} of {{questions.length}}.</p>
+                <p style="text-align:center">Question {{questionNumber}} of {{questions.length}}.</p>
             </ion-item>
             <ion-card-header>
                 <div class="item item-text-wrap item-divider ">{{question.Name}}</div>
@@ -109,8 +109,6 @@
                             </button>
 
             </div>
-            <!--<pagination ng-show="config.showPager" direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage"
-                            ng-change="pageChanged()"></pagination>-->
         </ion-card>
     </div>
 
