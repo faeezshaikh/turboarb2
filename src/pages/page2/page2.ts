@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams ,AlertController} from 'ionic-angular';
 import { TopicDetailPage } from '../topicDetailPage/topicDetailPage';
 import { reorderArray } from 'ionic-angular';
 import { MyLocalStorage } from '../../providers/my-local-storage';
@@ -19,7 +19,7 @@ export class TopicsListPage {
   reorderIcon: string = "options";
 
   exams: Array<{ no: number, title: string, note: string, icon: string, hiScore: string }>;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: MyLocalStorage,private socialSharing: SocialSharing) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: MyLocalStorage,private socialSharing: SocialSharing,private alertCtrl: AlertController) {
 
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
@@ -84,86 +84,119 @@ export class TopicsListPage {
 
   /////// [Social Sharing ] ///////
 
-  shareViaMail() {
-    console.log('In Share Via Email');
-    
-    // Check if sharing via email is supported
-    this.socialSharing.canShareViaEmail().then(() => {
-      // Sharing via email is possible
-       // Share via email
-          this.socialSharing.shareViaEmail('Body', 'Subject', ['recipient@example.org']).then(() => {
+  shareMsg = "I thought you'd find this app useful for preparing for the AWS Certified Solution Architect - Professional Exam. Check out this app in app store. ";
+  shareViaFacebook() {
+    console.log('In Share Via Facebook');
+    this.socialSharing.shareViaFacebook(this.shareMsg, "www/assets/img/EC2.png", null).then(() => {
             // Success!
           }).catch(() => {
             // Error!
-            console.log('Sharing Via Email was Possible but there was some issue');
-          });
-    }).catch(() => {
-      // Sharing via email is not possible
-      console.log('Sharing Via Email not Possible');
-      
-    });
+            let msg = 'Sharing via Facebook not possible. Check if you have the appropriate app installed.';
+            console.log(msg);
+            this.presentAlert(msg);
+          });;
   }
-
 
   shareViaTwitter() {
     console.log('In Share Via Twitter');
-    
-    // Check if sharing via email is supported
-    this.socialSharing.canShareViaEmail().then(() => {
-      // Sharing via email is possible
-       // Share via email
-          this.socialSharing.shareViaEmail('Body', 'Subject', ['recipient@example.org']).then(() => {
+     this.socialSharing.shareViaTwitter(this.shareMsg, "www/assets/img/EC2.png", null).then(() => {
             // Success!
           }).catch(() => {
             // Error!
-            console.log('Sharing Via Email was Possible but there was some issue');
+            let msg = 'Sharing via Twitter not possible. Check if you have the appropriate app installed.';
+            console.log(msg);
+            this.presentAlert(msg);
           });
-    }).catch(() => {
-      // Sharing via email is not possible
-      console.log('Sharing Via Email not Possible');
-      
-    });
+  }
+
+  shareViaWhatsapp() {
+    console.log('In Share Via WhatsApp');
+    this.socialSharing.shareViaWhatsApp(this.shareMsg,  "www/assets/img/EC2.png", null).then(() => {
+            // Success!
+          }).catch(() => {
+            // Error!
+            let msg = 'Sharing via WhatsApp not possible. Check if you have the appropriate app installed.';
+            console.log(msg);
+            this.presentAlert(msg);
+          });;
   }
 
 
-  shareViaFacebook() {
+  shareViaInstagram() {
+    console.log('In Share Via Instagram');
+    this.socialSharing.shareViaInstagram(this.shareMsg,  "www/assets/img/EC2.png").then(() => {
+            // Success!
+          }).catch(() => {
+            // Error!
+            let msg = 'Sharing via Instagram not possible. Check if you have the appropriate app installed.';
+            console.log(msg);
+            this.presentAlert(msg);
+          });;
+  }
+
+  shareViaSMS() {
+    console.log('In Share via SMS');
+    this.socialSharing.shareViaSMS(this.shareMsg, "3133456789").then(() => {
+            // Success!
+          }).catch(() => {
+            // Error!
+            let msg = 'Sharing via SMS not possible. Check if you have the appropriate app installed.';
+            console.log(msg);
+            this.presentAlert(msg);
+          });;
+  }
+
+   regularShare(){
+    // share(message, subject, file, url)
+    this.socialSharing.share(this.shareMsg, null, "www/assets/img/hulk.jpg", null).then(() => {
+            // Success!
+          }).catch(() => {
+            // Error!
+            let msg = 'Oops. There was some issue while opening your share slide.';
+            console.log(msg);
+            this.presentAlert(msg);
+          });; 
+  }
+
+   shareViaMail() {
     console.log('In Share Via Email');
     
     // Check if sharing via email is supported
     this.socialSharing.canShareViaEmail().then(() => {
       // Sharing via email is possible
        // Share via email
-          this.socialSharing.shareViaEmail('Body', 'Subject', ['recipient@example.org']).then(() => {
+          this.socialSharing.shareViaEmail(this.shareMsg, 'AWS Sol. Arch Professional', ['recipient@example.org']).then(() => {
             // Success!
           }).catch(() => {
             // Error!
-            console.log('Sharing Via Email was Possible but there was some issue');
+            let msg = 'Sharing via email was possible but there was some issue.';
+            console.log(msg);
+            this.presentAlert(msg);
           });
     }).catch(() => {
       // Sharing via email is not possible
-      console.log('Sharing Via Email not Possible');
+      let msg = 'Sharing via email not possible. Check if you have the appropriate app to share via email installed.';
+      console.log(msg);
+      this.presentAlert(msg);
       
     });
   }
 
 
-  shareViaGoogle() {
-    console.log('In Share Via Email');
-    
-    // Check if sharing via email is supported
-    this.socialSharing.canShareViaEmail().then(() => {
-      // Sharing via email is possible
-       // Share via email
-          this.socialSharing.shareViaEmail('Body', 'Subject', ['recipient@example.org']).then(() => {
-            // Success!
-          }).catch(() => {
-            // Error!
-            console.log('Sharing Via Email was Possible but there was some issue');
-          });
-    }).catch(() => {
-      // Sharing via email is not possible
-      console.log('Sharing Via Email not Possible');
-      
-    });
-  }
+  presentAlert(msg) {
+  let alert = this.alertCtrl.create({
+    title: 'Yikes!',
+    message: msg,
+    buttons: [
+      {
+        text: 'OK',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      }
+    ]
+  });
+  alert.present();
+}
 }

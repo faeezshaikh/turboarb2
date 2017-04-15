@@ -68,10 +68,12 @@
  <ion-fab bottom right >
    <button ion-fab>  <ion-icon name="share"></ion-icon></button>
    <ion-fab-list side="top">
-     <button ion-fab> <ion-icon name="logo-facebook"></ion-icon></button>
-     <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
-     <button ion-fab> <ion-icon name="logo-twitter"></ion-icon></button>
-     <button ion-fab> <ion-icon name="text"></ion-icon></button>
+     <button ion-fab (click)="shareViaFacebook()"> <ion-icon name="logo-facebook"></ion-icon></button>
+     <button ion-fab (click)="shareViaTwitter()"> <ion-icon name="logo-twitter"></ion-icon></button>
+     <button ion-fab (click)="shareViaWhatsapp()"><ion-icon name="logo-whatsapp"></ion-icon></button>
+     <button ion-fab (click)="shareViaInstagram()"> <ion-icon name="logo-instagram"></ion-icon></button>
+     <button ion-fab (click)="shareViaSMS()"> <ion-icon name="text"></ion-icon></button>
+     <button ion-fab (click)="regularShare()"> <ion-icon name="share-alt"></ion-icon></button>
      <button ion-fab (click)= "shareViaMail()"><ion-icon name="mail"></ion-icon></button>
        
    </ion-fab-list>
