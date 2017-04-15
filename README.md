@@ -1,7 +1,8 @@
 # awsSolArchPro
 
 
-bug: Timer up causes page to crash when scrollToTop fails on menu list home page.
+
+Toast for Social sharing
 
 Share Mesage Verbiage
 Test Sharing on Device
@@ -9,6 +10,8 @@ Testing
 Login Page styling - remaining pages 
 
 
+
+bug: Timer up causes page to crash when scrollToTop fails on menu list home page.
 Scoring accuracy
 Randomize Questions and within questions randomize options
 Back Button in  Review Mode in Navbar goes to Menu.
@@ -20,3 +23,7 @@ Explanation
 Login
 CloseResuts - clear exam
 Scoring
+
+
+FB Mobile App Ads:
+https://developers.facebook.com/videos/f8-2016/driving-growth-with-mobile-app-ads/
