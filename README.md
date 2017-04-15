@@ -6,7 +6,7 @@ Randomize Questions and within questions randomize options
 Share Mesage Verbiage
 Test Sharing on Device
 Testing
-Login Page styling
+Login Page styling - remaining pages 
 
 
 Back Button in  Review Mode in Navbar goes to Menu.

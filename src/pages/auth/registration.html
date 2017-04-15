@@ -1,3 +1,5 @@
+
+
 <ion-header>
   <ion-navbar color="primary">
     <button ion-button menuToggle>
@@ -10,6 +12,10 @@
 
 <ion-content>
   <ion-list>
+     <p>&nbsp;</p>
+    <div class="center">
+    <img src="../../assets/img/SWF.png" >
+    </div>
 
     <ion-item>
       <ion-label floating>Username</ion-label>
@@ -27,7 +33,7 @@
 
   </ion-list>
 
-  <ion-grid>
+  <!--<ion-grid>
     <ion-row>
       <ion-col width-50>
         <button ion-button clear small (click)="navToResendCode()">Resend Code</button>
@@ -36,6 +42,13 @@
         <button ion-button clear small (click)="navToLogin()">Login</button>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid>-->
+
+    <div class="center">
+    Didn't receive code?   <button margin-bottom ion-button clear small (click)="navToResendCode()">Resend Code</button>
+  </div>
+   <div class="center">
+    All signed up ready? <button margin-bottom ion-button clear small (click)="navToLogin()">Login</button>
+  </div>
 
 </ion-content>
