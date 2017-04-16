@@ -9,7 +9,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 
 @Component({
   selector: 'page-page2',
-  templateUrl: 'page2.html'
+  templateUrl: 'topicsListPage.html'
 })
 export class TopicsListPage {
   selectedItem: any;

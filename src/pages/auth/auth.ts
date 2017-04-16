@@ -8,7 +8,7 @@ import {
   RegistrationUser
 } from "../../providers/cognito.service";
 // import {ControlPanelPage} from "../controlpanel/controlpanel";
-import { TopicsListPage } from "../page2/page2";
+import { TopicsListPage } from "../topicsListPage/topicsListPage";
 import {EventsService} from "../../providers/events.service";
 
 

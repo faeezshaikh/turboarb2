@@ -6,7 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { ContactUsPage } from '../pages/contactUsPage/contactUsPage';
-import { TopicsListPage } from '../pages/page2/page2';
+import { TopicsListPage } from '../pages/topicsListPage/topicsListPage';
 import { TopicDetailPage } from '../pages/topicDetailPage/topicDetailPage';
 import { DataService } from '../providers/data-service';
 import { MyLocalStorage } from '../providers/my-local-storage';
