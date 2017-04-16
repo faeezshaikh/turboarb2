@@ -5,7 +5,7 @@ import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { Page1 } from '../pages/page1/page1';
+import { ContactUsPage } from '../pages/contactUsPage/contactUsPage';
 import { TopicsListPage } from '../pages/page2/page2';
 import { TopicDetailPage } from '../pages/topicDetailPage/topicDetailPage';
 import { DataService } from '../providers/data-service';
@@ -37,7 +37,7 @@ import {EventsService} from "../providers/events.service";
 @NgModule({
   declarations: [
     MyApp,
-    Page1,
+    ContactUsPage,
     TopicsListPage,
     TopicDetailPage,
     ExplanationModal,
@@ -56,7 +56,7 @@ import {EventsService} from "../providers/events.service";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    Page1,
+    ContactUsPage,
     TopicsListPage,
     TopicDetailPage,
     ExplanationModal,

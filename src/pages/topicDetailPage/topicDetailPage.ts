@@ -26,9 +26,9 @@ export class TopicDetailPage {
   score: number = 0;
 
   /// [Timer related] ///
-  minutes = 2;
+  minutes = 20;
   mtTimerId: string;
-  seconds = 3;
+  seconds = 59;
   secondsTimerId: string;
   /// [Timer related] ///
 
@@ -75,7 +75,7 @@ export class TopicDetailPage {
     }
 
     // Frequency of countdown is 7 ticks.
-    this.st.newTimer('mt', 3); // decrement the 'minutes' counter after 59 counts of the 'seconds' counter
+    this.st.newTimer('mt', 59); // decrement the 'minutes' counter after 59 counts of the 'seconds' counter
 
     // Frequency of countdown is 1 tick.
     this.st.newTimer('sec', 1);
@@ -161,7 +161,7 @@ export class TopicDetailPage {
   secondsTimercallback() {
     // console.log('Decrementing Seconds Counter..');
     this.seconds--;
-    if (this.seconds == 0 || this.seconds<0) this.seconds = 3;
+    if (this.seconds == 0 || this.seconds<0) this.seconds = 59;
   }
 
    stopTimers() {

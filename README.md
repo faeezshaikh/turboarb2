@@ -2,15 +2,15 @@
 
 
 
-Toast for Social sharing
 
-Share Mesage Verbiage
+Populate All Exams
+Share Mesage Verbiage - Happy path.
 Test Sharing on Device
 Testing
 Login Page styling - remaining pages 
 
 
-
+Toast for Social sharing
 bug: Timer up causes page to crash when scrollToTop fails on menu list home page.
 Scoring accuracy
 Randomize Questions and within questions randomize options

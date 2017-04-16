@@ -3,7 +3,7 @@ import { Events, Platform, MenuController, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { Page1 } from '../pages/page1/page1';
+import { ContactUsPage } from '../pages/contactUsPage/contactUsPage';
 import { TopicsListPage } from '../pages/page2/page2';
 
 
@@ -35,7 +35,7 @@ export class MyApp {
 
     this.pages = [
       { title: 'Practice Exams', component: TopicsListPage, icon: 'list' },
-      { title: 'Contact Us', component: Page1, icon: 'people' }
+      { title: 'Contact Us', component: ContactUsPage, icon: 'people' }
     ];
 
   }
