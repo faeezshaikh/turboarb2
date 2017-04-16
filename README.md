@@ -2,14 +2,16 @@
 
 
 
-Warning message before 'Submit'
+
 Populate All Exams
-Share Mesage Verbiage - Happy path.
+Share Mesage Verbiage - Happy path with URL Links and imgs
 Test Sharing on Device
 Testing
 Login Page styling - remaining pages 
 
 
+
+Warning message before 'Submit'
 Toast for Social sharing
 bug: Timer up causes page to crash when scrollToTop fails on menu list home page.
 Scoring accuracy

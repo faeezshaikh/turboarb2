@@ -35,6 +35,7 @@ export class TopicDetailPage {
 
   timeupAlert: any;
   confirmAbortAlert: any;
+  confirmSubmitAlert: any;
 
 
   @ViewChild(Content) content: Content;
@@ -303,7 +304,7 @@ export class TopicDetailPage {
 
 
   //////// [ Confirm Alert ] //////
-  presentConfirm() {
+  presentAbortConfirm() {
     this.confirmAbortAlert = this.alertCtrl.create({
       title: 'Confirm Abort',
       message: 'This will end the test and take you back to the home menu. Do you want to proceed?',
@@ -318,7 +319,7 @@ export class TopicDetailPage {
         {
           text: 'Yes',
           handler: () => {
-            console.log('Yes clicked');
+            console.log('Abort clicked');
             // Stop the timers and go back
             this.stopTimers();
             this.navCtrl.pop();
@@ -329,6 +330,31 @@ export class TopicDetailPage {
       ]
     });
     this.confirmAbortAlert.present();
+  }
+
+    presentSubmitConfirm() {
+    this.confirmSubmitAlert = this.alertCtrl.create({
+      title: 'Confirm Submit',
+      message: 'This will submit your test and show you the final score. Do you want to proceed?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Yes',
+          handler: () => {
+            console.log('Submit clicked');
+            // Submit the exam.
+            this.calculateAndUpdateScore();
+          }
+        }
+      ]
+    });
+    this.confirmSubmitAlert.present();
   }
 
 
