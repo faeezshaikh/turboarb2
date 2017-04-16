@@ -1,7 +1,7 @@
 {
   "name": "awsSolArchNew",
-  "author": "Faeez Shaikh",
-  "homepage": "http://ionicframework.com/",
+  "author": "Cloud Pros",
+  "homepage": "https://www.facebook.com/awsarchitect",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
