@@ -143,7 +143,7 @@ export class TopicsListPage {
 
   shareViaSMS() {
     console.log('In Share via SMS');
-    this.socialSharing.shareViaSMS(this.shareMsg, "3133456789").then(() => {
+    this.socialSharing.shareViaSMS(this.shareMsg, "").then(() => {
             // Success!
           }).catch(() => {
             // Error!
@@ -172,7 +172,7 @@ export class TopicsListPage {
     this.socialSharing.canShareViaEmail().then(() => {
       // Sharing via email is possible
        // Share via email
-          this.socialSharing.shareViaEmail(this.shareMsg, 'AWS Sol. Arch Professional', ['recipient@example.org']).then(() => {
+          this.socialSharing.shareViaEmail(this.shareMsg, 'AWS Sol. Arch Professional', ['']).then(() => {
             // Success!
           }).catch(() => {
             // Error!

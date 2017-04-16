@@ -360,9 +360,11 @@ export class TopicDetailPage {
 
   //// [Lifecycle Hooks ]///////
   ionViewWillLeave() {
+    this.stopTimers();
   }
   ionViewDidLeave() {
     console.log('Page leaving..stopping the timers');
+    this.stopTimers();
   }
 
 
