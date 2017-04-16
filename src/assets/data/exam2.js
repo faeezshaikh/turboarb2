@@ -1,7 +1,7 @@
 {
     "quiz": {
         "name": "Certification Exam",
-        "logo" : "../assets/img/certified.png"
+        "logo" : "assets/img/certified.png"
     },
     "questions": [{
         "Id": 1,

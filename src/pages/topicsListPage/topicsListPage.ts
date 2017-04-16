@@ -27,17 +27,17 @@ export class TopicsListPage {
     this.selectedItem = navParams.get('item');
 
     this.topics = [
-      { no: 1, title: 'Practice Set 1', note: '10 questions, 17 minutes', icon: '../../assets/img/IAM.png', hiScore: '' },
-      { no: 2, title: 'Practice Set 2', note: '10 questions, 15 minutes', icon: '../../assets/img/S3.png', hiScore: '' },
-      { no: 3, title: 'Practice Set 3', note: '10 questions, 15 minutes', icon: '../../assets/img/SNS.png', hiScore: '' },
-      { no: 4, title: 'Practice Set 4', note: '10 questions, 15 minutes', icon: '../../assets/img/SQS.png', hiScore: '' }];
+      { no: 1, title: 'Practice Set 1', note: '10 questions, 17 minutes', icon: 'assets/img/IAM.png', hiScore: '' },
+      { no: 2, title: 'Practice Set 2', note: '10 questions, 15 minutes', icon: 'assets/img/S3.png', hiScore: '' },
+      { no: 3, title: 'Practice Set 3', note: '10 questions, 15 minutes', icon: 'assets/img/SNS.png', hiScore: '' },
+      { no: 4, title: 'Practice Set 4', note: '10 questions, 15 minutes', icon: 'assets/img/SQS.png', hiScore: '' }];
 
 
 
     this.exams = [
-      { no: 1, title: 'Exam Set 1', note: '10 questions, 15 minutes', icon: '../../assets/img/IAM.png', hiScore: '' },
-      { no: 2, title: 'Exam Set 2', note: '10 questions, 15 minutes', icon: '../../assets/img/S3.png', hiScore: '' },
-      { no: 3, title: 'Exam Set 3', note: '10 questions, 15 minutes', icon: '../../assets/img/SNS.png', hiScore: '' }];
+      { no: 1, title: 'Exam Set 1', note: '10 questions, 15 minutes', icon: 'assets/img/IAM.png', hiScore: '' },
+      { no: 2, title: 'Exam Set 2', note: '10 questions, 15 minutes', icon: 'assets/img/S3.png', hiScore: '' },
+      { no: 3, title: 'Exam Set 3', note: '10 questions, 15 minutes', icon: 'assets/img/SNS.png', hiScore: '' }];
 
     this.getHiScores();
 
@@ -94,7 +94,7 @@ export class TopicsListPage {
   shareMsg = "I thought you'd find this app useful for preparing for the AWS Certified Solution Architect - Professional Exam. Check out this app in app store. ";
   shareViaFacebook() {
     console.log('In Share Via Facebook');
-    this.socialSharing.shareViaFacebook(this.shareMsg, "www/assets/img/EC2.png", null).then(() => {
+    this.socialSharing.shareViaFacebook(this.shareMsg, "assets/img/EC2.png", null).then(() => {
             // Success!
           }).catch(() => {
             // Error!
@@ -106,7 +106,7 @@ export class TopicsListPage {
 
   shareViaTwitter() {
     console.log('In Share Via Twitter');
-     this.socialSharing.shareViaTwitter(this.shareMsg, "www/assets/img/EC2.png", null).then(() => {
+     this.socialSharing.shareViaTwitter(this.shareMsg, "assets/img/EC2.png", null).then(() => {
             // Success!
           }).catch(() => {
             // Error!
@@ -118,7 +118,7 @@ export class TopicsListPage {
 
   shareViaWhatsapp() {
     console.log('In Share Via WhatsApp');
-    this.socialSharing.shareViaWhatsApp(this.shareMsg,  "www/assets/img/EC2.png", null).then(() => {
+    this.socialSharing.shareViaWhatsApp(this.shareMsg,  "assets/img/EC2.png", null).then(() => {
             // Success!
           }).catch(() => {
             // Error!
@@ -131,7 +131,7 @@ export class TopicsListPage {
 
   shareViaInstagram() {
     console.log('In Share Via Instagram');
-    this.socialSharing.shareViaInstagram(this.shareMsg,  "www/assets/img/EC2.png").then(() => {
+    this.socialSharing.shareViaInstagram(this.shareMsg,  "assets/img/EC2.png").then(() => {
             // Success!
           }).catch(() => {
             // Error!
@@ -155,7 +155,7 @@ export class TopicsListPage {
 
    regularShare(){
     // share(message, subject, file, url)
-    this.socialSharing.share(this.shareMsg, null, "www/assets/img/hulk.jpg", null).then(() => {
+    this.socialSharing.share(this.shareMsg, null, "assets/img/EC2.png", null).then(() => {
             // Success!
           }).catch(() => {
             // Error!

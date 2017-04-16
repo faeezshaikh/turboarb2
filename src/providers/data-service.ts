@@ -14,8 +14,8 @@ export class DataService {
   constructor(public http: Http) {
     console.log('Hello DataService Provider');
     this.topicMap = new Map<number, string>();
-    this.topicMap.set(1, '../assets/data/iam.js');
-    this.topicMap.set(2, '../assets/data/exam2.js');
+    this.topicMap.set(1, 'assets/data/iam.js');
+    this.topicMap.set(2, 'assets/data/exam2.js');
   }
 
 
