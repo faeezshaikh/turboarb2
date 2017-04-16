@@ -59,9 +59,10 @@
         </ion-thumbnail>
         <h2>{{exam.title}}</h2>
         <p>{{exam.note}}</p>
-        <p>{{exam.hiScore}}</p>
+         <p>Last Score: {{exam.hiScore || '(Not attempted)'}} {{exam.hiScore ? '%' : '' }}</p>
       </ion-item>
     </ion-item-group>
+
   </ion-list>
 
 
