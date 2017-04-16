@@ -1,6 +1,5 @@
 {
     "quiz": {
-        "Id": 300,
         "name": "Certification Exam",
         "logo" : "../assets/img/certified.png"
     },

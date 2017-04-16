@@ -1,6 +1,6 @@
 {
     "quiz": {
-        "name": "IAM Quiz",
+        "name": "Practice 1",
         "logo" : "../assets/img/IAM.png"
     },
     "questions": [{
