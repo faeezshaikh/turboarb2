@@ -1,7 +1,7 @@
 # awsSolArchPro
 
 
-
+In Explanation Modal: Show correct answer also.
 Reset Password when tested with invalid or unpresent email does a 400 bad request with no response to user on UI.
 Error Msgs on Login and Registration
 Populate All Exams

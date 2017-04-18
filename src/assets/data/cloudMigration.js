@@ -5,108 +5,94 @@
     },
     "questions": [{
         "Id": 1,
-        "Name": "When authenticating with external Identity Providers (eg. Google) which of the following are the correct sequence of steps?",
-        
-        "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "1) A user logs in to the AWS platform using their Google credentials. 2) AWS authenticate with Google to check the credentials. 3) Temporary Security Access is granted to AWS.", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "1) A user authenticates with Google first. They are then given an ID token by Google. An API call called AssumeRoleWithWebIdentity is then used in conjunction with the ID token. A user is then granted temporary security credentials.", "IsAnswer": true },
-            { "Id": 1057, "QuestionId": 1010, "Name": "Google users cannot use their credentials to access the AWS platform.", "IsAnswer": false},
-            { "Id": 1058, "QuestionId": 1010, "Name": "1) A user makes the AssumeRoleWithWebIdentity API Call. 2) The user is then redirected to Google to authenticate. 3) Once authenticated the user is given an ID token. 4) The user is then granted temporary access to the AWS platform.", "IsAnswer": false }]
-    },
-    {
-        "Id": 2,
-        "Name": "The AWS sign-in endpoint for SAML is https://signin.aws.amazon.com/saml", 
-        
-        "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
-            { "Id": 1057, "QuestionId": 1010, "Name": "False", "IsAnswer": false }]
-        
-    },
-    {
-        "Id": 3,
-        "Name": "When federating with Active Directory for single-sign on, which of the following is the correct sequence of steps?", 
-        
-        "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "1) The user navigates to ADFS webserver, 2) The user enter in their single sign on credentials, 3) The user's web browser receives a SAML assertion from the AD server, 4) The user's browser then posts the SAML assertion to the AWS SAML end point for SAML and the GiveUserSAMLAccess API request is used to request temporary security credentials. 5) The user is then able to access the AWS Console.", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "1) The user navigates to the AWS console, 2) The user enter in their active directory single sign on credentials in to AWS, 3) The user's web browser receives a SAML assertion from AWS, 4) The user is then able to access the AWS Console.", "IsAnswer": false },
-            { "Id": 1057, "QuestionId": 1010, "Name": "1) The user navigates to ADFS webserver, 2) The user enter in their single sign on credentials, 3) The user's web browser receives a SAML assertion from the AD server, 4) The user's browser then posts the SAML assertion to the AWS SAML end point for SAML and the AssumeRoleWithSAML API request is used to request temporary security credentials. 5) The user is then able to access the AWS Console.", "IsAnswer": true },
-            { "Id": 1058, "QuestionId": 1010, "Name": "1) The user navigates to ADFS webserver, 2) The user enter in their single sign on credentials, 3) The user's browser then posts the SAML assertion to the AWS SAML end point for SAML and the AssumeRoleWithSAML API request is used to request temporary security credentials. 4) The user's web browser receives a SAML assertion from the AD server. 5) The user is then able to access the AWS Console.", "IsAnswer": false }]
-        
-    },
-    {
-        "Id": 4,
-        "Name": "You can associate only one IAM role with an EC2 instance", 
+        "Name": "A user can use Storage gateway to migrate the virtual machine data to AWS.",
         
         "Options": [
             { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
             { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }]
+    },
+    {
+        "Id": 2,
+        "Name": "The biggest range of IP address (CIDR block) that can be created in a AWS VPC is:", 
+        
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "/14", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "/16", "IsAnswer": true },
+            { "Id": 1058, "QuestionId": 1010, "Name": "/24", "IsAnswer": false }]
+        
+    },
+    {
+        "Id": 3,
+        "Name": "Amazon reserves these many IP Address in a subnet.", 
+        
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "1", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "3", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "5", "IsAnswer": true }],
+        "Explanation": "AWS reserves the FIRST four addresses and LAST one address of the CIDR block. A CIDR block does not always start at 0 or end at 255. Work with the CIDR calculator to see how this works. http://www.subnet-calculator.com/cidr.php",
+        "Ref":"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html"    
+    },
+    {
+        "Id": 4,
+        "Name": "While using VMWare vCentre, what option is available to you to start migrating to AWS?", 
+        
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "EC2", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "HyperV", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "vCentre AWS plugin", "IsAnswer": true }],
+        "Explanation": "See link for further information",
+        "Ref":"https://aws.amazon.com/ec2/vcenter-portal/"   
         
     },
     {
         "Id": 5,
-        "Name": "Which operation should you call to request temporary security credentials from the AWS platform when federating with Active Directory", 
+        "Name": "AWS Data Pipeline can be used for: (Choose 3):", 
         
         "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "GetRoleWithSAML", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "AssumeRoleWithSAML", "IsAnswer": true },
-            { "Id": 1057, "QuestionId": 1010, "Name": "AssumeRole", "IsAnswer": false },
-            { "Id": 1058, "QuestionId": 1010, "Name": "SAMLObtainRole", "IsAnswer": false}]
+            { "Id": 1055, "QuestionId": 1010, "Name": "Promote code through the Codepipeline service.", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Create a CI/CD Pipeline.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Run SQL Queries", "IsAnswer": true },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Run Shell Scripts", "IsAnswer": true},
+            { "Id": 1059, "QuestionId": 1010, "Name": "Copy files", "IsAnswer": true}]
         
     },
     {
         "Id": 6,
-        "Name": "You have to call this API to obtain temporary security credentials when authenticating with external Identity Providers", 
+        "Name": "The smalled CIDR block you can have in AWS is:", 
         
         "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "GetRoleWithWebIdentity", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "GetRole", "IsAnswer": false },
-            { "Id": 1057, "QuestionId": 1010, "Name": "AssumeRoleWithWebIdentityProvider", "IsAnswer": false },
-            { "Id": 1058, "QuestionId": 1010, "Name": "AssumeRoleWithWebIdentity", "IsAnswer": true }]
+              { "Id": 1055, "QuestionId": 1010, "Name": "/16", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "/24", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "/28", "IsAnswer": true },
+            { "Id": 1058, "QuestionId": 1010, "Name": "/29", "IsAnswer": false }],
+        "Explanation": "See link for further information",
+        "Ref":"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html"   
         
     },
     {
         "Id": 7,
-        "Name": "Which of the followig feature allows your users to authenticate using Google or Facebook?", 
+        "Name": "Which of the following are standard preconditions in AWS Datapipeline? (Choose 3)", 
         
         "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "Web Identification Services", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "Web Identity Federation", "IsAnswer": true },
-            { "Id": 1057, "QuestionId": 1010, "Name": "Active Directory Authentication Services", "IsAnswer": false },
-            { "Id": 1058, "QuestionId": 1010, "Name": "Third Party Federation", "IsAnswer": false }]
+            { "Id": 1055, "QuestionId": 1010, "Name": "DynamoDBDataExists", "IsAnswer": true },
+            { "Id": 1056, "QuestionId": 1010, "Name": "ShellCommandPrecondition", "IsAnswer": true },
+            { "Id": 1057, "QuestionId": 1010, "Name": "S3KeyDoesNotExist", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "S3PrefixExists", "IsAnswer": true }],
+        "Explanation": "AWS Data Pipeline provides built-in support for the following preconditions: DynamoDBDataExists,DynamoDBTableExists,S3KeyExists,S3PrefixExists,ShellCommandPrecondition",
+        "Ref":"https://aws.amazon.com/datapipeline/faqs/"   
         
     },
     {
         "Id": 8,
-        "Name": "Your EC2 instance needs to access the image files in your S3 bucket. What is the best way to arrange access for this?", 
+        "Name": "A company is using Volume Gateway to migrate on-prem data to AWS. However when the admin checks the console, he cannot see the volume data in S3. What could be the right explanation for this?", 
         
         "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "Use CLI and save the security id and key in an encrypted file under the /etc folder on your EC2 instance", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "Write a java client using the AWS Java SDK and access the security id and key from a properties file stored under the /etc folder", "IsAnswer": false},
-            { "Id": 1057, "QuestionId": 1010, "Name": "Create an IAM role that has full access to S3 and assign this role to the EC2 instance", "IsAnswer": true },
-            { "Id": 1058, "QuestionId": 1010, "Name": "An EC2 instance cannot access files in a S3 bucket", "IsAnswer": false }]
-    },
-    {
-        "Id": 9,
-        "Name": "Which of the following is NOT supported by IAM?", 
-        "Explanation": "sdfdsfsdf",
-        "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "Integration with Identity Providers and with existing active directory accounts", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "Fine-grained access control to AWS resources", "IsAnswer": false },
-            { "Id": 1057, "QuestionId": 1010, "Name": "Finger printing authentication", "IsAnswer": true },
-            { "Id": 1058, "QuestionId": 1010, "Name": "Centralised control of your AWS account", "IsAnswer": false }]
-        
-    },
-    {
-        "Id": 10,
-        "Name": "Which of these best describes IAM.",
-        "Explanation": "sdfdsfsdf",
-        "Ref": "http://www.cnn.com",
-        "Options": [
-         { "Id": 1055, "QuestionId": 1010, "Name": "IAM allows you to manage users passwords only. AWS staff must create new users for your organisation. This is done by raising a ticket.", "IsAnswer": false },
-         { "Id": 1056, "QuestionId": 1010, "Name": "IAM stands for Innovative Application Management and it allows you to deploy and manage applications in the AWS Cloud.", "IsAnswer": false },
-            { "Id": 1057, "QuestionId": 1010, "Name": "IAM allows you to manage permissions for AWS resources only.", "IsAnswer": false },
-            { "Id": 1058, "QuestionId": 1010, "Name": "IAM allows you to manage users, groups and roles and their corresponding level of access to the AWS Platform.", "IsAnswer": true }]
-        
+            { "Id": 1055, "QuestionId": 1010, "Name": "Volume Gateway requires AWS Direct Connect for backing up data to AWS. The company has to use AWS Direct Connect for this to work", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Volume Gateway needs to have a target bucket defined in S3. The admin should verify if the bucket was correctly configured. ", "IsAnswer": false},
+            { "Id": 1057, "QuestionId": 1010, "Name": "Your volumes are stored in Amazon S3 and accessible through AWS Storage Gateway. You cannot directly access them by using Amazon S3 API actions. ", "IsAnswer": true },
+            { "Id": 1058, "QuestionId": 1010, "Name": "The compnay should be using Tape Gateway to migrate the on-prem data to AWS", "IsAnswer": false }],
+        "Explanation": "Your volumes are stored in Amazon S3 and accessible through AWS Storage Gateway. You cannot directly access them by using Amazon S3 API actions. You can take point-in-time snapshots of gateway volumes that are made available in the form of Amazon EBS snapshots. Use the file interface to work with your data natively in S3.",
+        "Ref":"https://aws.amazon.com/storagegateway/faqs/"  
     }
      ]
 }

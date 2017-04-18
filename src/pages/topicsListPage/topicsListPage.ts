@@ -34,7 +34,7 @@ export class TopicsListPage {
       { no: 5, title: 'Data Storage', note: '10 questions, 15 minutes', icon: 'assets/img/RDS.png', hiScore: '' },
       { no: 6, title: 'Security', note: '10 questions, 15 minutes', icon: 'assets/img/IAM.png', hiScore: '' },
       { no: 7, title: 'Scalability & Elasticity', note: '10 questions, 15 minutes', icon: 'assets/img/EC2.png', hiScore: '' },
-      { no: 8, title: 'Cloud Migration & Hybrid Arch', note: '10 questions, 15 minutes', icon: 'assets/img/CloudFormation.png', hiScore: '' }];
+      { no: 8, title: 'Cloud Migration & Hybrid Arch', note: '8 questions, 15 minutes', icon: 'assets/img/CloudFormation.png', hiScore: '' }];
 
 
 
