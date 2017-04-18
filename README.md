@@ -19,6 +19,7 @@ Change username to email on Login and Reg Pages
 Nice to have:
 1. Ionic Cloud - Push Notification
 2. Phone back button give warning - about to abort
+3. Slides on login to walk through
 
 
 

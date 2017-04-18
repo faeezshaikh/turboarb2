@@ -1,7 +1,7 @@
 {
     "quiz": {
-        "name": "IAM Quiz",
-        "logo" : "assets/img/IAM.png"
+        "name": "Network Design",
+        "logo" : "assets/img/SQS.png"
     },
     "questions": [{
         "Id": 1,

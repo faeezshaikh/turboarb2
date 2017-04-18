@@ -1,7 +1,7 @@
 {
     "quiz": {
-        "name": "Practice 1",
-        "logo" : "assets/img/IAM.png"
+        "name": "Exam 1",
+        "logo" : "assets/img/EC2.png"
     },
     "questions": [{
         "Id": 1,

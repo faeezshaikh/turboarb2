@@ -27,17 +27,20 @@ export class TopicsListPage {
     this.selectedItem = navParams.get('item');
 
     this.topics = [
-      { no: 1, title: 'Practice Set 1', note: '10 questions, 17 minutes', icon: 'assets/img/IAM.png', hiScore: '' },
-      { no: 2, title: 'Practice Set 2', note: '10 questions, 15 minutes', icon: 'assets/img/S3.png', hiScore: '' },
-      { no: 3, title: 'Practice Set 3', note: '10 questions, 15 minutes', icon: 'assets/img/SNS.png', hiScore: '' },
-      { no: 4, title: 'Practice Set 4', note: '10 questions, 15 minutes', icon: 'assets/img/SQS.png', hiScore: '' }];
+      { no: 1, title: 'H.A. & Business Continuity', note: '10 questions, 17 minutes', icon: 'assets/img/VPC.png', hiScore: '' },
+      { no: 2, title: 'Costing', note: '10 questions, 15 minutes', icon: 'assets/img/S3.png', hiScore: '' },
+      { no: 3, title: 'Deployment Management', note: '10 questions, 15 minutes', icon: 'assets/img/SNS.png', hiScore: '' },
+      { no: 4, title: 'Network Design', note: '10 questions, 15 minutes', icon: 'assets/img/SQS.png', hiScore: '' },
+      { no: 5, title: 'Data Storage', note: '10 questions, 15 minutes', icon: 'assets/img/RDS.png', hiScore: '' },
+      { no: 6, title: 'Security', note: '10 questions, 15 minutes', icon: 'assets/img/IAM.png', hiScore: '' },
+      { no: 7, title: 'Scalability & Elasticity', note: '10 questions, 15 minutes', icon: 'assets/img/EC2.png', hiScore: '' },
+      { no: 8, title: 'Cloud Migration & Hybrid Arch', note: '10 questions, 15 minutes', icon: 'assets/img/CloudFormation.png', hiScore: '' }];
 
 
 
     this.exams = [
-      { no: 1, title: 'Exam Set 1', note: '10 questions, 15 minutes', icon: 'assets/img/IAM.png', hiScore: '' },
-      { no: 2, title: 'Exam Set 2', note: '10 questions, 15 minutes', icon: 'assets/img/S3.png', hiScore: '' },
-      { no: 3, title: 'Exam Set 3', note: '10 questions, 15 minutes', icon: 'assets/img/SNS.png', hiScore: '' }];
+      { no: 9, title: 'Exam Set 1', note: '10 questions, 15 minutes', icon: 'assets/img/EC2.png', hiScore: '' },
+      { no: 10, title: 'Exam Set 2', note: '10 questions, 15 minutes', icon: 'assets/img/VPC.png', hiScore: '' }];
 
     this.getHiScores();
 
