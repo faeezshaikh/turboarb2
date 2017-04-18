@@ -77,13 +77,12 @@
             <ion-card-header>
                 <div style="text-align:center">
 
-                    <button (click)="left()" ion-button icon-left>
+                    <button *ngIf="questionNumber!=1" (click)="left()" ion-button icon-left>
                               <ion-icon name="arrow-back"></ion-icon>
                               Prev
                             </button>
 
-
-                    <button (click)="right()" ion-button icon-left>
+                    <button [hidden] = "questionNumber == questions.length" (click)="right()" ion-button icon-left>
                               Next &nbsp;
                                <ion-icon name="arrow-forward"></ion-icon>
                             </button>

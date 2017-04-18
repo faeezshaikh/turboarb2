@@ -2,15 +2,27 @@
 
 
 
-Ionic Cloud - Push Notification
-Login Page styling - remaining pages 
+Reset Password when tested with invalid or unpresent email does a 400 bad request with no response to user on UI.
+Error Msgs on Login and Registration
 Populate All Exams
 Share Mesage Verbiage - Happy path with URL Links and imgs
 Test Sharing on Device
 Testing
 
 
+Login Page styling - remaining pages 
+Change username to email on Login and Reg Pages
 
+
+
+
+Nice to have:
+1. Ionic Cloud - Push Notification
+2. Phone back button give warning - about to abort
+
+
+
+Disable Prev, Next messages on last first items.
 Warning message before 'Submit'
 Toast for Social sharing
 bug: Timer up causes page to crash when scrollToTop fails on menu list home page.
