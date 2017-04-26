@@ -748,6 +748,530 @@
                 { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
                 { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
         "Explanation":"CloudFormation allows you to script your AWS infrastructure as code. You don't have access to the AWS's underlying code."
+    },
+    {
+        "Id": 73,
+        "Name": "When configuring consolidated billing, the root/paying account should not... (Select all that apply) (Choose 2)", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "be configured to use a different payment method to the linked accounts.", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "have unused AWS credits.", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "be used to provision AWS services such as EC2 instances.", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "have a root account that hasn't had MFA configured.", "IsAnswer": true }],
+        "Explanation":"The paying account in a consolidated billing configuration should only be used for managing billing and should have Multi-Factor Authentication configured on the root account.",
+        "Ref":"http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html"
+    },
+    {
+        "Id": 74,
+        "Name": "You have 20 M3.Large Reserved Instances in the us-west-1a Availability Zone and you need to introduce multi-AZ redundancy to your cloud compute infrastructure. To do this, you submit a Reserved Instances modification request to split your 20 reserved instances across the us-west-1a and us-west-1c Availability Zones. How many new Reserved Instance Requests are created?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "None, this is a reserved instance modification request.", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Two, a new Reserved instance request is created for 10 M3.Large in us-west-1a and another request is created for 10 M3.Large instances in us-west-1c.", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "One, a new request is created in the us-west-1c Availability Zone for 10 M3.Large instances.", "IsAnswer": false }],
+        "Explanation":"When you have an existing reserved instances allocation and you submit a modification request to split the footprint across multiple AZ, new Reserved Instance requests are created in each AZ to match the new footprint requirements.",
+        "Ref":"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html"
+    },
+    {
+        "Id": 75,
+        "Name": "In configuring Cross Account Access, which of the following presents the the necessary steps in the correct order?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "Create an IAM Role with cross account access, grant user access to the role, create a custom policy, apply custom policy to the role and note down ARN, and switch to the role.", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Create a custom policy, create an IAM Role with cross account access, apply custom policy to the role and note down ARN, grant user access to the role, and switch to the role.", "IsAnswer": true }],
+        "Explanation":"The custom policy needs to be created before the role, so that that the policy is available to be applied to the role.",
+        "Ref":"http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html"
+    },
+    {
+        "Id": 76,
+        "Name": "If you have a total Reserved Instances footprint of 32 made up of two M3.2xLarge, which two of the following modification requests would be valid? (Choose 2)", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "Three M3.xlarge instances", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Four M4.xlarge instances", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Eight M3.large instances", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Sixteen M3.medium instances", "IsAnswer": true }],
+        "Explanation":"The footprint of the modification request should be equal to the footprint of the original Reserved Instances footprint and the instances should be of the same family as the original reserved instances. The size of the footprint is measured in units and is calculated using the Normalization factors for each instance size.",
+        "Ref":"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modification-instancemove.html"
+    },
+    {
+        "Id": 77,
+        "Name": "You have 3 AWS accounts linked to use consolidated billing. Account 1 has 50TB of data stored using S3, Account 2 has 300TB and Account 3 has 100TB. All storage is standard storage and located in US East (N. Virginia). How much per month do you pay in storage costs only?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "$13,126.50 per month", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "$13,500.00 per month", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "$13,101.00 per month", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "$13,075.50 per month", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "$13,050.00 per month", "IsAnswer": false }],
+        "Explanation":"Consolidated billing can allow you to take advantage of volume pricing discounts, in this scenario, the total sum of storage used across the 3 accounts is 450TB. The first TB is charged at $0.0300/GB, the next 49TB is $0.0295/GB, and the remaining 400TB is charged at $0.0290/GB. By consolidating the accounts, the cheaper rates are leveraged more often than if the accounts are considered separately.",
+        "Ref":"https://aws.amazon.com/s3/pricing/"
+    },
+    {
+        "Id": 78,
+        "Name": "You can configure AWS CloudTrail at the paying account level by configuring an S3 bucket and configuring CloudTrail on linked accounts to put logs in the paying account's S3 bucket.", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }]
+    },
+    {
+        "Id": 79,
+        "Name": "What is a tag used for in AWS? Select all that apply. (Choose 3)", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "Tags help you to identify the price of an AWS offering.", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Tags are used to name a resource in AWS", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Tags are a key-value pair used to identify resources on AWS.", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Tags can be used to group resources in AWS by department (e.g. development, testing)", "IsAnswer": true }],
+        "Explanation":"Tags are a multi-purpose method for tracking and labelling resources across the AWS offerings. They are in the form of key-value pairs and can either be manually assigned or automatically assigned by other services such as Elastic Beanstalk."
+    },
+    {
+        "Id": 80,
+        "Name": "You have 2 AWS accounts linked to use consolidated billing. Account 1 has 4 EC2 T2.Small instances running, Account 2 has 2 EC2 T2.Small instances running and has 4 T2.Small Reserved Instances capacity. Assuming all the instances are in the same availability zone, how many on-demand instances do you have to pay for?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "2", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "4", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "6", "IsAnswer": true }],
+        "Explanation":"Savings for unused Reserved Instances in one AWS account are applied to compatible instances running in other consolidated billing linked accounts."
+    },
+    {
+        "Id": 81,
+        "Name": "You have Reserved Instances of type M3.large running RedHat. You submit a modification request to change your reserved instances to two M3.medium and it's rejected. Why?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "You have not calculated the footprint of your reserved instances correctly meaning the request is not compatible.", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "You cannot modify a reserved instance type running the platform RedHat.", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "The instance family M3 does not have a medium size offering.", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "You have mistakenly put through a request which asks for a modification between instance families.", "IsAnswer": false }],
+        "Explanation":"Reserved instance modifications are only available for linux type instances excluding RedHat and SUSE.",
+        "Ref":"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html"
+    },
+    {
+        "Id": 82,
+        "Name": "You have multiple AWS accounts linked to a paying account to make use of consolidated billing. You would like to receive an alarm when your total expenses for all accounts exceeds $1000 for a billing cycle. You will need to do which of the following?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "Configure the same billing alert in each of the accounts you would like to monitor.", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Configure a billing alert in the paying account.", "IsAnswer": true }],
+        "Explanation":"Once consolidated billing is configured, you may configure billing alerts in the paying account and the alert will be applied to the total cost from all the linked accounts. Billing alerts can still be configured for a specific account if you only require that alert to be applied to that account.",
+        "Ref":"https://aws.amazon.com/about-aws/whats-new/2012/10/19/announcing-aws-billing-alerts-for-linked-accounts/"
+    },
+    {
+        "Id": 83,
+        "Name": "You require compute resources to run an application server for an ongoing basis. What is the most cost-effective EC2 pricing option for this job?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "On-Demand Instances", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Spot Instances + On-Demand Instances", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Reserved Instances (3 year contract)", "IsAnswer": true }],
+        "Explanation":"For servers that need to be available all the time and will be continuously running at a known capacity, reserved instances will be the most cost-effective pricing option."
+    },
+    {
+        "Id": 84,
+        "Name": "The M3 and M4 instance families are memory optimised instances for use in memory intensive scenarios.", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
+        "Explanation":"M3 and M4 are the main general purpose compute instance families. The R3 instance family is a memory optimised instance type. An easy way to remember this is to remember that the 'R' in R3 stands for RAM."
+    },
+    {
+        "Id": 85,
+        "Name": "From the consolidated billing paying account you can provision services such as EC2 instances in one of the linked accounts.", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
+        "Explanation":"Consolidated billing is not concerned with provisioning of AWS services in linked accounts and you cannot provision services on the linked accounts from the paying account."
+    },
+    {
+        "Id": 86,
+        "Name": "You require additional compute resources to run over the weekend and carry the additional load that the system will be under due to an online sale your company is running. What is the most cost-effective EC2 pricing option for this job?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "On-Demand Instances", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Spot Instances + On-Demand Instances", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Reserved Instances (3 year contract)", "IsAnswer": false }],
+        "Explanation":"On-Demand instances are an appropriate choice for short-lived but high-availability compute requirements."
+    },
+    {
+        "Id": 87,
+        "Name": "You are in charge of managing the AWS resources used within your company. One of the requirements is that you are able to identify all the resources being used by different teams such as development, and quality assurance teams. How would you achieve this?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "By having each of the teams assign a tag (eg. Department: Development) to any resource they provision and then configuring a resource group to see all resources with that tag.", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "By requiring each team keep a detailed spreadsheet of each resource ARN they maintain and submit it daily to you via email.", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "By enabling CloudTrail and running monitoring on the logs to find out which IAM user has provisioned each resource so they can be matched up to a team directory which is kept in a database.", "IsAnswer": false}],
+        "Explanation":"Resource Groups are an easy way to view related resources and the results can also be exported in CSV format for use in external systems."
+    },
+    {
+        "Id": 88,
+        "Name": "Tag editor can be used to find untagged resources and to quickly and easily manage tags across the entire AWS account.", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }],
+        "Explanation":"The tag editor is a helpful tool to centrally manage the tags assigned to resources in your AWS account. This is especially useful for finding resources that are untagged or for making bulk-changes to tags."
+    },
+    {
+        "Id": 89,
+        "Name": "You require compute resources to perform a once-off processing of a large dataset which has to be processed within a week. What is the most appropriate cost-effective EC2 pricing option for this job?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "On-Demand Instances", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Spot Instances + On-Demand Instances", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Reserved Instances (3 year contract)", "IsAnswer": false }],
+        "Explanation":"Spot instances are a cost-effective option for once-off compute requirements and can be accompanied with on-demand instances if there is a time-requirement."
+    },
+    {
+        "Id": 90,
+        "Name": "AWS Import/Export can be used to export data from which of the following?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "S3, EBS and Glacier", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "S3 and Glacier", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "S3 only", "IsAnswer": true }],
+        "Explanation":"Data that requires exporting will need to be moved to S3 first. Note that Import/Export SnowBall has slightly different options from Import/Export Disk",
+        "Ref":"https://aws.amazon.com/documentation/importexport/"
+    },
+    {
+        "Id": 91,
+        "Name": "Storage Gateway traffic be throttled.", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }],
+        "Explanation":"See link for information",
+        "Ref":"https://aws.amazon.com/storagegateway/faqs/"
+    },
+    {
+        "Id": 92,
+        "Name": "The Warm Standby DR strategy involves:", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "Creating all the required infrastructure resources on AWS in response to a failure.", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Maintaining a separate complete production-ready replica of your system.", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Creating and running a production replica on minimal hardware including database replica and instances and scaling it up in the event of a failure to use for production.", "IsAnswer": true }],
+        "Explanation":"The Warm Standby DR strategy is a quicker response time due to the always running (warm) backup system. This offers better RTO and RPO than the Pilot Light and Backup and Restore strategies.",
+        "Ref":"https://d0.awsstatic.com/whitepapers/aws-disaster-recovery.pdf"
+    },
+    {
+        "Id": 93,
+        "Name": "When using AWS Import/Export to export from a versioned S3 bucket, all versions will be exported.", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
+        "Explanation":"Only the most recent version will be exported from S3 using AWS Import/Export.",
+        "Ref":"https://aws.amazon.com/snowball/disk/"
+    },
+    {
+        "Id": 94,
+        "Name": "Snapshots can be created of your gateway-cached and gateway-stored volumes.", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }]
+    },
+    {
+        "Id": 95,
+        "Name": "What ports are required to be open to run Storage Gateway on-premise?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "443 inbound, 80, 3260 and UDP 53 outbound", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "80 inbound, 443, 3260 outbound", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "80, 443, and UDP 53 outbound", "IsAnswer": false }],
+        "Explanation":"Port 80 is only needed for activation and can be closed once that's complete.",
+        "Ref":"http://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html"
+    },
+    {
+        "Id": 96,
+        "Name": "RDS snapshots in a multi-AZ configuration are taken from which of the following?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "Primary database instance", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Secondary database instance", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Either the primary, or secondary database instance depending on which is under the least load", "IsAnswer": true }],
+        "Explanation":"Multi-AZ database snapshots are always taken from the secondary instance to avoid placing IO load on the primary instance."
+    },
+    {
+        "Id": 97,
+        "Name": "Virtual tape storage retrieval is always instantaneous", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
+        "Explanation":"Virtual tape storage retrieval is only instantaneous for Virtual Tape Library retrievals. Virtual Tape Shelf retrievals can take up to 24 hours."
+    },
+    {
+        "Id": 98,
+        "Name": "", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
+        "Explanation":"",
+        "Ref":""
+    },
+    {
+        "Id": 99,
+        "Name": "Read replicas are available across different regions for which of the following?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "MySQL only", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "MariaDB only", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "PostgreSQL only", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "SQL Server only", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "PostgreSQL and MariaDB only", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "MariaDB and MySQL only", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "MySQL and PostgreSQL", "IsAnswer": false }],
+        "Explanation":"AWS is constantly upgrading services. At this time Read Replica Across Regions are only available for MySQL and MariaDB.",
+        "Ref":"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html"
+    },
+    {
+        "Id": 100,
+        "Name": "In the Pilot Light recovery strategy, the system could be failed-over by using: (select all that apply) (Choose 3)", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "An external monitoring tool and script to modify the DNS records", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Amazon Route53", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Manual failover", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "S3", "IsAnswer": false }],
+        "Explanation":"The mechanism for failover is completely up to your business and will need to adhere to your RTO and RPO requirements."
+    },
+    {
+        "Id": 101,
+        "Name": "You can force an RDS Multi-AZ failover by rebooting one of the instances.", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }],
+        "Explanation":"Forcing a failover can be done by restarting the primary instance via either the console or the RebootDBInstance API call.",
+        "Ref":"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_RebootInstance.html"
+    },
+    {
+        "Id": 102,
+        "Name": "If you delete an RDS instance, all backups will be deleted.", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
+        "Explanation":"Only automated backups will be deleted if you delete an RDS instance, manual backups will be retained."
+    },
+    {
+        "Id": 103,
+        "Name": "If you require a tape storage solution which supports unlimited virtual tapes, what service would you use?", 
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "A virtual tape shelf", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "A virtual tape library", "IsAnswer": false }],
+        "Explanation":"Virtual tape shelves are stored on Amazon Glacier and allow you to have unlimited virtual tapes. Virtual Tape Libraries are stored on Amazon S3 and support up to 1500 Virtual Tapes."
+    },
+    {
+        "Id": 104,
+        "Name": "RDS read replicas are supported with the following database engines:", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
+        "Explanation":"",
+        "Ref":""
+    },
+    {
+        "Id": 105,
+        "Name": "Which of the following best describes the Recovery Time Objective (RTO) ?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "The amount of time it takes to recover a file from Amazon Glacier Storage.", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "The amount of time Amazon guarantees to repair outages in the event of the loss of an availability zone.", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "The amount of time that it takes for your business to recover from an outage or disruption.", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "The maximum period of time in which data might be lost from an IT service due to a major incident", "IsAnswer": false }],
+        "Explanation":"RTO can include the time to fix the problem without a recovery, the recovery itself, testing and communication to users."
+    },
+    {
+        "Id": 106,
+        "Name": "The Pilot Light strategy will usually include a database server and AMI's as it's core.", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }],
+        "Explanation":"A replicated database would be kept in AWS to use in the event of an onsite failure and AMI's for application servers or webhosts."
+    },
+    {
+        "Id": 107,
+        "Name": "Vertical scaling is preferred for a Warm Standby DR strategy.", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
+        "Explanation":"Horizontal scaling is preferred as it avoids the need for downtime while restarting instances in a vertical scaling setup."
+    },
+    {
+        "Id": 108,
+        "Name": "RDS allows you to replicate your data by: (Choose 2)", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "Creating a snapshot of your database", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Saving a database export to Amazon S3 using the console", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Creating a read replica running in another region", "IsAnswer": true }],
+        "Explanation":"",
+        "Ref":""
+    },
+    {
+        "Id": 109,
+        "Name": "In addition to the base on-premise system requirements, which of the following does the gateway-stored volume require you to have?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "Enough local storage to hold the amount of cache that you require plus an amount of storage as an upload buffer.", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "An equal amount of storage as that of your entire dataset plus an upload buffer.", "IsAnswer": true }]
+    },
+    {
+        "Id": 110,
+        "Name": "How much times does retrieval from Amazon Glacier take?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "less than 1 hour maximum", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "2 - 4 hours", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "3 - 12 hours", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "3 or more hours", "IsAnswer": true }],
+        "Explanation":"Amazon Glacier data retrievals typically take 3 - 5 hours but can take longer than that.",
+        "Ref":"https://aws.amazon.com/glacier/faqs/#data-retrievals"
+    },
+    {
+        "Id": 111,
+        "Name": "Using which of the following can you scale an RDS instance?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "Setting up read replicas of your database", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Configuring your database to be multi-AZ", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "By adding new RDS instances and always writing to both databases from your application", "IsAnswer": false }],
+        "Explanation":"Read replicas leverage built-in database engine data replication functionality to scale elastically for read-heavy applications. If write performance is the limitation you will need to look at upgrading to a larger instance size, or sharding, or a different solution. Multi-AZ will improve fault tolerance but will not improve performance.",
+        "Ref":"https://aws.amazon.com/rds/details/read-replicas/"
+    },
+    {
+        "Id": 112,
+        "Name": "Multi-AZ is one type of database scaling.", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
+        "Explanation":"Multi-AZ is not a form of database scaling. It is a mechanism for data redundancy only."
+    },
+    {
+        "Id": 113,
+        "Name": "Which of the following best describes the Recovery Point Objective (RPO)?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "The amount of time that it takes for your business to recover from an outage or disruption.", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "A standards compliant point value which indicates the risk of having to perform a recovery due to a disruption.", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "The maximum time between a disruption and the most recent data recovery point.", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "The maximum duration of time of which data might be lost from an IT service due to an incident.", "IsAnswer": true }],
+        "Explanation":"How much data can your organisation lose? One hour, A day, none at all?",
+        "Ref":"https://media.amazonwebservices.com/AWS_Disaster_Recovery.pdf"
+    },
+    {
+        "Id": 114,
+        "Name": "RDS automated backups are available for MySQL only if you are not using InnoDB", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
+        "Explanation":"RDS automated backups for MySQL are only available if you are using InnoDB"
+    },
+    {
+        "Id": 115,
+        "Name": "Backup and Restore is the least expensive DR scenario", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }],
+        "Explanation":"Backup and Restore is the least expensive way.  However it results the largest RTO and RPO for your business.",
+        "Ref":"https://d0.awsstatic.com/whitepapers/aws-disaster-recovery.pdf"
+    },
+    {
+        "Id": 116,
+        "Name": "if you create a volume from an EC2 incremental snapshots,it will contain the base snapshot data plus any incremental changes up to that point in time.", 
+        
+        "Options": [
+               { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }],
+        "Explanation":"Snapshots are incremental. See link for further information",
+        "Ref":"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html"
+    },
+    {
+        "Id": 117,
+        "Name": "If you need to backup 500PB of on-premises data to Amazon S3, the best transfer options are: (Choose 2)", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "HTTP upload to S3 via the API", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "AWS Import/Export Disk", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Using AWS Direct Connect", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "AWS Snowball", "IsAnswer": true }],
+        "Explanation":"For large data backups to S3, AWS Import/Export Disk or Snowball is going to be the cheapest and potentially the fastest option.",
+        "Ref":"https://aws.amazon.com/blogs/aws/aws-importexport-snowball-transfer-1-petabyte-per-week-using-amazon-owned-storage-appliances/"
+    },
+    {
+        "Id": 118,
+        "Name": "RDS Multi-AZ data replication is", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "Synchronous", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Asynchronous", "IsAnswer": false }],
+        "Explanation":"Multi-AZ replication is always synchronous unlike cross region read replicas which are asynchronous.",
+        "Ref":"https://aws.amazon.com/rds/details/multi-az/"
+    },
+    {
+        "Id": 119,
+        "Name": "ElastiCache snapshots will degrade performance on your cache cluster.", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }],
+        "Explanation":"The entire cluster is snapshotted and therefore performing a snapshot will degrade performance and should be done during the least busy period."
+    },
+    {
+        "Id": 120,
+        "Name": "AWS DynamoDB does not allow you to replicate data across regions.", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
+        "Explanation":"DynamoDB does allow you to replicate data across regions using streams. See the link for more information.",
+        "Ref":"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.CrossRegionRepl.html"
+    },
+    {
+        "Id": 121,
+        "Name": "What are the hardware requirements for your Storage Gateway on-premise hardware?(Choose 2)", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "4vCPUs, 7.5GB of RAM, 75GB VM image and system data", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "8vCPUs, 4GB of RAM, 75GB VM image and system data", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "4vCPUs, 7.5GB of RAM, 50GB VM image and system data", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "8vCPUs, 7.5GB of RAM, 75GB VM image and system data", "IsAnswer": true }],
+        "Explanation":"On-premise Storage Gateway Virtual Machine requirements are 4 or 8vCPUs, 7.5GB of RAM and 75GB of VM image and system data storage."
+    },
+    {
+        "Id": 122,
+        "Name": "S3 standard storage provides a durability of:", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "99.99%", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "99.9999%", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "99.999999999%", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "99.99999999999%", "IsAnswer": false }],
+        "Explanation":"Objects are stored redundantly across multiple devices within a region to provide a high level of durability.",
+        "Ref":"https://aws.amazon.com/s3/faqs/"
+    },
+    {
+        "Id": 123,
+        "Name": "AWS Import/Export Disk data encryption is optional for", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "Imports and exports", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Imports only", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Exports only", "IsAnswer": false }],
+        "Explanation":"Import/Export Snowball has different requirements"
     }
      ]
 }
