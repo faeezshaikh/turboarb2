@@ -48,6 +48,7 @@
             </ion-item>
             <ion-card-header>
                 <div class="item item-text-wrap item-divider ">{{question.Name}}</div>
+                <img *ngIf="question.Pic" src="{{question.Pic}}"/>
             </ion-card-header>
 
             <ion-card-content>

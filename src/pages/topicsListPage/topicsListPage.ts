@@ -40,7 +40,8 @@ export class TopicsListPage {
 
     this.exams = [
       { no: 9, title: 'Exam Set 1', note: '10 questions, 15 minutes', icon: 'assets/img/EC2.png', hiScore: '' },
-      { no: 10, title: 'Exam Set 2', note: '10 questions, 15 minutes', icon: 'assets/img/VPC.png', hiScore: '' }];
+      { no: 10, title: 'Exam Set 2', note: '10 questions, 15 minutes', icon: 'assets/img/VPC.png', hiScore: '' },
+      { no: 11, title: 'Exam Set 3', note: '10 questions, 15 minutes', icon: 'assets/img/VPC.png', hiScore: '' }];
 
     this.getHiScores();
 

@@ -1,0 +1,131 @@
+<style>
+  .custom {
+    border: solid 1px;
+  }
+
+  .mycolor {
+    background: gainsboro;
+  }
+
+  ion-col {
+    border-left-color: gainsboro;
+    border: solid 1px;
+  }
+  </style>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Get Ready
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="assets/img/icon.png">
+      </ion-avatar>
+      <h2>Exam Starting</h2>
+      <p>AWS Certified Sol Arch - Professional</p>
+    </ion-item>
+    <hr/>
+
+    <ion-card-content>
+     
+       <!--<div class="item item-body">-->
+<ion-grid class="custom">
+
+   <ion-row class="mycolor">
+      <ion-col col-80><strong>Domain</strong></ion-col>
+      <ion-col col-20><strong>Percentage</strong></ion-col>
+ </ion-row>
+
+
+     <ion-row justify-content-center>
+      <ion-col col-80>High Availability and Business Continuity</ion-col>
+      <ion-col col-20>15%</ion-col>
+     </ion-row>
+
+     <ion-row justify-content-end>
+      <ion-col col-80>Costing</ion-col>
+      <ion-col col-20>6%</ion-col>
+     </ion-row>
+
+     <ion-row justify-content-center>
+      <ion-col col-80>Deployment Management</ion-col>
+      <ion-col col-20>10%</ion-col>
+     </ion-row>
+
+     <ion-row justify-content-end>
+      <ion-col col-80>Network Design</ion-col>
+      <ion-col col-20>10%</ion-col>
+     </ion-row>
+
+
+
+     <ion-row justify-content-end>
+      <ion-col col-80>Data Storage</ion-col>
+      <ion-col col-20>15%</ion-col>
+     </ion-row>
+
+
+     <ion-row justify-content-end>
+      <ion-col col-80>Security</ion-col>
+      <ion-col col-20>19%</ion-col>
+     </ion-row>
+
+
+
+     <ion-row justify-content-end>
+      <ion-col col-80>Scalability & Elasticity</ion-col>
+      <ion-col col-20>15%</ion-col>
+     </ion-row>
+
+
+
+     <ion-row justify-content-end>
+      <ion-col col-80>Cloud Migration & Hybrid Architecture</ion-col>
+      <ion-col col-20>10%</ion-col>
+     </ion-row>
+
+ <ion-row class="mycolor">
+      <ion-col col-80><strong>Total</strong></ion-col>
+      <ion-col col-20><strong>100%</strong></ion-col>
+ </ion-row>
+   
+</ion-grid>
+    <!-- <img class="full-image" height="150" width="100" ng-src="data/img/table.jpg> -->
+    <p>&nbsp;</p>
+    <p>
+     
+
+      This is a timed exam. You cannot turn the timer off for the practice exams.
+      The AWS certification exam may contain anywhere from 65 to 80 questions and you are given 170 minutes. Based on that on average you have approximately 2 minutes for 
+      each question. These practice exams contain a mix of questions from all topics that you are expected to know for the certification exam.
+      Good luck.
+    </p>
+    
+        <p></p>
+        <div style="text-align: center;">
+        <button  ion-button (click)="dismiss(false)">
+             Start  
+        </button>
+          <button  ion-button (click)="dismiss(true)">
+             Cancel  
+        </button>
+        </div>
+    </ion-card-content>
+
+
+
+
+  </ion-card>
+</ion-content>

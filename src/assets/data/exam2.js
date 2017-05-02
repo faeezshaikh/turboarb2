@@ -1,6 +1,6 @@
 {
     "quiz": {
-        "name": "Exam 2",
+        "name": "Exam 2!!",
         "logo" : "assets/img/VPC.png"
     },
     "questions": [{

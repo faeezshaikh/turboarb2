@@ -11,6 +11,7 @@ import { TopicDetailPage } from '../pages/topicDetailPage/topicDetailPage';
 import { DataService } from '../providers/data-service';
 import { MyLocalStorage } from '../providers/my-local-storage';
 import { ExplanationModal } from '../modals/explanationModal';
+import { ExamStartingModal} from '../modals/examStartingModal';
 import { IonicStorageModule } from '@ionic/storage';
 import { SimpleTimer } from 'ng2-simple-timer';
 import { SocialSharing } from '@ionic-native/social-sharing';
@@ -41,6 +42,7 @@ import {EventsService} from "../providers/events.service";
     TopicsListPage,
     TopicDetailPage,
     ExplanationModal,
+    ExamStartingModal,
     LoginPage,
     LogoutPage,
     RegisterPage,
@@ -60,6 +62,7 @@ import {EventsService} from "../providers/events.service";
     TopicsListPage,
     TopicDetailPage,
     ExplanationModal,
+    ExamStartingModal,
     LoginPage,
     LogoutPage,
     RegisterPage,
