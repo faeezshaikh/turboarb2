@@ -13,7 +13,7 @@ export class DataService {
   topics = [];
 
   constructor(public http: Http) {
-    console.log('Hello DataService Provider');
+    // console.log('Hello DataService Provider');
     this.topicMap = new Map<number, string>();
     this.topicMap.set(1, 'assets/data/ha&bc.js');
     this.topicMap.set(2, 'assets/data/costing.js');
@@ -35,7 +35,7 @@ export class DataService {
   load(topic: number) {
 
     this.fileName = this.topicMap.get(topic);
-    console.log("FILENAME =>", this.fileName);
+    // console.log("FILENAME =>", this.fileName);
     
     // if (this.data) {
     //   return Promise.resolve(this.data);
@@ -72,7 +72,7 @@ export class DataService {
       hiScore: any;
     }
     this.topicMap.forEach((value: string, key: number) => {
-        console.log(key, value);
+        // console.log(key, value);
         this.getData(key).then((resp) => {
             let t = new Topic();
             t.no = key;
@@ -82,7 +82,7 @@ export class DataService {
 
 
             if (this.topics.length != this.topicMap.size) {
-              console.log(" Addin  ===="); // some kinda bug, adding twice hence frocing to break after the size is reached.
+               // some kinda bug, adding twice hence frocing to break after the size is reached.
               this.topics.push(t);
             }
             

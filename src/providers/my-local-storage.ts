@@ -24,7 +24,7 @@ export class MyLocalStorage {
   getScore(examTopic:number): any {
        return this.storage.ready().then(() => {
         return this.storage.get(examTopic.toString()).then((val) => {
-         console.log('Exam Topic:' + examTopic, val);
+        //  console.log('Exam Topic:' + examTopic, val);
          return val;
        })
      });

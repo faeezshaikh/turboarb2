@@ -97,8 +97,7 @@ export class TopicsListPage {
     this.topics.forEach(topic => {
       this.storage.getScore(topic.no).then(result => {
         topic.hiScore = result;
-        console.log('Retrieving Topics Score ...Set Topics ' + topic.no + ' hiscore to:' + result);
-        // console.log('TOPIC:',topic);
+        // console.log('Retrieving Topics Score ...Set Topics ' + topic.no + ' hiscore to:' + result);
 
       })
 
