@@ -1,9 +1,10 @@
 import { Component,ViewChild } from '@angular/core';
 
-import { NavController, NavParams ,AlertController,Content,ToastController} from 'ionic-angular';
+import { ModalController,NavController, NavParams ,AlertController,Content,ToastController} from 'ionic-angular';
 import { TopicDetailPage } from '../topicDetailPage/topicDetailPage';
 import { reorderArray } from 'ionic-angular';
 import { MyLocalStorage } from '../../providers/my-local-storage';
+import { ExamStartingModal} from '../../modals/examStartingModal';
 
 import { SocialSharing } from '@ionic-native/social-sharing';
 
@@ -21,7 +22,7 @@ export class TopicsListPage {
 
   exams: Array<{ no: number, title: string, note: string, icon: string, hiScore: string }>;
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: MyLocalStorage,
-              private socialSharing: SocialSharing,private alertCtrl: AlertController,public toastCtrl: ToastController) {
+              private socialSharing: SocialSharing,private alertCtrl: AlertController,public toastCtrl: ToastController,public modalCtrl: ModalController) {
 
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
@@ -59,9 +60,34 @@ export class TopicsListPage {
   }
 
   itemTapped(event, topic) {
-    this.navCtrl.push(TopicDetailPage, {
+    if(topic.no > 8) {
+      this.openModal(topic);
+    } else {
+     this.startExam(topic); 
+    }
+  }
+
+  startExam(topic) {
+     this.navCtrl.push(TopicDetailPage, {
       topic: topic
     });
+  }
+
+    openModal(topic) {
+    let modal = this.modalCtrl.create(ExamStartingModal,null,{'enableBackdropDismiss':true});
+     modal.onDidDismiss(data => {
+      console.log(data);
+      if (data && data.cancel) {
+        console.log('Cancel hit');
+        // Modal crashing issue. Hence catch all : https://github.com/driftyco/ionic/issues/10046
+         modal.dismiss().catch(() => {
+        console.log("Loading dismissed");
+      });;
+      } else if (data && !data.cancel) {
+        this.startExam(topic);
+      }
+   });
+    modal.present();
   }
 
   reorderNow() {

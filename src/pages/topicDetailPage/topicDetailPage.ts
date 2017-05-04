@@ -4,7 +4,7 @@ import { DataService } from '../../providers/data-service';
 import { MyLocalStorage } from '../../providers/my-local-storage';
 import { ModalController, Content } from 'ionic-angular';
 import { ExplanationModal } from '../../modals/explanationModal';
-import { ExamStartingModal} from '../../modals/examStartingModal';
+// import { ExamStartingModal} from '../../modals/examStartingModal';
 import { SimpleTimer } from 'ng2-simple-timer';
 
 
@@ -64,9 +64,9 @@ export class TopicDetailPage {
     if (navParams.get('topic') != null) {
 
       this.selectedTopic = navParams.get('topic');  // TODO: Sliding ion-item can provide users to select if they want to randomize a question set. Use Local Storage and if selecetd cll shuffle
-      if(this.selectedTopic) {
-        this.openModal('asas');
-      }
+      // if(this.selectedTopic && this.selectedTopic.no > 8) {
+      //   this.openModal('asas');
+      // }
       dataService.getData(this.selectedTopic.no).then(theResult => {
         this.data = theResult;
         this.questions = theResult.questions;
@@ -306,16 +306,16 @@ export class TopicDetailPage {
   }
 
  
-  openModal(modalName) {
-    let modal = this.modalCtrl.create(ExamStartingModal,null,{'enableBackdropDismiss':false});
-     modal.onDidDismiss(data => {
-      console.log(data);
-      if (data && data.cancel) {
-         this.navCtrl.pop();
-      }
-   });
-    modal.present();
-  }
+  // openModal(modalName) {
+  //   let modal = this.modalCtrl.create(ExamStartingModal,null,{'enableBackdropDismiss':false});
+  //    modal.onDidDismiss(data => {
+  //     console.log(data);
+  //     if (data && data.cancel) {
+  //        this.navCtrl.pop();
+  //     }
+  //  });
+  //   modal.present();
+  // }
 
   //////// [ Confirm Alert ] //////
   presentAbortConfirm() {
