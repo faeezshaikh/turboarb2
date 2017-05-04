@@ -72,8 +72,8 @@ export class TopicDetailPage {
         this.questions = theResult.questions;
         this.questions = this.shuffle(this.questions);   /// TODO: Make shuffling of question order user configurable
         this.question = this.questions[0];
-        console.log("Data => ", this.data);
-        console.log("Questions => ", theResult.questions);
+        // console.log("Data => ", this.data);
+        // console.log("Questions => ", theResult.questions);
       });
 
     } else {
@@ -120,7 +120,7 @@ export class TopicDetailPage {
       buttons: [{
         text: 'Ok',
         handler: data => {
-          console.log('Cancel clicked');
+          // console.log('Cancel clicked');
           if (this.confirmAbortAlert) { this.confirmAbortAlert.dismiss(); }
           this.calculateAndUpdateScore();
         }
@@ -136,8 +136,8 @@ export class TopicDetailPage {
       } else {
         this.secondsTimerId = this.st.subscribe('sec', e => this.secondsTimercallback());
       }
-      console.log('Timer subsribed: ', this.mtTimerId);
-      console.log('Timer subsribed: ', this.secondsTimerId);
+      // console.log('Timer subsribed: ', this.mtTimerId);
+      // console.log('Timer subsribed: ', this.secondsTimerId);
       
   }
 

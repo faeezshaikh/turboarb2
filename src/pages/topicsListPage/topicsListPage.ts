@@ -61,7 +61,7 @@ export class TopicsListPage {
   }
 
     openModal(topic) {
-    let modal = this.modalCtrl.create(ExamStartingModal,null,{'enableBackdropDismiss':true});
+    let modal = this.modalCtrl.create(ExamStartingModal,topic,{'enableBackdropDismiss':true});
      modal.onDidDismiss(data => {
       console.log(data);
       if (data && data.cancel) {
