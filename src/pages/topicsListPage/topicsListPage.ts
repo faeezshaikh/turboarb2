@@ -5,6 +5,7 @@ import { TopicDetailPage } from '../topicDetailPage/topicDetailPage';
 import { reorderArray } from 'ionic-angular';
 import { MyLocalStorage } from '../../providers/my-local-storage';
 import { ExamStartingModal} from '../../modals/examStartingModal';
+import { DataService } from '../../providers/data-service';
 
 import { SocialSharing } from '@ionic-native/social-sharing';
 
@@ -21,28 +22,14 @@ export class TopicsListPage {
   @ViewChild(Content) content: Content;
 
   exams: Array<{ no: number, title: string, note: string, icon: string, hiScore: string }>;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: MyLocalStorage,
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: MyLocalStorage, public dataService: DataService,
               private socialSharing: SocialSharing,private alertCtrl: AlertController,public toastCtrl: ToastController,public modalCtrl: ModalController) {
+
 
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
-    this.topics = [
-      { no: 1, title: 'H.A. & Business Continuity', note: '10 questions, 17 minutes', icon: 'assets/img/VPC.png', hiScore: '' },
-      { no: 2, title: 'Costing', note: '10 questions, 15 minutes', icon: 'assets/img/S3.png', hiScore: '' },
-      { no: 3, title: 'Deployment Management', note: '10 questions, 15 minutes', icon: 'assets/img/SNS.png', hiScore: '' },
-      { no: 4, title: 'Network Design', note: '10 questions, 15 minutes', icon: 'assets/img/SQS.png', hiScore: '' },
-      { no: 5, title: 'Data Storage', note: '10 questions, 15 minutes', icon: 'assets/img/RDS.png', hiScore: '' },
-      { no: 6, title: 'Security', note: '10 questions, 15 minutes', icon: 'assets/img/IAM.png', hiScore: '' },
-      { no: 7, title: 'Scalability & Elasticity', note: '7` questions, 15 minutes', icon: 'assets/img/EC2.png', hiScore: '' },
-      { no: 8, title: 'Cloud Migration & Hybrid Arch', note: '8 questions, 15 minutes', icon: 'assets/img/CloudFormation.png', hiScore: '' }];
-
-
-
-    this.exams = [
-      { no: 9, title: 'Exam Set 1', note: '10 questions, 15 minutes', icon: 'assets/img/EC2.png', hiScore: '' },
-      { no: 10, title: 'Exam Set 2', note: '10 questions, 15 minutes', icon: 'assets/img/VPC.png', hiScore: '' },
-      { no: 11, title: 'Exam Set 3', note: '10 questions, 15 minutes', icon: 'assets/img/VPC.png', hiScore: '' }];
+    this.topics = dataService.getTopicsArray();
 
     this.getHiScores();
 

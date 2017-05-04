@@ -10,6 +10,7 @@ export class DataService {
 
   data: any = null;
   fileName: string;
+  topics = [];
 
   constructor(public http: Http) {
     console.log('Hello DataService Provider');
@@ -25,7 +26,7 @@ export class DataService {
 
     this.topicMap.set(9, 'assets/data/exam1.js');
     this.topicMap.set(10, 'assets/data/exam2.js');
-    this.topicMap.set(11, 'assets/data/exam3.js');
+    // this.topicMap.set(11, 'assets/data/exam3.js');
 
     
   }
@@ -58,4 +59,38 @@ export class DataService {
     return this.data;
   });
 }
+
+  getTopicsArray() {
+    console.log(" ==== Getting Topics Array ====");
+    
+    
+    class Topic {
+      no: number;
+      title: string;
+      note: string;
+      icon: string;
+      hiScore: any;
+    }
+    this.topicMap.forEach((value: string, key: number) => {
+        console.log(key, value);
+        this.getData(key).then((resp) => {
+            let t = new Topic();
+            t.no = key;
+            t.title = resp.quiz.name;
+            t.note = resp.questions.length + ' questions';
+            t.icon = resp.quiz.logo;
+
+
+            if (this.topics.length != this.topicMap.size) {
+              console.log(" Addin  ===="); // some kinda bug, adding twice hence frocing to break after the size is reached.
+              this.topics.push(t);
+            }
+            
+        });
+    });
+  console.log('Formed Topics Array:', this.topics);
+  return this.topics;
+    
+
+  }
 }
