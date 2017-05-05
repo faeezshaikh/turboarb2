@@ -938,7 +938,7 @@
     },
     {
         "Id": 91,
-        "Name": "Storage Gateway traffic be throttled.", 
+        "Name": "Storage Gateway traffic can be throttled.", 
         
         "Options": [
                 { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },

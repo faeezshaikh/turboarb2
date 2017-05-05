@@ -10,12 +10,14 @@ import { Platform, NavParams, ViewController } from 'ionic-angular';
 export class ExamStartingModal {
 
   note: string;
+  title:string;
    constructor(
     public platform: Platform,
     public params: NavParams,
     public viewCtrl: ViewController
   ) {
     this.note = params.get('note');
+    this.title= params.get('title');
   }
 
  

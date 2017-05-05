@@ -8,6 +8,11 @@ Populate All Exams
 Share Mesage Verbiage - Happy path with URL Links and imgs
 Test Sharing on Device
 Testing
+Cross-promotion (in-house ads)
+chat with author
+Chat with other users
+Comment on a question
+
 
 
 Login Page styling - remaining pages 
