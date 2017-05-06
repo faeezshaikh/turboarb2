@@ -93,6 +93,19 @@
             { "Id": 1058, "QuestionId": 1010, "Name": "The compnay should be using Tape Gateway to migrate the on-prem data to AWS", "IsAnswer": false }],
         "Explanation": "Your volumes are stored in Amazon S3 and accessible through AWS Storage Gateway. You cannot directly access them by using Amazon S3 API actions. You can take point-in-time snapshots of gateway volumes that are made available in the form of Amazon EBS snapshots. Use the file interface to work with your data natively in S3.",
         "Ref":"https://aws.amazon.com/storagegateway/faqs/"  
+    },
+    {
+        "Id": 9,
+        "Name": "You've been brought in as solutions architect to assist an enterprise customer with their migration of an e-commerce platform to Amazon Virtual Private Cloud (VPC). The previous architect has already deployed a 3-tier VPC. The configuration is as shown below at the end (See image below). You are now ready to begin deploying EC2 instances into the VPC. Web servers must have direct access to the Internet. Application and database servers cannot have direct access to the Internet. Which configuration below will allow you the ability to remotely administer your application and database servers, as well as allow these servers to retrieve updates from the Internet?",
+        "Pic": "assets/img/ques1.png",
+        "Tag":"Cloud Migration",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Create a bastion and NAT instance in subnet-258bc44d, and add a route from rtb-238bc44b to the NAT instance.", "IsAnswer": true },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Add a route from rtb-238bc44b to igw-2d8bc445 and add a bastion and NAT instance within subnet-248bc44c.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Create a bastion and NAT instance in subnet-248bc44c, and add a route from rtb-238bc44b to subnet-258bc44d.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Create a bastion and NAT instance in subnet-258bc44d, add a route from rtb-238bc44b to Igw-2d8bc445, and a new NACL that allows access between subnet-258bc44d and subnet- 248bc44c.", "IsAnswer": false }],
+        "Explanation":"Create NAT instance in public subnet which is web server subnet (suDnet-258Dc44d) and add route (rtD-238Dc44D) from private subnet (database subnet-9189c6f9) to the public NAT one to retrieve the updates."
+
     }
      ]
 }

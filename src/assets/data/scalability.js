@@ -85,6 +85,33 @@
             { "Id": 1055, "QuestionId": 1010, "Name": "Redis", "IsAnswer": true },
             { "Id": 1056, "QuestionId": 1010, "Name": "Memcached", "IsAnswer": false }]
         
+    },
+      {
+        "Id": 8,
+        "Name": "Your startup wants to implement an order fulfillment process for selling a personalized gadget that needs an average of 3-4 days to produce with some orders taking up to 6 months. You expect 10 orders per day on your first day, 1000 orders per day after 6 months and 10,000 orders after 12 months. Orders coming in are checked for consistency, then dispatched to your manufacturing plant for production, quality control, packaging, shipment and payment processing. If the product does not meet the quality standards at any stage of the process, employees may force the process to repeat a step. Customers are notified via email about order status and any critical issues with their orders such as payment failure. Your base architecture includes AWS Elastic Beanstalk for your website with an RDS MySQL instance for customer data and orders. How can you implement the order fulfillment process while making sure that the emails are delivered reliably?", 
+        "Tag":"scalability",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Add a business process management application to your Elastic Beanstalk app servers and re- use the RDS database for tracking order status. Use one of the Elastic Beanstalk instances to send emails to customers.", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Use SWF with an Auto Scaling group of activity workers and a decider instance in another Auto Scaling group with min/max=1. Use SES to send emails to customers.", "IsAnswer": true },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Use an SQS queue to manage all process tasks. Use an Auto Scaling group of EC2 instances that poll the tasks and execute them. Use SES to send emails to customers.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Use SWF with an Auto Scaling group of activity workers and a decider instance in another Auto Scaling group with min/max=1. Use the decider instance to send emails to customers.", "IsAnswer": false }],
+            "Explanation":"See linked pdf for more information",
+            "Ref":"http://media.amazonwebservices.com/architecturecenter/AWS_ac_ra_ecommerce_checkout_13.pdf"
+
+    },
+
+      {
+        "Id": 9,
+        "Name": "Your application is using an ELB in front of an Auto Scaling group of web/application servers deployed across two AZs and a Multi-AZ RDS Instance for data persistence. The database CPU is often above 80% usage and 90% of I/O operations on the database are reads. To improve performance you recently added a single-node Memcached ElastiCache Cluster to cache frequent DB query results. In the next weeks the overall workload is expected to grow by 30%. Do you need to change anything in the architecture to maintain the high availability of the application with the anticipated additional load? Why?", 
+        "Tag":"scalability",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Yes, you should deploy two Memcached ElastiCache Clusters in different AZs because the RDS instance will not be able to handle the load if the cache node fails.", "IsAnswer": true },
+            { "Id": 1056, "QuestionId": 1010, "Name": "No, if the cache node fails you can always get the same data from the DB without having any availability impact.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "No, if the cache node fails the automated ElastiCache node recovery feature will prevent any availability impact.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Yes, you should deploy the Memcached ElastiCache Cluster with two nodes in the same AZ as the RDS DB master instance to handle the load if one cache node fails.", "IsAnswer": false }],
+            "Explanation":"A single-node Memcached ElastiCache cluster failure is nothing but a total failure. (Even though AWS will automatically recover the failed node, there are no other nodes in the cluster).To mitigate the impact of a node failure, spread your cached data over more nodes. Because Memcached does not support replication, a node failure will always result in some data loss from your cluster. When you create your Memcached cluster you can create it with 1 to 20 nodes, or more by special request. Partitioning your data across a greater number of nodes means you’ll lose less data if a node fails. For example, if you partition your data across 10 nodes, any single node stores approximately 10% of your cached data. In this case, a node failure loses approximately 10% of your cache which needs to be replaced when a replacement node is created and provisioned. To mitigate the impact of an availability zone failure, locate your nodes in as many availability zones as possible. In the unlikely event of an AZ failure, you will lose only the data cached in that AZ, not the data cached in the other AZs.",
+            "Ref":"http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/BestPractices.html"
+
     }
      ]
 }

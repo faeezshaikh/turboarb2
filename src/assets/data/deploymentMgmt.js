@@ -3,110 +3,36 @@
         "name": "Deployment",
         "logo" : "assets/img/SNS.png"
     },
-    "questions": [{
+    "questions": [
+      {
         "Id": 1,
-        "Name": "When authenticating with external Identity Providers (eg. Google) which of the following are the correct sequence of steps?",
-        
+        "Name": "Refer to the architecture diagram below of a batch processing solution using Simple Queue Service (SQS) to set up a message queue between EC2 instances which are used as batch processors. CloudWatch monitors the number of job requests (queued messages) and an Auto Scaling group adds or deletes batch servers automatically based on parameters set in CloudWatch alarms. You can use this architecture to implement which of the following features in a cost effective and efficient manner?", 
+        "Pic":"assets/img/ques2.png",
+        "Tag":"Deployment",
         "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "1) A user logs in to the AWS platform using their Google credentials. 2) AWS authenticate with Google to check the credentials. 3) Temporary Security Access is granted to AWS.", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "1) A user authenticates with Google first. They are then given an ID token by Google. An API call called AssumeRoleWithWebIdentity is then used in conjunction with the ID token. A user is then granted temporary security credentials.", "IsAnswer": true },
-            { "Id": 1057, "QuestionId": 1010, "Name": "Google users cannot use their credentials to access the AWS platform.", "IsAnswer": false},
-            { "Id": 1058, "QuestionId": 1010, "Name": "1) A user makes the AssumeRoleWithWebIdentity API Call. 2) The user is then redirected to Google to authenticate. 3) Once authenticated the user is given an ID token. 4) The user is then granted temporary access to the AWS platform.", "IsAnswer": false }]
-    },
-    {
-        "Id": 2,
-        "Name": "The AWS sign-in endpoint for SAML is https://signin.aws.amazon.com/saml", 
-        
+            { "Id": 1055, "QuestionId": 1010, "Name": "Coordinate number of EC2 instances with number of Job requests automatically, thus improving cost effectiveness.", "IsAnswer": true },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Reduce the overall time for executing Jobs through parallel processing by allowing a busy EC2 instance that receives a message to pass it to the next instance in a daisy-chain setup.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Implement fault tolerance against EC2 instance failure since messages would remain in SQS and work can continue with recovery of EC2 instances. Implement fault tolerance against SQS failure by backing up messages to S3.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Handle high priority Jobs before lower priority Jobs by assigning a priority metadata field to SQS messages.", "IsAnswer": false },
+            { "Id": 1059, "QuestionId": 1010, "Name": "Implement message passing between EC2 instances within a batch by exchanging messages through SQS.", "IsAnswer": false }],
+            "Explanation":"See link for more information",
+            "Ref":"https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-using-sqs-queue.html"
+
+    }   ,
+     
+      {
+        "Id": 15,
+        "Name": "Your system recently experienced down time. During the troubleshooting process you found that a new administrator mistakenly terminated several production EC2 instances. Which of the following strategies will help prevent a similar situation in the future? The administrator still must be able to: 1) launch, start, stop, and terminate development resources, 2) launch and start production instances.", 
+        "Tag":"Deployment",
         "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
-            { "Id": 1057, "QuestionId": 1010, "Name": "False", "IsAnswer": false }]
-        
-    },
-    {
-        "Id": 3,
-        "Name": "When federating with Active Directory for single-sign on, which of the following is the correct sequence of steps?", 
-        
-        "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "1) The user navigates to ADFS webserver, 2) The user enter in their single sign on credentials, 3) The user's web browser receives a SAML assertion from the AD server, 4) The user's browser then posts the SAML assertion to the AWS SAML end point for SAML and the GiveUserSAMLAccess API request is used to request temporary security credentials. 5) The user is then able to access the AWS Console.", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "1) The user navigates to the AWS console, 2) The user enter in their active directory single sign on credentials in to AWS, 3) The user's web browser receives a SAML assertion from AWS, 4) The user is then able to access the AWS Console.", "IsAnswer": false },
-            { "Id": 1057, "QuestionId": 1010, "Name": "1) The user navigates to ADFS webserver, 2) The user enter in their single sign on credentials, 3) The user's web browser receives a SAML assertion from the AD server, 4) The user's browser then posts the SAML assertion to the AWS SAML end point for SAML and the AssumeRoleWithSAML API request is used to request temporary security credentials. 5) The user is then able to access the AWS Console.", "IsAnswer": true },
-            { "Id": 1058, "QuestionId": 1010, "Name": "1) The user navigates to ADFS webserver, 2) The user enter in their single sign on credentials, 3) The user's browser then posts the SAML assertion to the AWS SAML end point for SAML and the AssumeRoleWithSAML API request is used to request temporary security credentials. 4) The user's web browser receives a SAML assertion from the AD server. 5) The user is then able to access the AWS Console.", "IsAnswer": false }]
-        
-    },
-    {
-        "Id": 4,
-        "Name": "You can associate only one IAM role with an EC2 instance", 
-        
-        "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
-            { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }]
-        
-    },
-    {
-        "Id": 5,
-        "Name": "Which operation should you call to request temporary security credentials from the AWS platform when federating with Active Directory", 
-        
-        "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "GetRoleWithSAML", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "AssumeRoleWithSAML", "IsAnswer": true },
-            { "Id": 1057, "QuestionId": 1010, "Name": "AssumeRole", "IsAnswer": false },
-            { "Id": 1058, "QuestionId": 1010, "Name": "SAMLObtainRole", "IsAnswer": false}]
-        
-    },
-    {
-        "Id": 6,
-        "Name": "You have to call this API to obtain temporary security credentials when authenticating with external Identity Providers", 
-        
-        "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "GetRoleWithWebIdentity", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "GetRole", "IsAnswer": false },
-            { "Id": 1057, "QuestionId": 1010, "Name": "AssumeRoleWithWebIdentityProvider", "IsAnswer": false },
-            { "Id": 1058, "QuestionId": 1010, "Name": "AssumeRoleWithWebIdentity", "IsAnswer": true }]
-        
-    },
-    {
-        "Id": 7,
-        "Name": "Which of the followig feature allows your users to authenticate using Google or Facebook?", 
-        
-        "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "Web Identification Services", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "Web Identity Federation", "IsAnswer": true },
-            { "Id": 1057, "QuestionId": 1010, "Name": "Active Directory Authentication Services", "IsAnswer": false },
-            { "Id": 1058, "QuestionId": 1010, "Name": "Third Party Federation", "IsAnswer": false }]
-        
-    },
-    {
-        "Id": 8,
-        "Name": "Your EC2 instance needs to access the image files in your S3 bucket. What is the best way to arrange access for this?", 
-        
-        "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "Use CLI and save the security id and key in an encrypted file under the /etc folder on your EC2 instance", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "Write a java client using the AWS Java SDK and access the security id and key from a properties file stored under the /etc folder", "IsAnswer": false},
-            { "Id": 1057, "QuestionId": 1010, "Name": "Create an IAM role that has full access to S3 and assign this role to the EC2 instance", "IsAnswer": true },
-            { "Id": 1058, "QuestionId": 1010, "Name": "An EC2 instance cannot access files in a S3 bucket", "IsAnswer": false }]
-    },
-    {
-        "Id": 9,
-        "Name": "Which of the following is NOT supported by IAM?", 
-        "Explanation": "sdfdsfsdf",
-        "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "Integration with Identity Providers and with existing active directory accounts", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "Fine-grained access control to AWS resources", "IsAnswer": false },
-            { "Id": 1057, "QuestionId": 1010, "Name": "Finger printing authentication", "IsAnswer": true },
-            { "Id": 1058, "QuestionId": 1010, "Name": "Centralised control of your AWS account", "IsAnswer": false }]
-        
-    },
-    {
-        "Id": 10,
-        "Name": "Which of these best describes IAM.",
-        "Explanation": "sdfdsfsdf",
-        "Ref": "http://www.cnn.com",
-        "Options": [
-         { "Id": 1055, "QuestionId": 1010, "Name": "IAM allows you to manage users passwords only. AWS staff must create new users for your organisation. This is done by raising a ticket.", "IsAnswer": false },
-         { "Id": 1056, "QuestionId": 1010, "Name": "IAM stands for Innovative Application Management and it allows you to deploy and manage applications in the AWS Cloud.", "IsAnswer": false },
-            { "Id": 1057, "QuestionId": 1010, "Name": "IAM allows you to manage permissions for AWS resources only.", "IsAnswer": false },
-            { "Id": 1058, "QuestionId": 1010, "Name": "IAM allows you to manage users, groups and roles and their corresponding level of access to the AWS Platform.", "IsAnswer": true }]
-        
+            { "Id": 1055, "QuestionId": 1010, "Name": "Leverage EC2 termination protection and multi-factor authentication, which together require users to authenticate before terminating EC2 instances.", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Leverage resource based tagging, along with an IAM user which can prevent specific users from terminating production EC2 resources.", "IsAnswer": true },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Create an IAM user which is not allowed to terminate instances by leveraging production EC2 termination protection.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Create an IAM user and apply an IAM role which prevents users from terminating production EC2 instances.", "IsAnswer": false }],
+            "Explanation":"See link for more information",
+            "Ref":"http://blogs.aws.amazon.com/security/post/Tx29HCT3ABL7LP3/Resource-level-Permissions-for- EC2-Controlling-Management-Access-on-Specific-Ins"
+
+
     }
      ]
 }

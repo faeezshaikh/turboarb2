@@ -3,110 +3,82 @@
         "name": "H.A & Business Cont.",
         "logo" : "assets/img/VPC.png"
     },
-    "questions": [{
+    "questions": [
+         {
         "Id": 1,
-        "Name": "When authenticating with external Identity Providers (eg. Google) which of the following are the correct sequence of steps?",
-        
+        "Name": "You have deployed a web application, targeting a global audience across multiple AWS Regions under the domain name cloudpros.com. You decide to use Route53 Latency-Based Routing to serve web requests to users from the region closest to the user. To provide business continuity in the event of server downtime you configure weighted record sets associated with two web servers in separate Availability Zones per region. During a DR test you notice that when you disable all web servers in one of the regions Route53 does not automatically direct all users to the other region. What could be happening? Choose 2 answers", 
+        "Tag":"ha",
         "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "1) A user logs in to the AWS platform using their Google credentials. 2) AWS authenticate with Google to check the credentials. 3) Temporary Security Access is granted to AWS.", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "1) A user authenticates with Google first. They are then given an ID token by Google. An API call called AssumeRoleWithWebIdentity is then used in conjunction with the ID token. A user is then granted temporary security credentials.", "IsAnswer": true },
-            { "Id": 1057, "QuestionId": 1010, "Name": "Google users cannot use their credentials to access the AWS platform.", "IsAnswer": false},
-            { "Id": 1058, "QuestionId": 1010, "Name": "1) A user makes the AssumeRoleWithWebIdentity API Call. 2) The user is then redirected to Google to authenticate. 3) Once authenticated the user is given an ID token. 4) The user is then granted temporary access to the AWS platform.", "IsAnswer": false }]
+            { "Id": 1055, "QuestionId": 1010, "Name": "You did not set 'Evaluate Target Health' to 'Yes' on the latency alias resource record set associated with example.com in the region where you disabled the servers", "IsAnswer": true },
+            { "Id": 1056, "QuestionId": 1010, "Name": "The value of the weight associated with the latency alias resource record set in the region with the disabled servers is higher than the weight for the other region", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "One of the two working web servers in the other region did not pass its HTTP health check", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Latency resource record sets cannot be used in combination with weighted resource record sets", "IsAnswer": false },
+            { "Id": 1059, "QuestionId": 1010, "Name": "You did not setup an HTTP health check for one or more of the weighted resource record sets associated with the disabled web servers", "IsAnswer": true }],
+            "Explanation":"For both latency alias resource record sets, you set the value of “Evaluate Target Health” to Yes. You use the Evaluate Target Health setting for each latency alias resource record set to make Amazon Route 53 evaluate the health of the alias targets—the weighted resource record sets— and respond accordingly.",
+            "Ref":"http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-complex-configs.html"
+
     },
-    {
+
+      {
         "Id": 2,
-        "Name": "The AWS sign-in endpoint for SAML is https://signin.aws.amazon.com/saml", 
-        
+        "Name": "An international company has deployed a multi-tier web application that relies on DynamoDB in a single region. For regulatory reasons they need disaster recovery capability in a separate region with a Recovery Time Objective of 2 hours and a Recovery Point Objective of 24 hours. They should synchronize their data on a regular basis and be able to provision the web application rapidly using CloudFormation. The objective is to minimize changes to the existing web application, control the throughput of DynamoDB used for the synchronization of data, and synchronize only the modified elements. Which design would you choose to meet these requirements?", 
+        "Tag":"ha",
         "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
-            { "Id": 1057, "QuestionId": 1010, "Name": "False", "IsAnswer": false }]
-        
+            { "Id": 1055, "QuestionId": 1010, "Name": "Use AWS Data Pipeline to schedule a DynamoDB cross region copy once a day, create a 'LastUpdated' attribute in your DynamoDB table that would represent the timestamp of the last update and use it as a filter", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Use AWS Data Pipeline to schedule an export of the DynamoDB table to S3 in the current region once a day, then schedule another task immediately after it that will import data from S3 to DynamoDB in the other region", "IsAnswer": true },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Use EMR and write a custom script to retrieve data from DynamoDB in the current region using a SCAN operation and push it to DynamoDB in the second region", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Send also each write into an SQS queue in the second region, use an auto-scaling group behind the SQS queue to replay the write in the second region", "IsAnswer": false }],
+            "Explanation":"Export of dynamo DB is incremental and it will amend the backup with latest changes."
+
     },
-    {
+      {
         "Id": 3,
-        "Name": "When federating with Active Directory for single-sign on, which of the following is the correct sequence of steps?", 
-        
+        "Name": "Your company currently has a 2-tier web application running in an on-premises data center. You have experienced several infrastructure failures in the past few months resulting in significant financial losses. Your CIO is strongly considering moving the application to AWS. While working on achieving buy-In from the other company executives, he asks you to develop a disaster recovery plan to help improve business continuity in the short term. He specifies a target Recovery Time Objective (RTO) of 4 hours and a Recovery Point Objective (RPO) of 1 hour or less. He also asks you to implement the solution within 2 weeks. Your database is 200GB in size and you have a 20Mbps Internet connection. How would you do this while minimizing costs?", 
+        "Tag":"ha",
         "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "1) The user navigates to ADFS webserver, 2) The user enter in their single sign on credentials, 3) The user's web browser receives a SAML assertion from the AD server, 4) The user's browser then posts the SAML assertion to the AWS SAML end point for SAML and the GiveUserSAMLAccess API request is used to request temporary security credentials. 5) The user is then able to access the AWS Console.", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "1) The user navigates to the AWS console, 2) The user enter in their active directory single sign on credentials in to AWS, 3) The user's web browser receives a SAML assertion from AWS, 4) The user is then able to access the AWS Console.", "IsAnswer": false },
-            { "Id": 1057, "QuestionId": 1010, "Name": "1) The user navigates to ADFS webserver, 2) The user enter in their single sign on credentials, 3) The user's web browser receives a SAML assertion from the AD server, 4) The user's browser then posts the SAML assertion to the AWS SAML end point for SAML and the AssumeRoleWithSAML API request is used to request temporary security credentials. 5) The user is then able to access the AWS Console.", "IsAnswer": true },
-            { "Id": 1058, "QuestionId": 1010, "Name": "1) The user navigates to ADFS webserver, 2) The user enter in their single sign on credentials, 3) The user's browser then posts the SAML assertion to the AWS SAML end point for SAML and the AssumeRoleWithSAML API request is used to request temporary security credentials. 4) The user's web browser receives a SAML assertion from the AD server. 5) The user is then able to access the AWS Console.", "IsAnswer": false }]
-        
+            { "Id": 1055, "QuestionId": 1010, "Name": "Create an EBS backed private AMI which includes a fresh install of your application. Develop a CloudFormation template which includes your AMI and the required EC2, AutoScaling, and ELB resources to support deploying the application across Multiple-Availability-Zones. Asynchronously replicate transactions from your on-premises database to a database instance in AWS across a secure VPN connection.", "IsAnswer": true},
+            { "Id": 1056, "QuestionId": 1010, "Name": "Deploy your application on EC2 instances within an Auto Scaling group across multiple availability zones. Asynchronously replicate transactions from your on-premises database to a database instance in AWS across a secure VPN connection.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Create an EBS backed private AMI which includes a fresh install of your application. Setup a script in your data center to backup the local database every 1 hour and to encrypt and copy the resulting file to an S3 bucket using multi-part upload.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Install your application on a compute-optimized EC2 instance capable of supporting the application's average load. Synchronously replicate transactions from your on-premises database to a database instance in AWS across a secure Direct Connect connection.", "IsAnswer": false }]
+
     },
-    {
+      {
         "Id": 4,
-        "Name": "You can associate only one IAM role with an EC2 instance", 
-        
+        "Name": "You would like to create a mirror image of your production environment in another region for disaster recovery purposes. Which of the following AWS resources do not need to be recreated in the second region? Choose 2 answers.", 
+        "Tag":"ha",
         "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
-            { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }]
-        
+            { "Id": 1055, "QuestionId": 1010, "Name": "Route53 Record Sets", "IsAnswer": true },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Launch Configurations", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "EC2 Key Pairs", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Security Groups", "IsAnswer": false },
+            { "Id": 1059, "QuestionId": 1010, "Name": "IAM Roles", "IsAnswer": true },
+            { "Id": 1060, "QuestionId": 1010, "Name": "Elastic IP Addresses (EIP)", "IsAnswer": false }]
+
     },
-    {
+     
+      {
         "Id": 5,
-        "Name": "Which operation should you call to request temporary security credentials from the AWS platform when federating with Active Directory", 
-        
+        "Name": "Your company runs a customer facing event registration site. This site is built with a 3-tier architecture with web and application tier servers and a MySQL database. The application requires 6 web tier servers and 6 application tier servers for normal operation, but can run on a minimum of 65% server capacity and a single MySQL database. When deploying this application in a region with three availability zones (AZs), which architecture provides high availability?", 
+        "Tag":"ha",
         "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "GetRoleWithSAML", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "AssumeRoleWithSAML", "IsAnswer": true },
-            { "Id": 1057, "QuestionId": 1010, "Name": "AssumeRole", "IsAnswer": false },
-            { "Id": 1058, "QuestionId": 1010, "Name": "SAMLObtainRole", "IsAnswer": false}]
-        
+            { "Id": 1055, "QuestionId": 1010, "Name": "A web tier deployed across 2 AZs with 3 EC2 (Elastic Compute Cloud) instances in each A2 inside an Auto Scaling Group behind an ELB (elastic load balancer), and an application tier deployed across 2 AZs with 3 EC2 instances In each AZ inside an Auto Scaling Group behind an ELB, and one RDS (Relational Database Service) instance deployed with read replicas in the other AZ.", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "A web tier deployed across 3 AZs with 2 EC2 (Elastic Compute Cloud) instances in each AZ inside an Auto Scaling Group behind an ELB (elastic load balancer), and an application tier deployed across 3 AZs with 2 EC2 instances In each AZ inside an Auto Scaling Group behind an ELB, and a Multi-AZ RDS (Relational Database Service) deployment.", "IsAnswer": true },
+            { "Id": 1057, "QuestionId": 1010, "Name": "A web tier deployed across 2 AZs with 3 EC2 (Elastic Compute Cloud) instances in each AZ inside an Auto Scaling Group behind an ELB (elastic load balancer), and an application tier deployed across 2 AZs with 3 EC2 instances in each AZ inside an Auto Scaling Group behind an ELB, and a Multi-AZ RDS (Relational Database Service) deployment", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "A web tier deployed across 3 AZs with 2 EC2 (Elastic Compute Cloud) instances in each AZ inside an Auto Scaling Group behind an ELB (elastic load balancer), and an application tier deployed across 3 AZs with 2 EC2 instances in each AZ inside an Auto Scaling Group behind an ELB, and one RDS (Relational Database Service) instance deployed with read replicas in the two other AZs.", "IsAnswer": false }],
+        "Explanation":"You need 3 AZs with 2 EC2 instances in each AZ, so that if one AZ goes down you have 6 out of 9 (66.66%) availability all the time. And for high-availability you need multi-AZ RDS. See link for more information",
+        "Ref":"http://highscalability.com/blog/2016/1/11/a-beginners-guide-to-scaling-to-11-million-users-on-amazons.html"
+
     },
-    {
+      {
         "Id": 6,
-        "Name": "You have to call this API to obtain temporary security credentials when authenticating with external Identity Providers", 
-        
+        "Name": "An ERP application is deployed across multiple AZs in a single region. In the event of failure, the Recovery Time Objective (RTO) must be less than 3 hours, and the Recovery Point Objective (RPO) must be 15 minutes. The customer realizes that data corruption occurred roughly 1.5 hours ago. What DR strategy could be used to achieve this RTO and RPO in the event of this kind of failure?", 
+        "Tag":"ha",
         "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "GetRoleWithWebIdentity", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "GetRole", "IsAnswer": false },
-            { "Id": 1057, "QuestionId": 1010, "Name": "AssumeRoleWithWebIdentityProvider", "IsAnswer": false },
-            { "Id": 1058, "QuestionId": 1010, "Name": "AssumeRoleWithWebIdentity", "IsAnswer": true }]
-        
-    },
-    {
-        "Id": 7,
-        "Name": "Which of the followig feature allows your users to authenticate using Google or Facebook?", 
-        
-        "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "Web Identification Services", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "Web Identity Federation", "IsAnswer": true },
-            { "Id": 1057, "QuestionId": 1010, "Name": "Active Directory Authentication Services", "IsAnswer": false },
-            { "Id": 1058, "QuestionId": 1010, "Name": "Third Party Federation", "IsAnswer": false }]
-        
-    },
-    {
-        "Id": 8,
-        "Name": "Your EC2 instance needs to access the image files in your S3 bucket. What is the best way to arrange access for this?", 
-        
-        "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "Use CLI and save the security id and key in an encrypted file under the /etc folder on your EC2 instance", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "Write a java client using the AWS Java SDK and access the security id and key from a properties file stored under the /etc folder", "IsAnswer": false},
-            { "Id": 1057, "QuestionId": 1010, "Name": "Create an IAM role that has full access to S3 and assign this role to the EC2 instance", "IsAnswer": true },
-            { "Id": 1058, "QuestionId": 1010, "Name": "An EC2 instance cannot access files in a S3 bucket", "IsAnswer": false }]
-    },
-    {
-        "Id": 9,
-        "Name": "Which of the following is NOT supported by IAM?", 
-        "Explanation": "sdfdsfsdf",
-        "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "Integration with Identity Providers and with existing active directory accounts", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "Fine-grained access control to AWS resources", "IsAnswer": false },
-            { "Id": 1057, "QuestionId": 1010, "Name": "Finger printing authentication", "IsAnswer": true },
-            { "Id": 1058, "QuestionId": 1010, "Name": "Centralised control of your AWS account", "IsAnswer": false }]
-        
-    },
-    {
-        "Id": 10,
-        "Name": "Which of these best describes IAM.",
-        "Explanation": "sdfdsfsdf",
-        "Ref": "http://www.cnn.com",
-        "Options": [
-         { "Id": 1055, "QuestionId": 1010, "Name": "IAM allows you to manage users passwords only. AWS staff must create new users for your organisation. This is done by raising a ticket.", "IsAnswer": false },
-         { "Id": 1056, "QuestionId": 1010, "Name": "IAM stands for Innovative Application Management and it allows you to deploy and manage applications in the AWS Cloud.", "IsAnswer": false },
-            { "Id": 1057, "QuestionId": 1010, "Name": "IAM allows you to manage permissions for AWS resources only.", "IsAnswer": false },
-            { "Id": 1058, "QuestionId": 1010, "Name": "IAM allows you to manage users, groups and roles and their corresponding level of access to the AWS Platform.", "IsAnswer": true }]
-        
+            { "Id": 1055, "QuestionId": 1010, "Name": "Take 15 minute DB backups stored in Glacier with transaction logs stored in S3 every 5 minutes.", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Use synchronous database master-slave replication between two availability zones.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Take hourly DB backups to EC2 instance store volumes with transaction logs stored In S3 every 5 minutes.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Take hourly DB backups to S3, with transaction logs stored in S3 every 5 minutes.", "IsAnswer": true}]
+
     }
      ]
 }
