@@ -1,18 +1,83 @@
-<!--
-  Generated template for the Videos page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>videos</ion-title>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Video Resources</ion-title>
+  <!--<ion-buttons end>
+      <button ion-button icon-only (click)="reorderNow()">
+        <ion-icon [name]="reorderIcon"></ion-icon>
+      </button>
+    </ion-buttons>-->
   </ion-navbar>
-
+  
 </ion-header>
 
-
 <ion-content padding>
+
+
+ <ion-card>
+
+  <div class="video-container">
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/n6eL9W1Go08" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <ion-item>
+    <ion-icon name="football" item-left large></ion-icon>
+    <h2>Hybrid Architectures</h2>
+    <p>AWS June Webinar Series </p>
+    <p>Deep dive: Hybrid Architectures</p>
+  </ion-item>
+
+  <ion-item>
+    <span item-left>53 mins</span>
+     <ion-badge color="secondary" item-right>Design & Arhitecture</ion-badge>
+  </ion-item>
+
+</ion-card>
+
+
+
+
+ <ion-card>
+
+  <div class="video-container">
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/WrvjEHeh_-Y" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <ion-item>
+    <ion-icon name="football" item-left large></ion-icon>
+    <h2>Security using CloudTrail</h2>
+    <p>AWS July Webinar Series - Deep Dive</p>
+    <p>Troubleshooting Operational and Security using CloudTrail</p>
+  </ion-item>
+
+  <ion-item>
+    <span item-left>57 mins</span>
+     <ion-badge color="danger" item-right>Security</ion-badge>
+  </ion-item>
+
+</ion-card>
+
+
+  <ion-card>
+
+  <div class="video-container">
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/Jqzw5Wxw9Lo" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <ion-item>
+    <ion-icon name="football" item-left large></ion-icon>
+    <h2>Storage Gateway</h2>
+    <p>Deep Dive on the AWS Storage Gateway</p>
+    <p> April 2017 AWS Online Tech Talks</p>
+  </ion-item>
+
+  <ion-item>
+    <span item-left>33 min</span>
+     <ion-badge item-right>Data Storage</ion-badge>
+  </ion-item>
+
+</ion-card>
+
+
+
 
 </ion-content>
