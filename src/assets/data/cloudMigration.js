@@ -107,5 +107,18 @@
         "Explanation":"Create NAT instance in public subnet which is web server subnet (suDnet-258Dc44d) and add route (rtD-238Dc44D) from private subnet (database subnet-9189c6f9) to the public NAT one to retrieve the updates."
 
     }
+     ,
+     {
+        "Id": 10,
+        "Name": "You are tasked with moving a legacy application from a virtual machine running inside your datacenter to an Amazon VPC. Unfortunately, this app requires access to a number of on- premises services and no one who configured the app still works for your company. Even worse, there's no documentation for it. What will allow the application running inside the VPC to reach back and access its internal dependencies without being reconfigured? Choose 3 answers", 
+        "Tag":"CloudMigration",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "A VM Import of the current virtual machine.", "IsAnswer": true },
+            { "Id": 1056, "QuestionId": 1010, "Name": "An Internet Gateway to allow a VPN connection.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Entries in Amazon Route 53 that allow the Instance to resolve its dependencies' IP addresses", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "An IP address space that does not conflict with the one on-premises", "IsAnswer": true },
+            { "Id": 1058, "QuestionId": 1010, "Name": "An Elastic IP address on the VPC instance", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "An AWS Direct Connect link between the VPC and the network housing the internal services", "IsAnswer": true }]
+    } 
      ]
 }

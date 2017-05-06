@@ -90,5 +90,30 @@
             "Ref":"http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html"
 
     } 
+     ,
+     {
+        "Id": 7,
+        "Name": "A corporate web application is deployed within an Amazon Virtual Private Cloud (VPC), and is connected to the corporate data center via an IPsec VPN. The application must authenticate against the on- premises LDAP server. After authentication, each logged-in user can only access an Amazon Simple Storage Space (S3) keyspace specific to that user. Which two approaches can satisfy these objectives? Choose 2 answers", 
+        "Tag":"Deployment",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "The application authenticates against IAM Security Token Service using the LDAP credentials. The application uses those temporary AWS security credentials to access the appropriate S3 bucket.", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Develop an identity broker that authenticates against LDAP, and then calls IAM Security Token Service to get IAM federated user credentials. The application calls the Identity broker to get IAM federated user credentials with access to the appropriate S3 bucket.", "IsAnswer": true },
+            { "Id": 1057, "QuestionId": 1010, "Name": "The application authenticates against LDAP, and retrieves the name of an IAM role associated with the user. The application then calls the IAM Security Token Service to assume that IAM role. The application can use the temporary credentials to access the appropriate S3 bucket.", "IsAnswer": true },
+            { "Id": 1058, "QuestionId": 1010, "Name": "The application authenticates against LDAP. The application then calls the AWS Identity and Access Management (IAM) Security Service to log in to IAM using the LDAP credentials. The application can use the IAM temporary credentials to access the appropriate S3 bucket.", "IsAnswer": false },
+            { "Id": 1059, "QuestionId": 1010, "Name": "Develop an identity broker that authenticates against IAM Security Token Service to assume an IAM role in order to get temporary AWS security credentials. The application calls the identity broker to get AWS temporary security credentials with access to the appropriate S3 bucket.", "IsAnswer": false }],
+            "Explanation":"Imagine that in your organization, you want to provide a way for users to copy data from their computers to a backup folder. You build an application that users can run on their computers. On the back end, the application reads and writes objects in an S3 bucket. Users don’t have direct access to AWS. Instead, the application communicates with an identity provider (IdP) to authenticate the user. The IdP gets the user information from your organization’s identity store (such as an LDAP directory) and then generates a SAML assertion that includes authentication and authorization information about that user. The application then uses that assertion to make a call to the AssumeRoleWithSAML API to get temporary security credentials. The app can then use those credentials to access a folder in the S3 bucket that’s specific to the user.",
+            "Ref":"http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html"
+    }
+    ,
+     {
+        "Id": 8,
+        "Name": "You've been hired to enhance the overall security posture for a very large e-commerce site. They have a well architected, multi-tier application running in a VPC that uses ELBs in front of both the web and the app tier with static assets served directly from S3. They are using a combination of RDS and DynamoDB for their dynamic data and then archiving nightly into S3 for further processing with EMR. They are concerned because they found questionable log entries and suspect someone is attempting to gain unauthorized access. Which approach provides a cost effective, scalable mitigation to this kind of attack?", 
+        "Tag":"Security, Scalability, Costing",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Recommend that they lease space at a DirectConnect partner location and establish a 1G DirectConnect connection to their VPC. They would then establish Internet connectivity into their space, filter the traffic in a hardware Web Application Firewall (WAF), and then pass the traffic through the DirectConnect connection into their application running in their VPC.", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Add previously identified hostile source IPs as an explicit INBOUND DENY NACL to the web tier subnet.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Add a WAF tier by creating a new ELB and an AutoScaling group of EC2 Instances running a host-based WAF. They would redirect Route 53 to resolve to the new WAF tier ELB. The WAF tier would then pass the traffic to the current web tier. The web tier Security Groups would be updated to only allow traffic from the WAF tier Security Group.", "IsAnswer": true },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Remove all but TLS 1.2 from the web tier ELB and enable Advanced Protocol Filtering. This will enable the ELB itself to perform WAF functionality.", "IsAnswer": false }]
+    } 
      ]
 }

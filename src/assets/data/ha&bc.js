@@ -79,6 +79,18 @@
             { "Id": 1057, "QuestionId": 1010, "Name": "Take hourly DB backups to EC2 instance store volumes with transaction logs stored In S3 every 5 minutes.", "IsAnswer": false },
             { "Id": 1058, "QuestionId": 1010, "Name": "Take hourly DB backups to S3, with transaction logs stored in S3 every 5 minutes.", "IsAnswer": true}]
 
+    },
+    
+    {
+        "Id": 7,
+        "Name": "In the Pilot Light recovery strategy, the system could be failed-over by using: (select all that apply) (Choose 3)", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "An external monitoring tool and script to modify the DNS records", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Amazon Route53", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Manual failover", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "S3", "IsAnswer": false }],
+        "Explanation":"The mechanism for failover is completely up to your business and will need to adhere to your RTO and RPO requirements."
     }
      ]
 }

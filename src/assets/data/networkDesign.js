@@ -76,5 +76,18 @@
             "Ref":"http://media.amazonwebservices.com/architecturecenter/AWS_ac_ra_timeseriesprocessing_16.pdf"
 
     } 
+    ,
+     {
+        "Id": 7,
+        "Name": "You are designing a photo-sharing mobile app. The application will store all pictures in a single Amazon S3 bucket. Users will upload pictures from their mobile device directly to Amazon S3 and will be able to view and download their own pictures directly from Amazon S3. You want to configure security to handle potentially millions of users in the most secure manner possible. What should your server-side application do when a new user registers on the photo- sharing mobile application?", 
+        "Tag":"Scalability, N/w design",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Create an IAM user. Update the bucket policy with appropriate permissions for the IAM user. Generate an access key and secret key for the IAM user, store them in the mobile app and use these credentials to access Amazon S3.", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Create an IAM user. Assign appropriate permissions to the IAM user. Generate an access key and secret key for the IAM user, store them in the mobile app and use these credentials to access Amazon S3.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Create a set of long-term credentials using AWS Security Token Service with appropriate permissions. Store these credentials in the mobile app and use them to access Amazon S3.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Record the user's information in Amazon RDS and create a role in IAM with appropriate permissions. When the user uses their mobile app, create temporary credentials using the AWS Security Token Service 'AssumeRole' function. Store these credentials in the mobile app's memory and use them to access Amazon S3. Generate new credentials the next time the user runs the mobile app.", "IsAnswer": true},
+            { "Id": 1059, "QuestionId": 1010, "Name": "Record the user's information in Amazon DynamoDB. When the user uses their mobile app, create temporary credentials using AWS Security Token Service with appropriate permissions. Store these credentials in the mobile app's memory and use them to access Amazon S3. Generate new credentials the next time the user runs the mobile app.", "IsAnswer": false }],
+        "Explanation":"We can use either RDS or DynamoDB, however in our given answers, IAM role is mentioned only with RDS, so I would go with Answer B. Question was explicitly focused on security, so IAM with RDS is the best choice."
+    } 
      ]
 }

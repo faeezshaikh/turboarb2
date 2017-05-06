@@ -83,6 +83,30 @@
             "Explanation":"",
             "Ref":""
 
+    } ,
+
+     {
+        "Id": 7,
+        "Name": "You're running an application on-premises due to its dependency on non-x86 hardware and want to use AWS for data backup. Your backup application is only able to write to POSIX-compatible, block-based storage. You have 140TB of data and would like to mount it as a single folder on your file server. Users must be able to access portions of this data while the backups are taking place. What backup solution would be most appropriate for this use case?", 
+        "Tag":"Data",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Use Storage Gateway and configure it to use Gateway Cached volumes", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Use Storage Gateway and configure it to use Gateway Stored volumes", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Configure your backup software to use S3 as the target for your data backups", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Configure your backup software to use Glacier as the target for your data backups", "IsAnswer": true }],
+            "Explanation":"Rejecting other 3 options as data stored to S3 and S3 is object storage, uses a flat namespace and isn’t meant to serve as a standalone, POSIX-compliant file system. VTS shelf would have been a better option, but the question might be old. Also unclear for the need to take care of users been able to access portions of data."
     } 
+    ,
+    {
+        "Id": 8,
+        "Name": "Which of the following ports are required to be opened to run a Storage Gateway on-premise?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "443 inbound, 80, 3260 and UDP 53 outbound", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "80 inbound, 443, 3260 outbound", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "80, 443, and UDP 53 outbound", "IsAnswer": false }],
+        "Explanation":"Port 80 is only needed for activation and can be closed once that's complete.",
+        "Ref":"http://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html"
+    }
      ]
 }

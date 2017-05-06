@@ -705,17 +705,6 @@
         "Ref":"http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html"
     },
     {
-        "Id": 74,
-        "Name": "You have 20 M3.Large Reserved Instances in the us-west-1a Availability Zone and you need to introduce multi-AZ redundancy to your cloud compute infrastructure. To do this, you submit a Reserved Instances modification request to split your 20 reserved instances across the us-west-1a and us-west-1c Availability Zones. How many new Reserved Instance Requests are created?", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "None, this is a reserved instance modification request.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Two, a new Reserved instance request is created for 10 M3.Large in us-west-1a and another request is created for 10 M3.Large instances in us-west-1c.", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "One, a new request is created in the us-west-1c Availability Zone for 10 M3.Large instances.", "IsAnswer": false }],
-        "Explanation":"When you have an existing reserved instances allocation and you submit a modification request to split the footprint across multiple AZ, new Reserved Instance requests are created in each AZ to match the new footprint requirements.",
-        "Ref":"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html"
-    },
-    {
         "Id": 75,
         "Name": "In configuring Cross Account Access, which of the following presents the the necessary steps in the correct order?", 
         
@@ -738,19 +727,6 @@
         "Ref":"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modification-instancemove.html"
     },
     {
-        "Id": 77,
-        "Name": "You have 3 AWS accounts linked to use consolidated billing. Account 1 has 50TB of data stored using S3, Account 2 has 300TB and Account 3 has 100TB. All storage is standard storage and located in US East (N. Virginia). How much per month do you pay in storage costs only?", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "$13,126.50 per month", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "$13,500.00 per month", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "$13,101.00 per month", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "$13,075.50 per month", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "$13,050.00 per month", "IsAnswer": false }],
-        "Explanation":"Consolidated billing can allow you to take advantage of volume pricing discounts, in this scenario, the total sum of storage used across the 3 accounts is 450TB. The first TB is charged at $0.0300/GB, the next 49TB is $0.0295/GB, and the remaining 400TB is charged at $0.0290/GB. By consolidating the accounts, the cheaper rates are leveraged more often than if the accounts are considered separately.",
-        "Ref":"https://aws.amazon.com/s3/pricing/"
-    },
-    {
         "Id": 78,
         "Name": "You can configure AWS CloudTrail at the paying account level by configuring an S3 bucket and configuring CloudTrail on linked accounts to put logs in the paying account's S3 bucket.", 
         
@@ -770,16 +746,6 @@
         "Explanation":"Tags are a multi-purpose method for tracking and labelling resources across the AWS offerings. They are in the form of key-value pairs and can either be manually assigned or automatically assigned by other services such as Elastic Beanstalk."
     },
     {
-        "Id": 80,
-        "Name": "You have 2 AWS accounts linked to use consolidated billing. Account 1 has 4 EC2 T2.Small instances running, Account 2 has 2 EC2 T2.Small instances running and has 4 T2.Small Reserved Instances capacity. Assuming all the instances are in the same availability zone, how many on-demand instances do you have to pay for?", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "2", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "4", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "6", "IsAnswer": true }],
-        "Explanation":"Savings for unused Reserved Instances in one AWS account are applied to compatible instances running in other consolidated billing linked accounts."
-    },
-    {
         "Id": 81,
         "Name": "You have Reserved Instances of type M3.large running RedHat. You submit a modification request to change your reserved instances to two M3.medium and it's rejected. Why?", 
         
@@ -790,16 +756,6 @@
                 { "Id": 1056, "QuestionId": 1010, "Name": "You have mistakenly put through a request which asks for a modification between instance families.", "IsAnswer": false }],
         "Explanation":"Reserved instance modifications are only available for linux type instances excluding RedHat and SUSE.",
         "Ref":"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html"
-    },
-    {
-        "Id": 82,
-        "Name": "You have multiple AWS accounts linked to a paying account to make use of consolidated billing. You would like to receive an alarm when your total expenses for all accounts exceeds $1000 for a billing cycle. You will need to do which of the following?", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "Configure the same billing alert in each of the accounts you would like to monitor.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Configure a billing alert in the paying account.", "IsAnswer": true }],
-        "Explanation":"Once consolidated billing is configured, you may configure billing alerts in the paying account and the alert will be applied to the total cost from all the linked accounts. Billing alerts can still be configured for a specific account if you only require that alert to be applied to that account.",
-        "Ref":"https://aws.amazon.com/about-aws/whats-new/2012/10/19/announcing-aws-billing-alerts-for-linked-accounts/"
     },
     {
         "Id": 83,
@@ -828,16 +784,6 @@
                 { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
                 { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
         "Explanation":"Consolidated billing is not concerned with provisioning of AWS services in linked accounts and you cannot provision services on the linked accounts from the paying account."
-    },
-    {
-        "Id": 86,
-        "Name": "You require additional compute resources to run over the weekend and carry the additional load that the system will be under due to an online sale your company is running. What is the most cost-effective EC2 pricing option for this job?", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "On-Demand Instances", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Spot Instances + On-Demand Instances", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Reserved Instances (3 year contract)", "IsAnswer": false }],
-        "Explanation":"On-Demand instances are an appropriate choice for short-lived but high-availability compute requirements."
     },
     {
         "Id": 87,
@@ -919,17 +865,6 @@
                 { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }]
     },
     {
-        "Id": 95,
-        "Name": "What ports are required to be open to run Storage Gateway on-premise?", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "443 inbound, 80, 3260 and UDP 53 outbound", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "80 inbound, 443, 3260 outbound", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "80, 443, and UDP 53 outbound", "IsAnswer": false }],
-        "Explanation":"Port 80 is only needed for activation and can be closed once that's complete.",
-        "Ref":"http://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html"
-    },
-    {
         "Id": 96,
         "Name": "RDS snapshots in a multi-AZ configuration are taken from which of the following?", 
         
@@ -972,17 +907,6 @@
                 { "Id": 1056, "QuestionId": 1010, "Name": "MySQL and PostgreSQL", "IsAnswer": false }],
         "Explanation":"AWS is constantly upgrading services. At this time Read Replica Across Regions are only available for MySQL and MariaDB.",
         "Ref":"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html"
-    },
-    {
-        "Id": 100,
-        "Name": "In the Pilot Light recovery strategy, the system could be failed-over by using: (select all that apply) (Choose 3)", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "An external monitoring tool and script to modify the DNS records", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Amazon Route53", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Manual failover", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "S3", "IsAnswer": false }],
-        "Explanation":"The mechanism for failover is completely up to your business and will need to adhere to your RTO and RPO requirements."
     },
     {
         "Id": 101,

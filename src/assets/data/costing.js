@@ -54,5 +54,76 @@
             "Explanation":"The question key part to focus on is “and leverage AWS archival storage and messaging services to minimize cost.” For that the storage that is the lowest cost in the answers is Glacier, in addition, the messaging cost is less for SQS then for SNS if they both exceed 1 million transactions which is free. The only answer that satisfies the above two criteria is answer C. Also, there does not seem to be an urgency in speed of messaging therefore SQS satisfies that need. SNS being more real time delivery mechanism."
 
     }
+       ,
+     {
+        "Id": 5,
+        "Name": "You are designing a multi-platform web application for AWS. The application will run on EC2 instances and will be accessed from PCs, tablets and smart phones, supported accessing platforms are Windows, MacOS, IOS and Android. Separate sticky session and SSL certificate setups are required for different platform types. Which of the following describes the most cost effective and performance efficient architecture setup?", 
+        "Tag":"Deployment, Costing",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Setup a hybrid architecture to handle session state and SSL certificates on-prem and separate EC2 Instance groups running web applications for different platform types running in a VPC.", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Set up one ELB for all platforms to distribute load among multiple instance under it. Each EC2 instance implements all functionality for a particular platform.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Assign multiple ELBs to an EC2 Instance or group of EC2 instances running the common components of the web application. One ELB for each platform type. Session stickiness and SSL termination are done at the ELBs.", "IsAnswer": true },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Set up two ELBs. The first ELB handles SSL certificates for all platforms and the second ELB handles session stickiness for all platforms. For each ELB, run separate EC2 instance groups to handle the web application for each platform.", "IsAnswer": false }],
+        "Explanation":"One ELB cannot handle different SSL certificates but since we are using sticky sessions it must be handled at the ELB level. SSL could be handled on the EC2 instances only with TCP configured ELB, ELB supports sticky sessions only in HTTP/HTTPS configurations. The way the Elastic Load Balancer does session stickiness is on a HTTP/HTTPS listener is by utilizing an HTTP cookie. If SSL traffic is not terminated on the Elastic Load Balancer and is terminated on the back-end instance, the Elastic Load Balancer has no visibility into the HTTP headers and therefore can not set or read any of the HTTP headers being passed back and forth.",
+        "Ref":"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-sticky- sessions.html"
+    } ,
+    {
+        "Id": 6,
+        "Name": "You have 20 M3.Large Reserved Instances in the us-west-1a Availability Zone and you need to introduce multi-AZ redundancy to your cloud compute infrastructure. To do this, you submit a Reserved Instances modification request to split your 20 reserved instances across the us-west-1a and us-west-1c Availability Zones. How many new Reserved Instance Requests are created?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "None, this is a reserved instance modification request.", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Two, a new Reserved instance request is created for 10 M3.Large in us-west-1a and another request is created for 10 M3.Large instances in us-west-1c.", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "One, a new request is created in the us-west-1c Availability Zone for 10 M3.Large instances.", "IsAnswer": false }],
+        "Explanation":"When you have an existing reserved instances allocation and you submit a modification request to split the footprint across multiple AZ, new Reserved Instance requests are created in each AZ to match the new footprint requirements.",
+        "Ref":"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html"
+    }
+    ,
+    {
+        "Id": 7,
+        "Name": "You have 3 AWS accounts linked to use consolidated billing. Account 1 has 50TB of data stored using S3, Account 2 has 300TB and Account 3 has 100TB. All storage is standard storage and located in US East (N. Virginia). How much per month do you pay in storage costs only?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "$13,126.50 per month", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "$13,500.00 per month", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "$13,101.00 per month", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "$13,075.50 per month", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "$13,050.00 per month", "IsAnswer": false }],
+        "Explanation":"Consolidated billing can allow you to take advantage of volume pricing discounts, in this scenario, the total sum of storage used across the 3 accounts is 450TB. The first TB is charged at $0.0300/GB, the next 49TB is $0.0295/GB, and the remaining 400TB is charged at $0.0290/GB. By consolidating the accounts, the cheaper rates are leveraged more often than if the accounts are considered separately.",
+        "Ref":"https://aws.amazon.com/s3/pricing/"
+    }
+   ,
+    {
+        "Id": 8,
+        "Name": "You have multiple AWS accounts linked to a paying account to make use of consolidated billing. You would like to receive an alarm when your total expenses for all accounts exceeds $1000 for a billing cycle. You will need to do which of the following?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "Configure the same billing alert in each of the accounts you would like to monitor.", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Configure a billing alert in the paying account.", "IsAnswer": true }],
+        "Explanation":"Once consolidated billing is configured, you may configure billing alerts in the paying account and the alert will be applied to the total cost from all the linked accounts. Billing alerts can still be configured for a specific account if you only require that alert to be applied to that account.",
+        "Ref":"https://aws.amazon.com/about-aws/whats-new/2012/10/19/announcing-aws-billing-alerts-for-linked-accounts/"
+    }
+    ,
+    {
+        "Id": 9,
+        "Name": "You require additional compute resources to run over the weekend and carry the additional load that the system will be under due to an online sale your company is running. What is the most cost-effective EC2 pricing option for this job?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "On-Demand Instances", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Spot Instances + On-Demand Instances", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Reserved Instances (3 year contract)", "IsAnswer": false }],
+        "Explanation":"On-Demand instances are an appropriate choice for short-lived but high-availability compute requirements."
+    }
+    ,
+    {
+        "Id": 10,
+        "Name": "You have 2 AWS accounts linked to use consolidated billing. Account 1 has 4 EC2 T2.Small instances running, Account 2 has 2 EC2 T2.Small instances running and has 4 T2.Small Reserved Instances capacity. Assuming all the instances are in the same availability zone, how many on-demand instances do you have to pay for?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "2", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "4", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "6", "IsAnswer": true }],
+        "Explanation":"Savings for unused Reserved Instances in one AWS account are applied to compatible instances running in other consolidated billing linked accounts."
+    }
      ]
 }

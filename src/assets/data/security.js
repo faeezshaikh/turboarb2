@@ -88,6 +88,29 @@
             { "Id": 1057, "QuestionId": 1010, "Name": "A Token", "IsAnswer": true},
             { "Id": 1058, "QuestionId": 1010, "Name": "A duration.", "IsAnswer": true },
             { "Id": 1059, "QuestionId": 1010, "Name": "An IAM Role.", "IsAnswer": false }]
-    }
+    },
+     {
+        "Id": 9,
+        "Name": "You are designing an intrusion detection/prevention (IDS/IPS) solution for a customer web application in a single VPC. You are considering the options for Implementing IDS/IPS protection for traffic coming from the Internet. Which of the following options would you consider? Choose 2 answers", 
+        "Tag":"Security",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Implement IDS/IPS agents on each instance running in VPC.", "IsAnswer": true },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Implement Elastic Load Balancing with SSL listeners in front of the web applications.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Implement a reverse proxy layer in front of web servers, and configure IDS/IPS agents on each reverse proxy server.", "IsAnswer": true },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Configure an instance in each subnet to switch its network interface card to promiscuous mode and analyze network traffic.", "IsAnswer": false }],
+            "Explanation":"EC2 does not allow promiscuous mode, and you cannot put something in between the ELB and the web server (like a listener or IDP)"
+    }  ,
+     {
+        "Id": 10,
+        "Name": "An enterprise wants to use a third-party SaaS application. The SaaS application needs to have access to issue several API commands to discover Amazon EC2 resources running within the enterprise's account. The enterprise has internal security policies that require any outside access to their environment must conform to the principles of least privilege, and there must be controls in place to ensure that the credentials used by the SaaS vendor cannot be used by any other third party. Which of the following would meet all of these conditions:", 
+        "Tag":"Security",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Create an IAM role for cross-account access, allow the SaaS provider's account to assume the role, and assign it a policy that allows only the actions required by the SaaS application.", "IsAnswer": true },
+            { "Id": 1056, "QuestionId": 1010, "Name": "From the AWS Management Console navigate to the Security Credentials page and retrieve the access and secret key for your account.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Create an IAM role for EC2 instances, assign it a policy that allows only the actions required for the SaaS application to work, provide the role ARN to the SaaS provider to use when launching their application instances.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Create an IAM user within the enterprise account, assign a user policy to the IAM user that allows only the actions required by the SaaS application, create a new access and secret key for the user and provide these credentials to the SaaS provider.", "IsAnswer": false }],
+            "Explanation":"See link for more information",
+            "Ref":"https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html"
+    } 
      ]
 }
