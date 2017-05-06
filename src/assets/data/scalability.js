@@ -112,6 +112,16 @@
             "Explanation":"A single-node Memcached ElastiCache cluster failure is nothing but a total failure. (Even though AWS will automatically recover the failed node, there are no other nodes in the cluster).To mitigate the impact of a node failure, spread your cached data over more nodes. Because Memcached does not support replication, a node failure will always result in some data loss from your cluster. When you create your Memcached cluster you can create it with 1 to 20 nodes, or more by special request. Partitioning your data across a greater number of nodes means you’ll lose less data if a node fails. For example, if you partition your data across 10 nodes, any single node stores approximately 10% of your cached data. In this case, a node failure loses approximately 10% of your cache which needs to be replaced when a replacement node is created and provisioned. To mitigate the impact of an availability zone failure, locate your nodes in as many availability zones as possible. In the unlikely event of an AZ failure, you will lose only the data cached in that AZ, not the data cached in the other AZs.",
             "Ref":"http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/BestPractices.html"
 
-    }
+    },
+     {
+        "Id": 10,
+        "Name": "Your company is in the process of developing a next generation pet collar that collects biometric information to assist families with promoting healthy lifestyles for their pets. Each collar will push 30kb of biometric data in JSON format every 2 seconds to a collection platform that will process and analyze the data providing health trending information back to the pet owners and veterinarians via a web portal. Management has tasked you to architect the collection platform ensuring the following requirements are met:  1) Provide the ability for real-time analytics of the inbound biometric data 2) Ensure processing of the biometric data is highly durable, elastic and parallel 3) The results of the analytic processing should be persisted for data mining. Which architecture outlined below will meet the initial requirements for the collection platform?", 
+        "Tag":"scalability",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Utilize Amazon Kinesis to collect the inbound sensor data, analyze the data with Kinesis clients and save the results to a Redshift cluster using EMR.", "IsAnswer": true},
+            { "Id": 1056, "QuestionId": 1010, "Name": "Utilize SQS to collect the inbound sensor data, analyze the data from SQS with Amazon Kinesis and save the results to a Microsoft SQL Server RDS Instance.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Utilize S3 to collect the inbound sensor data, analyze the data from S3 with a daily scheduled Data Pipeline and save the results to a Redshift Cluster.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Utilize EMR to collect the inbound sensor data, analyze the data from EMR with Amazon Kinesis and save the results to DynamoDB.", "IsAnswer": false }]
+    } 
      ]
 }
