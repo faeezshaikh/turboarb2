@@ -24,7 +24,16 @@
             { "Id": 1058, "QuestionId": 1010, "Name": "1) The user navigates to ADFS webserver, 2) The user enter in their single sign on credentials, 3) The user's browser then posts the SAML assertion to the AWS SAML end point for SAML and the AssumeRoleWithSAML API request is used to request temporary security credentials. 4) The user's web browser receives a SAML assertion from the AD server. 5) The user is then able to access the AWS Console.", "IsAnswer": false }]
         
     },
-    
+    {
+        "Id": 4,
+        "Name": "What is NTP Amplification?", 
+        
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "When the attacker sends a flood of requests to a target server from multiple machines.", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "When the attacker sends a spoofed target return address to an NTP server which responds with large amounts of information.", "IsAnswer": true },
+            { "Id": 1057, "QuestionId": 1010, "Name": "When the attacker spoofs the address of an NTP server causing the target to reach a malicious NTP server.", "IsAnswer": false }]
+        
+    },
     {
         "Id": 5,
         "Name": "To avoid DDoS you should design your infrastructure to scale.", 
@@ -55,7 +64,16 @@
         "Explanation": "CloudTrail is monitoring for AWS API calls only. You should use CloudWatch if you want to monitor instance logs."
         
     },
-   
+    {
+        "Id": 8,
+        "Name": "Which of the following is true about CloudHSM (Choose 3):", 
+        
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "It is Single-Tenanted", "IsAnswer": true },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Must be used within a VPC", "IsAnswer": true},
+            { "Id": 1057, "QuestionId": 1010, "Name": "Is compatible with RDS", "IsAnswer": true },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Not compatible with VPC peering", "IsAnswer": false }]
+    },
     {
         "Id": 9,
         "Name": "To ensure that your Amazon CloudHSM encryption keys are not lost you must run a cluster (more than one instance).", 
@@ -76,7 +94,7 @@
     },
     {
         "Id": 11,
-        "Name": "Which of the following best describes Identity Federation?",
+        "Name": "Federation is defined as:",
         "Options": [
            { "Id": 1055, "QuestionId": 1010, "Name": "Combining or joining a list of users in one domain to users in another domain", "IsAnswer": true },
             { "Id": 1056, "QuestionId": 1010, "Name": "A service which takes a user from point A and joins it to a user at point B", "IsAnswer": false },
@@ -85,7 +103,7 @@
     },
     {
         "Id": 12,
-        "Name": "Which of the following best describes an Identity Broker?",
+        "Name": "An Identity Broker is defined as:",
         "Options": [
            { "Id": 1055, "QuestionId": 1010, "Name": "Combining or joining a list of users in one domain to users in another domain", "IsAnswer": false},
             { "Id": 1056, "QuestionId": 1010, "Name": "A service which takes a user from point A and joins it to a user at point B", "IsAnswer": true },
@@ -109,7 +127,26 @@
             { "Id": 1056, "QuestionId": 1010, "Name": "An IPS", "IsAnswer": true }],
             "Explanation":"An Intrusion Prevention System will detect AND prevent attacks, where as an Intrusion Detection System will only detect intrusions and alert about them."
     },
-  
+    {
+        "Id": 15,
+        "Name": "Which of the following measure should you take to mitigate against web application DDoS attacks?",
+        "Options": [
+           { "Id": 1055, "QuestionId": 1010, "Name": "Switch to a backup web server when the attack occurs.", "IsAnswer": false},
+            { "Id": 1056, "QuestionId": 1010, "Name": "Include a WAF as part of your network infrastructure.", "IsAnswer": true },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Run multiple instances under different domain names and redirect traffic to the second instance when traffic exeeds capacity on the first instance.", "IsAnswer": false }],
+            "Explanation":"A WAF should be used",
+            "Ref":"https://d0.awsstatic.com/whitepapers/DDoS_White_Paper_June2015.pdf"
+    },
+    {
+        "Id": 16,
+        "Name": "Which of the following describes a Layer 7 attack?",
+        "Options": [
+           { "Id": 1055, "QuestionId": 1010, "Name": "When the attacker sends a flood of requests to a target server from multiple machines.", "IsAnswer": true},
+            { "Id": 1056, "QuestionId": 1010, "Name": "When the attacker sends a spoofed target return address to an NTP server which responds with large amounts of information.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "When the attacker spoofs the address of an NTP server causing the target to reach a malicious NTP server.", "IsAnswer": false }],
+            "Explanation":"Its a flood of requests sent to a target server from multiple machines.",
+            "Ref":"https://d0.awsstatic.com/whitepapers/DDoS_White_Paper_June2015.pdf"
+    },
     {
         "Id": 17,
         "Name": "Which of the following best describes an Identity Store?",
@@ -118,6 +155,17 @@
             { "Id": 1056, "QuestionId": 1010, "Name": "A service which takes a user from point A and joins it to a user at point B", "IsAnswer": false },
             { "Id": 1057, "QuestionId": 1010, "Name": "A service like Active Directory, Amazon, Google etc.", "IsAnswer": false },
             { "Id": 1058, "QuestionId": 1010, "Name": "A user of a service such as Google", "IsAnswer": true }]
+    },
+    {
+        "Id": 18,
+        "Name": "AWS Security Token Service returns what values upon request for a federated token? (Choose 4)",
+        
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Access Key ID.", "IsAnswer": true },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Secret Access Key.", "IsAnswer": true },
+            { "Id": 1057, "QuestionId": 1010, "Name": "A Token", "IsAnswer": true},
+            { "Id": 1058, "QuestionId": 1010, "Name": "A duration.", "IsAnswer": true },
+            { "Id": 1059, "QuestionId": 1010, "Name": "An IAM Role.", "IsAnswer": false }]
     },
     {
         "Id": 19,
