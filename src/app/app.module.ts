@@ -15,6 +15,7 @@ import { ExamStartingModal} from '../modals/examStartingModal';
 import { IonicStorageModule } from '@ionic/storage';
 import { SimpleTimer } from 'ng2-simple-timer';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { VideosPage } from '../pages/videos/videos';
 
 import {
   CognitoUtil,
@@ -49,7 +50,8 @@ import {EventsService} from "../providers/events.service";
     ConfirmRegistrationPage,
     ResendCodePage,
     ForgotPasswordStep1Page,
-    ForgotPasswordStep2Page
+    ForgotPasswordStep2Page,
+    VideosPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -69,7 +71,8 @@ import {EventsService} from "../providers/events.service";
     ConfirmRegistrationPage,
     ResendCodePage,
     ForgotPasswordStep1Page,
-    ForgotPasswordStep2Page
+    ForgotPasswordStep2Page,
+    VideosPage
 
   ],
   providers: [

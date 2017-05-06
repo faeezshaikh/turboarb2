@@ -104,67 +104,74 @@
     } 
     ,
      {
-        "Id": 2,
-        "Name": "", 
-        "Tag":"",
+        "Id": 51,
+        "Name": "Your company has recently extended its datacenter into a VPC on AWS to add burst computing capacity as needed. Members of your Network Operations Center need to be able to go to the AWS Management Console and administer Amazon EC2 instances as necessary. You don't want to create new IAM users for each NOC member and make those users sign in again to the AWS Management Console. Which option below will meet the needs for your NOC members?", 
+        "Tag":"Security",
         "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "", "IsAnswer": false },
-            { "Id": 1057, "QuestionId": 1010, "Name": "", "IsAnswer": false },
-            { "Id": 1058, "QuestionId": 1010, "Name": "", "IsAnswer": false }]
+            { "Id": 1055, "QuestionId": 1010, "Name": "Use your on-premises SAML 2.0-compliant identity provider (IdP) to grant the NOC members federated access to the AWS Management Console via the AWS single sign-on (SSO) endpoint.", "IsAnswer": true },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Use Web Identity Federation to retrieve AWS temporary security credentials to enable your NOC members to sign in to the AWS Management Console.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Use your on-premises SAML 2.0-compllant identity provider (IdP) to retrieve temporary security credentials to enable NOC members to sign in to the AWS Management Console.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Use OAuth 2.0 to retrieve temporary AWS security credentials to enable your NOC members to sign in to the AWS Management Console.", "IsAnswer": false }],
+            "Explanation":"Use SAML 2.0 for Single Sigon. See link for more information",
+            "Ref":"http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html"
     } 
     ,
      {
-        "Id": 2,
-        "Name": "", 
-        "Tag":"",
+        "Id": 52,
+        "Name": "Your fortune 500 company has under taken a TCO analysis evaluating the use of Amazon S3 versus acquiring more hardware. The outcome was that all employees would be granted access to use Amazon S3 for storage of their personal documents. Which of the following will you need to consider so you can set up a solution that incorporates single sign-on from your corporate AD or LDAP directory and restricts access for each user to a designated user folder in a bucket? Choose 3 answers", 
+        "Tag":"Security",
         "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "", "IsAnswer": false },
-            { "Id": 1057, "QuestionId": 1010, "Name": "", "IsAnswer": false },
-            { "Id": 1058, "QuestionId": 1010, "Name": "", "IsAnswer": false }]
+            { "Id": 1055, "QuestionId": 1010, "Name": "Using AWS Security Token Service to generate temporary tokens.", "IsAnswer": true },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Setting up a matching IAM user for every user in your corporate directory that needs access to a folder in the bucket.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Tagging each folder in the bucket.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Configuring an IAM role.", "IsAnswer": true },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Setting up a federation proxy or identity provider.", "IsAnswer": true }]
     } ,
      {
-        "Id": 2,
-        "Name": "", 
-        "Tag":"",
+        "Id": 53,
+        "Name": "An administrator is using Amazon CloudFormation to deploy a three tier web application that consists of a web tier and application tier that will utilize Amazon DynamoDB for storage. When creating the CloudFormation template which of the following would allow the application Instance access to the DynamoDB tables without exposing API credentials?", 
+        "Tag":"Deployment, Security, N/w?",
         "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "", "IsAnswer": false },
-            { "Id": 1057, "QuestionId": 1010, "Name": "", "IsAnswer": false },
-            { "Id": 1058, "QuestionId": 1010, "Name": "", "IsAnswer": false }]
+            { "Id": 1055, "QuestionId": 1010, "Name": "Create an Identity and Access Management Role that has the required permissions to read and write from the .required DynamoDB table and associate the Role to the application instances by referencing an instance profile.", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Create an Identity and Access Management Role that has the required permissions to read and write from the required DynamoDB table and reference the Role in the instance profile property of the application instance.", "IsAnswer": true },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Use the Parameter section in the CloudFormation template to have the user input Access and Secret keys from an already created IAM user that has the permissions required to read and write from the required DynamoDB table.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Create an Identity and Access Management user in the CloudFormation template that has permissions to read and write from the required DynamoDB table, use the GetAtt function to retrieve the Access and Secret keys and pass them to the application instance through user-data.", "IsAnswer": false }]
     } 
     ,
      {
-        "Id": 2,
-        "Name": "", 
-        "Tag":"",
+        "Id": 54,
+        "Name": "What is the maximum write throughput that can be provisioned for a single Dynamic DB table?", 
+        "Tag":"Data",
         "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "", "IsAnswer": false },
-            { "Id": 1057, "QuestionId": 1010, "Name": "", "IsAnswer": false },
-            { "Id": 1058, "QuestionId": 1010, "Name": "", "IsAnswer": false }]
+            { "Id": 1055, "QuestionId": 1010, "Name": "1,000 write capacity units", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "100,000 write capacity units", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Dynamic DB is designed to scale without limits, but if you go beyond 10,000 you have to contact AWS first.", "IsAnswer": true },
+            { "Id": 1058, "QuestionId": 1010, "Name": "10,000 write capacity units", "IsAnswer": false }],
+            "Explanation":"See link for more info",
+            "Ref":"https://aws.amazon.com/dynamodb/faqs/"
     } 
     ,
      {
-        "Id": 2,
-        "Name": "", 
-        "Tag":"",
+        "Id": 55,
+        "Name": "An AWS customer is deploying an application that is composed of an AutoScaling group of EC2 instances. The customers security policy requires that every outbound connection from these instances to any other service within the customers Virtual Private Cloud must be authenticated using a unique X.509 certificate that contains the specific Instance-id. In addition, all X.509 certificates must be signed by the customer's key management service in order to be trusted for authentication. Which of the following configurations will support these requirements:", 
+        "Tag":"Security",
         "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "", "IsAnswer": false },
-            { "Id": 1057, "QuestionId": 1010, "Name": "", "IsAnswer": false },
-            { "Id": 1058, "QuestionId": 1010, "Name": "", "IsAnswer": false }]
+            { "Id": 1055, "QuestionId": 1010, "Name": "Configure an IAM Role that grants access to an Amazon S3 object containing a signed certificate and configure the Auto Scaling group to launch instances with this role. Have the instances bootstrap get the certificate from Amazon S3 upon first boot.", "IsAnswer": true },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Configure the Auto Scaling group to send an SNS notification of the launch of a new instance to the trusted key management service. Have the key management service generate a signed certificate and send it directly to the newly launched instance.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Embed a certificate into the Amazon Machine Image that is used by the Auto Scaling group. Have the launched instances generate a certificate signature request with the Instance's assigned instance-id to the key management service for signature.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Configure the launched instances to generate a new certificate upon first boot. Have the key management service poll the AutoScaling group for associated instances and send new instances a certificate signature that contains the specific Instance-id.", "IsAnswer": false }]
     } ,
      {
-        "Id": 2,
-        "Name": "", 
-        "Tag":"",
+        "Id": 56,
+        "Name": "You are looking to migrate your Development (Dev) and Test environments to AWS. You have decided to use separate AWS accounts to host each environment. You plan to link each account's bill to a Master AWS account using Consolidated Billing. To make sure you keep within budget you would like to implement a way for administrators in the Master account to have access to stop, delete and/or terminate resources in both the Dev and Test accounts. Identify which option will allow you to achieve this goal.", 
+        "Tag":"Costing",
         "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "", "IsAnswer": false },
-            { "Id": 1057, "QuestionId": 1010, "Name": "", "IsAnswer": false },
-            { "Id": 1058, "QuestionId": 1010, "Name": "", "IsAnswer": false }]
+            { "Id": 1055, "QuestionId": 1010, "Name": "Create IAM users in the Master account with full Admin permissions. Create cross-account roles in the Dev and Test accounts that grant the Master account access to the resources in the account by inheriting permissions from the Master account.", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Create IAM users and a cross-account role in the Master account that grants full Admin permissions to the Dev and Test accounts.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Link the accounts using Consolidated Billing. This will give IAM Users in the Master account access to resources in the Dev and Test accounts.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Create IAM users in the Master account. Create cross-account roles in the Dev and Test accounts that have full Admin permissions and grant the Master account access.", "IsAnswer": true }],
+            "Explanation":"See link for more info",
+            "Ref":"http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html"
     } 
     ,
      {

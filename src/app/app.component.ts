@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { ContactUsPage } from '../pages/contactUsPage/contactUsPage';
 import { TopicsListPage } from '../pages/topicsListPage/topicsListPage';
-
+import { VideosPage } from '../pages/videos/videos';
 
 import {LoginPage, LogoutPage} from "../pages/auth/auth";
 import {AwsUtil} from "../providers/aws.service";
@@ -35,6 +35,7 @@ export class MyApp {
 
     this.pages = [
       { title: 'Practice Exams', component: TopicsListPage, icon: 'list' },
+      { title: 'Videos', component: VideosPage, icon: 'logo-youtube' },
       { title: 'Contact Us', component: ContactUsPage, icon: 'people' }
     ];
 
