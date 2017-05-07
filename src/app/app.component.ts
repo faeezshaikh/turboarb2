@@ -35,7 +35,7 @@ export class MyApp {
 
     this.pages = [
       { title: 'Practice Exams', component: TopicsListPage, icon: 'list' },
-      { title: 'Videos', component: VideosPage, icon: 'logo-youtube' },
+      { title: 'Video Resources', component: VideosPage, icon: 'logo-youtube' },
       { title: 'Contact Us', component: ContactUsPage, icon: 'people' }
     ];
 

@@ -175,14 +175,16 @@
     } 
     ,
      {
-        "Id": 2,
-        "Name": "", 
-        "Tag":"",
+        "Id": 57,
+        "Name": "You are migrating a legacy client-server application to AWS. The application responds to a specific DNS domain (e.g. www.example.com) and has a 2-tier architecture, with multiple application servers and a database server. Remote clients use TCP to connect to the application servers. The application servers need to know the IP address of the clients in order to function properly and are currently taking that information from the TCP socket. A Multi-AZ RDS MySQL instance will be used for the database. During the migration you can change the application code, but you have to file a change request. How would you implement the architecture on AWS in order to maximize scalability and high availability?", 
+        "Tag":"HA, Scalability, Cloud Mugration",
         "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "", "IsAnswer": false },
-            { "Id": 1057, "QuestionId": 1010, "Name": "", "IsAnswer": false },
-            { "Id": 1058, "QuestionId": 1010, "Name": "", "IsAnswer": false }]
+            { "Id": 1055, "QuestionId": 1010, "Name": "File a change request to implement Alias Resource support in the application. Use Route 53 Alias Resource Record to distribute load on two application servers in different AZs.", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "File a change request to implement Latency Based Routing support in the application. Use Route 53 with Latency Based Routing enabled to distribute load on two application servers in different AZs.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "File a change request to implement Cross-Zone support in the application. Use an ELB with a TCP Listener and Cross-Zone Load Balancing enabled, two application servers in different AZs.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "File a change request to implement Proxy Protocol support in the application. Use an ELB with a TCP Listener and Proxy Protocol enabled to distribute load on two application servers in different AZs.", "IsAnswer": true}],
+            "Explanation":"See link for more info",
+            "Ref":"https://aws.amazon.com/blogs/aws/elastic-load-balancing-adds-support-for-proxy-protocol/"
     } 
     ,
      {
