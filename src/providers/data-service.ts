@@ -11,6 +11,7 @@ export class DataService {
   data: any = null;
   fileName: string;
   topics = [];
+  loggedInUserEmail: string;
 
   constructor(public http: Http) {
     // console.log('Hello DataService Provider');
@@ -92,5 +93,15 @@ export class DataService {
   return this.topics;
     
 
-  }
+}
+
+setLoggedInUserEmail(email) {
+  console.log('Email set to :' , email);
+  this.loggedInUserEmail = email;
+}
+
+getLoggedInUserEmail() {
+  console.log('Returning email:' , this.loggedInUserEmail);
+  return this.loggedInUserEmail;
+}
 }

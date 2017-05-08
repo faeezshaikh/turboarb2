@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {_POOL_DATA} from "./properties.service";
 import {EventsService} from "./events.service";
-
+import { DataService } from "./data-service";
 declare let AWS:any;
 declare let AWSCognito:any;
 
@@ -172,7 +172,7 @@ export class UserRegistrationService {
 @Injectable()
 export class UserLoginService {
 
-  constructor(public cUtil:CognitoUtil, public eventService:EventsService) {
+  constructor(public cUtil:CognitoUtil, public eventService:EventsService, public dataService: DataService) {
     console.log("eventservice1: " + eventService);
   }
 
@@ -207,6 +207,12 @@ export class UserLoginService {
                 }
                 for (let ele of result2) {
                     console.log('attribute ' + ele.getName() + ' has value ' + ele.getValue());
+                    if(ele.getName() == 'email') {
+                      // Set in service.
+                        console.log('Setting user email in DataService');
+                        mythis.dataService.setLoggedInUserEmail(ele.getValue());
+                        mythis.eventService.sendLoggedInEvent(); // to force to read the user's email after login. // Goes away on refresh in browser (only)
+                    }
                 }
             });
 

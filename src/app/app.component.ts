@@ -9,6 +9,7 @@ import { VideosPage } from '../pages/videos/videos';
 
 import {LoginPage, LogoutPage} from "../pages/auth/auth";
 import {AwsUtil} from "../providers/aws.service";
+import {DataService} from '../providers/data-service';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class MyApp {
 
   rootPage: any = TopicsListPage;
   pages: Array<{title: string, component: any, icon: string}>;
+  loggedInUserEmail: string;
 
   public loginPage = LoginPage;
   public logoutPage = LogoutPage;
@@ -30,7 +32,8 @@ export class MyApp {
               public splashScreen: SplashScreen,
               public events:Events,
               public awsUtil:AwsUtil,
-              public menu:MenuController) {
+              public menu:MenuController,
+              public dataService: DataService) {
     this.initializeApp();
 
     this.pages = [
@@ -38,6 +41,7 @@ export class MyApp {
       { title: 'Video Resources', component: VideosPage, icon: 'logo-youtube' },
       { title: 'Contact Us', component: ContactUsPage, icon: 'people' }
     ];
+
 
   }
 
@@ -72,6 +76,7 @@ export class MyApp {
 
   listenToLoginEvents() {
     this.events.subscribe('user:login', () => {
+      this.loggedInUserEmail = this.dataService.getLoggedInUserEmail();
       this.enableMenu(true);
     });
 
