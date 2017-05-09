@@ -5,7 +5,7 @@
     },
     "questions": [
     {
-        "Id": 2,
+        "Id": 1,
         "Name": "Simple AD does NOT support MFA, adding additional AD servers, trust relationships and transferring FSMO roles.", 
         
         "Options": [
@@ -14,7 +14,7 @@
         
     },
     {
-        "Id": 3,
+        "Id": 2,
         "Name": "When federating with Active Directory for single-sign on, which of the following is the correct sequence of steps?", 
         
         "Options": [
@@ -26,7 +26,7 @@
     },
     
     {
-        "Id": 5,
+        "Id": 3,
         "Name": "To avoid DDoS you should design your infrastructure to scale.", 
         
         "Options": [
@@ -35,7 +35,7 @@
         "Explanation": "Horizontal scaling is preferred as it will give you time to investigate."
     },
     {
-        "Id": 6,
+        "Id": 4,
         "Name": "You have to call this API to obtain temporary security credentials when authenticating with external Identity Providers", 
         
         "Options": [
@@ -46,7 +46,7 @@
         
     },
     {
-        "Id": 7,
+        "Id": 5,
         "Name": "CloudTrail allows you to monitor logs on your AWS EC2 instances and set alarms in response to log monitoring.", 
         
         "Options": [
@@ -56,8 +56,94 @@
         
     },
    
-    {
+     {
+        "Id": 6,
+        "Name": "Your company has recently extended its datacenter into a VPC on AWS to add burst computing capacity as needed. Members of your Network Operations Center need to be able to go to the AWS Management Console and administer Amazon EC2 instances as necessary. You don't want to create new IAM users for each NOC member and make those users sign in again to the AWS Management Console. Which option below will meet the needs for your NOC members?", 
+        "Tag":"Security",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Use your on-premises SAML 2.0-compliant identity provider (IdP) to grant the NOC members federated access to the AWS Management Console via the AWS single sign-on (SSO) endpoint.", "IsAnswer": true },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Use Web Identity Federation to retrieve AWS temporary security credentials to enable your NOC members to sign in to the AWS Management Console.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Use your on-premises SAML 2.0-compllant identity provider (IdP) to retrieve temporary security credentials to enable NOC members to sign in to the AWS Management Console.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Use OAuth 2.0 to retrieve temporary AWS security credentials to enable your NOC members to sign in to the AWS Management Console.", "IsAnswer": false }],
+            "Explanation":"Use SAML 2.0 for Single Sigon. See link for more information",
+            "Ref":"http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html"
+    } 
+    ,
+     {
+        "Id": 7,
+        "Name": "Your fortune 500 company has under taken a TCO analysis evaluating the use of Amazon S3 versus acquiring more hardware. The outcome was that all employees would be granted access to use Amazon S3 for storage of their personal documents. Which of the following will you need to consider so you can set up a solution that incorporates single sign-on from your corporate AD or LDAP directory and restricts access for each user to a designated user folder in a bucket? Choose 3 answers", 
+        "Tag":"Security",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Using AWS Security Token Service to generate temporary tokens.", "IsAnswer": true },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Setting up a matching IAM user for every user in your corporate directory that needs access to a folder in the bucket.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Tagging each folder in the bucket.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Configuring an IAM role.", "IsAnswer": true },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Setting up a federation proxy or identity provider.", "IsAnswer": true }]
+    } 
+    ,
+     {
+        "Id": 8,
+        "Name": "An AWS customer is deploying an application that is composed of an AutoScaling group of EC2 instances. The customers security policy requires that every outbound connection from these instances to any other service within the customers Virtual Private Cloud must be authenticated using a unique X.509 certificate that contains the specific Instance-id. In addition, all X.509 certificates must be signed by the customer's key management service in order to be trusted for authentication. Which of the following configurations will support these requirements:", 
+        "Tag":"Security",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Configure an IAM Role that grants access to an Amazon S3 object containing a signed certificate and configure the Auto Scaling group to launch instances with this role. Have the instances bootstrap get the certificate from Amazon S3 upon first boot.", "IsAnswer": true },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Configure the Auto Scaling group to send an SNS notification of the launch of a new instance to the trusted key management service. Have the key management service generate a signed certificate and send it directly to the newly launched instance.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Embed a certificate into the Amazon Machine Image that is used by the Auto Scaling group. Have the launched instances generate a certificate signature request with the Instance's assigned instance-id to the key management service for signature.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Configure the launched instances to generate a new certificate upon first boot. Have the key management service poll the AutoScaling group for associated instances and send new instances a certificate signature that contains the specific Instance-id.", "IsAnswer": false }]
+    } ,
+     {
         "Id": 9,
+        "Name": "You are looking to migrate your Development (Dev) and Test environments to AWS. You have decided to use separate AWS accounts to host each environment. You plan to link each account's bill to a Master AWS account using Consolidated Billing. To make sure you keep within budget you would like to implement a way for administrators in the Master account to have access to stop, delete and/or terminate resources in both the Dev and Test accounts. Identify which option will allow you to achieve this goal.", 
+        "Tag":"Costing",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Create IAM users in the Master account with full Admin permissions. Create cross-account roles in the Dev and Test accounts that grant the Master account access to the resources in the account by inheriting permissions from the Master account.", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Create IAM users and a cross-account role in the Master account that grants full Admin permissions to the Dev and Test accounts.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Link the accounts using Consolidated Billing. This will give IAM Users in the Master account access to resources in the Dev and Test accounts.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Create IAM users in the Master account. Create cross-account roles in the Dev and Test accounts that have full Admin permissions and grant the Master account access.", "IsAnswer": true }],
+            "Explanation":"See link for more info",
+            "Ref":"http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html"
+    } 
+   
+   
+    ,
+     {
+        "Id": 10,
+        "Name": "You are implementing AWS Direct Connect. You intend to use AWS public service endpoints, such as Amazon S3, across the AWS Direct Connect link. You want other Internet traffic to use your existing link to an Internet Service Provider. What is the correct way to configure AWS Direct Connect for access to services such as Amazon S3?", 
+        "Tag":"Network",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Create a public interface on your AWS Direct Connect link. Redistribute BGP routes into your existing routing infrastructure; advertise specific routes for your network to AWS.", "IsAnswer": true },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Create a private interface on your AWS Direct Connect link. Redistribute BGP routes into your existing routing infrastructure and advertise a default route to AWS.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Create a private interface on your AWS Direct Connect link. Configure a static route via your AWS Direct Connect link that points to Amazon S3. Configure specific routes to your network in your VPC.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Configure a public interface on your AWS Direct Connect link. Configure a static route via your AWS Direct Connect link that points to Amazon S3. Advertise a default route to AWS using BGP.", "IsAnswer": false }],
+            "Explanation":"See link for more info.",
+            "Ref":"https://aws.amazon.com/directconnect/faqs/"
+    } ,
+     {
+        "Id": 11,
+        "Name": "What is the name of licensing model in which a user can use his/her existing Oracle Database licenses to run Oracle deployments on Amazon RDS?", 
+        "Tag":"Data",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Bring Your Own License", "IsAnswer": true },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Role Bases License", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Enterprise License", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "License Included", "IsAnswer": false }],
+                     "Explanation":"See link for more info.",
+            "Ref":"https://aws.amazon.com/oracle/"
+    } 
+    ,
+     {
+        "Id": 12,
+        "Name": " If I write the below command, what does it do?  'ec2-run ami-e3a5408a -n 20 -g appserver' ", 
+        "Tag":"",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Start twenty instances as members of appserver group.", "IsAnswer": true },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Creates 20 rules in the security group named appserver", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Terminate twenty instances as members of appserver group.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Start 20 security groups", "IsAnswer": false }]
+    }
+    ,
+    {
+        "Id": 13,
         "Name": "To ensure that your Amazon CloudHSM encryption keys are not lost you must run a cluster (more than one instance).", 
         "Explanation": "sdfdsfsdf",
         "Options": [
@@ -66,7 +152,7 @@
         
     },
     {
-        "Id": 10,
+        "Id": 14,
         "Name": "To minimize the attack surface area, servers can be placed behind a bastion server through which all traffic has to pass.",
         "Explanation": "There are two issues with this question. One, traffic never flows through a Bastion host. A Bastion host is like a secure control room from which you monitor and command the factory floor. Two, the word ALL should have been a good hint that this is false.",
         "Ref": "https://aws.amazon.com/blogs/security/controlling-network-access-to-ec2-instances-using-a-bastion-server/",
@@ -75,7 +161,7 @@
             { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }]
     },
     {
-        "Id": 11,
+        "Id": 15,
         "Name": "Which of the following best describes Identity Federation?",
         "Options": [
            { "Id": 1055, "QuestionId": 1010, "Name": "Combining or joining a list of users in one domain to users in another domain", "IsAnswer": true },
@@ -84,7 +170,7 @@
             { "Id": 1058, "QuestionId": 1010, "Name": "A user of a service such as Google", "IsAnswer": false }]
     },
     {
-        "Id": 12,
+        "Id": 16,
         "Name": "Which of the following best describes an Identity Broker?",
         "Options": [
            { "Id": 1055, "QuestionId": 1010, "Name": "Combining or joining a list of users in one domain to users in another domain", "IsAnswer": false},
@@ -93,7 +179,7 @@
             { "Id": 1058, "QuestionId": 1010, "Name": "A user of a service such as Google", "IsAnswer": false }]
     },
     {
-        "Id": 13,
+        "Id": 17,
         "Name": "For which of the following is CloudWatch a good fit? (Choose 3)",
         "Options": [
            { "Id": 1055, "QuestionId": 1010, "Name": "Audit AWS API Calls", "IsAnswer": false},
@@ -102,7 +188,7 @@
             { "Id": 1058, "QuestionId": 1010, "Name": "Monitor CloudTrail", "IsAnswer": true }]
     },
     {
-        "Id": 14,
+        "Id": 18,
         "Name": "For intrusion detection and prevention, you should use:",
         "Options": [
            { "Id": 1055, "QuestionId": 1010, "Name": "An IDS", "IsAnswer": false},
@@ -111,7 +197,7 @@
     },
   
     {
-        "Id": 17,
+        "Id": 19,
         "Name": "Which of the following best describes an Identity Store?",
         "Options": [
             { "Id": 1055, "QuestionId": 1010, "Name": "Combining or joining a list of users in one domain to users in another domain", "IsAnswer": false},
@@ -120,7 +206,7 @@
             { "Id": 1058, "QuestionId": 1010, "Name": "A user of a service such as Google", "IsAnswer": true }]
     },
     {
-        "Id": 19,
+        "Id": 20,
         "Name": "To integrate an existing Microsoft Active Directory environment with AWS you can use:", 
         
         "Options": [
@@ -130,7 +216,7 @@
         
     },
     {
-        "Id": 20,
+        "Id": 21,
         "Name": "Which of the following is the best candidate for a data store that will be queried using joins?", 
         
         "Options": [
@@ -140,7 +226,7 @@
         
     },
     {
-        "Id": 21,
+        "Id": 22,
         "Name": "Which of the following is the best option to store blob data?", 
         
         "Options": [
@@ -151,7 +237,7 @@
         
     },
     {
-        "Id": 22,
+        "Id": 23,
         "Name": "A great way to preserve the contents of an S3 bucket is to back up the bucket to a bucket owned by another AWS account.", 
         
         "Options": [
@@ -160,7 +246,7 @@
         
     },
     {
-        "Id": 23,
+        "Id": 24,
         "Name": "Enabling multi-AZ will help improve performance on your RDS database,.", 
         
         "Options": [
@@ -171,7 +257,7 @@
         
     },
     {
-        "Id": 24,
+        "Id": 25,
         "Name": "The best option to store index and query focused data is:", 
         
         "Options": [
@@ -181,7 +267,7 @@
         
     },
     {
-        "Id": 25,
+        "Id": 26,
         "Name": "You are working for a scientific research company just outside of Seattle. They decide to make use of AWS spot instances in Paris to process the data collected. The data is collected and reduced at the end of the month. After some discussion and calculation you have determined that you need to move 30 - 35TB per week to AWS. Which strategy would you propose to you CTO", 
         
         "Options": [
@@ -195,7 +281,7 @@
         
     },
     {
-        "Id": 26,
+        "Id": 27,
         "Name": "To stop objects from being deleted from a bucket by the wrong people, you can: (Choose 2)", 
         
         "Options": [
@@ -205,7 +291,7 @@
         
     },
     {
-        "Id": 27,
+        "Id": 28,
         "Name": "Once S3 bucket versioning is enabled, you may turn it off again once you have deleted old versions.", 
         
         "Options": [
@@ -215,7 +301,7 @@
         
     },
     {
-        "Id": 28,
+        "Id": 29,
         "Name": "You have been engaged by a company to design and lead the migration to an AWS environment. One of their current problems is that the on-premises high performance SAN is requiring frequent and expensive upgrades to keep up with the variety of workloads. Working with the Capacity Manager you identify the following Storage types and volumes required: 10 TiB of logs archives retained for legal reason. 300 GiB of VM boot/Data volumes and templates currently requiring 400 IOPS. 900 GiB of modelling data requiring 100,000 Read IOPS, and 90,000 Write IOPS. 500 GiB of image thumbnail that are regenerated on the fly if unavailable. 200 GiB of customer Session State data. 100 GiB of premium customer Session State data that allows customers to restart sessions even if off-line for several days. Which of the following best reflect your recommendation for a cost effective storage allocation. (Choose 2)", 
         
         "Options": [
@@ -230,18 +316,18 @@
         
     },
     {
-        "Id": 29,
+        "Id": 30,
         "Name": "What technique can be used to optimize S3 for PUTs?", 
         
         "Options": [
             { "Id": 1055, "QuestionId": 1010, "Name": "Upload one large file rather than multiple files.", "IsAnswer": false },
             { "Id": 1056, "QuestionId": 1010, "Name": "Split a file up into chunks and upload them separately.", "IsAnswer": true },
-            { "Id": 1057, "QuestionId": 1010, "Name": "Leverage the BitTorrent capabilities of S3.", "IsAnswer": true }],
+            { "Id": 1057, "QuestionId": 1010, "Name": "Leverage the BitTorrent capabilities of S3.", "IsAnswer": false }],
             "Explanation":"Multiple smaller sized files uploaded in parallel will utilise more of the available internet connection bandwidth and therefore upload quicker than if the large file was uploaded without being split."
         
     },
     {
-        "Id": 30,
+        "Id": 31,
         "Name": "To optimize S3 for PUTs we need to try and maximise the connection bandwidth.", 
         
         "Options": [
@@ -251,7 +337,7 @@
         
     },
     {
-        "Id": 31,
+        "Id": 32,
         "Name": "S3 is structured lexicographically therefore you should:", 
         
         "Options": [
@@ -262,7 +348,7 @@
         
     },
     {
-        "Id": 32,
+        "Id": 33,
         "Name": "What techniques can be used to optimize S3 for GETs? (Choose 2)", 
         
         "Options": [
@@ -275,7 +361,7 @@
         
     },
     {
-        "Id": 33,
+        "Id": 34,
         "Name": "To successfully setup a VPC peering connection you must also:", 
         
         "Options": [
@@ -285,7 +371,7 @@
         
     },
     {
-        "Id": 34,
+        "Id": 35,
         "Name": "In order to connect to Amazon S3 via a Direct Connect connection, the connection must be a:", 
         
         "Options": [
@@ -294,29 +380,28 @@
         
     },
     {
-        "Id": 35,
-        "Name": "Which of the follwing is not the correct option for scaling your NAT instance configuration. (Choose 3)", 
-        
-        "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "Increasing the EC2 instance size", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "Changing the instance family type to one with 'Enhanced Networking'", "IsAnswer": false },
-            { "Id": 1057, "QuestionId": 1010, "Name": "Adding another NAT instance and splitting the NAT'd instances across two subnets to allow for the two NAT instances.", "IsAnswer": false },
-            { "Id": 1058, "QuestionId": 1010, "Name": "Adding another NAT instance and grouping the two NAT instances behind an ELB", "IsAnswer": true }]
-        
-    },
-    {
         "Id": 36,
-        "Name": "Which of the follwing is not the correct option for scaling your NAT instance configuration. (Choose 3)", 
+        "Name": "Which of the follwing are the correct options for scaling your NAT instance configuration. (Choose 3)", 
         
         "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "Increasing the EC2 instance size", "IsAnswer": false },
-            { "Id": 1056, "QuestionId": 1010, "Name": "Changing the instance family type to one with 'Enhanced Networking'", "IsAnswer": false },
-            { "Id": 1057, "QuestionId": 1010, "Name": "Adding another NAT instance and splitting the NAT'd instances across two subnets to allow for the two NAT instances.", "IsAnswer": false },
-            { "Id": 1058, "QuestionId": 1010, "Name": "Adding another NAT instance and grouping the two NAT instances behind an ELB", "IsAnswer": true }]
+            { "Id": 1055, "QuestionId": 1010, "Name": "Increasing the EC2 instance size", "IsAnswer": true },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Changing the instance family type to one with 'Enhanced Networking'", "IsAnswer": true },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Adding another NAT instance and splitting the NAT'd instances across two subnets to allow for the two NAT instances.", "IsAnswer": true },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Adding another NAT instance and grouping the two NAT instances behind an ELB", "IsAnswer": false }]
         
     },
     {
         "Id": 37,
+        "Name": "AWS Import/Export Disk data encryption is optional for", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "Imports and exports", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Imports only", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Exports only", "IsAnswer": false }],
+        "Explanation":"Import/Export Snowball has different requirements"
+    },
+    {
+        "Id": 38,
         "Name": "An instance will have internet access if it is provisioned in a subnet who's VPC has an internet gateway attached so long as the instance has been assigned a public IP address.", 
         
         "Options": [
@@ -325,7 +410,7 @@
         "Explanation":"The subnet needs to have an association with the route table containing the route to the gateway before it will obtain internet access."
     },
     {
-        "Id": 38,
+        "Id": 39,
         "Name": "If you have 3 SSL certificates which you intend to use with Amazon Elastic Load Balancer, how many ELB will you need?", 
         
         "Options": [
@@ -336,7 +421,7 @@
         "Explanation":"Unless you have a wildcard certificate, you will need to install the different SSL certificates on different load balancers. See also using SSL certificates with CloudFront"
     },
     {
-        "Id": 39,
+        "Id": 40,
         "Name": "Which of the following is correct for CGW and VPG?", 
         
         "Options": [
@@ -346,7 +431,7 @@
             { "Id": 1058, "QuestionId": 1010, "Name": "Client Gateway and Virtual Publick Gateway", "IsAnswer": false }]
     },
     {
-        "Id": 40,
+        "Id": 41,
         "Name": "Which of the following is the best way to handle a private subnet that is accessing the internet through a NAT instance and experiencing bandwidth bottlenecks? (Choose 2)", 
         
         "Options": [
@@ -358,7 +443,7 @@
         "Ref":"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-comparison.html"
     },
     {
-        "Id": 41,
+        "Id": 42,
         "Name": " An instance was working fine with it's DHCP address, however with a manually set IP address of 10.2.5.191 if cannot connect to the network. The subnet is defined as 10.2.5.128/26 (10.2.5.128 - 10.2.5.191). What is most likely the cause of the problem?", 
         
         "Options": [
@@ -371,7 +456,7 @@
         "Ref":"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html"
     },
     {
-        "Id": 42,
+        "Id": 43,
         "Name": "Amazon Direct Connect is available in the following speeds; (Choose 3)", 
         
         "Options": [
@@ -384,7 +469,7 @@
         "Ref":""
     },
     {
-        "Id": 43,
+        "Id": 44,
         "Name": "Which of the following support high performance networking (Choose 6)", 
         
         "Options": [
@@ -400,7 +485,7 @@
         "Ref":""
     },
     {
-        "Id": 44,
+        "Id": 45,
         "Name": "A placement group cannot span subnets", 
         
         "Options": [
@@ -409,7 +494,7 @@
         "Explanation":"A placement group can span over multiple subnets so long as they are in the same availability zone and VPC. There are special constraints when used with VPC peering."
     },
     {
-        "Id": 45,
+        "Id": 46,
         "Name": "Direct Connect is not redundant. (T/F)", 
         
         "Options": [
@@ -419,7 +504,7 @@
         "Ref":"https://aws.amazon.com/directconnect/faqs/"
     },
     {
-        "Id": 46,
+        "Id": 47,
         "Name": "What is the maximum number of internet gateways that can be attached to a VPC", 
         
         "Options": [
@@ -429,7 +514,7 @@
             { "Id": 1058, "QuestionId": 1010, "Name": "4", "IsAnswer": false }]
     },
     {
-        "Id": 47,
+        "Id": 48,
         "Name": "Which of these are true? (Choose 2)", 
         
         "Options": [
@@ -439,7 +524,7 @@
             { "Id": 1058, "QuestionId": 1010, "Name": "Security groups cannot span across availability zones", "IsAnswer": false }]
     },
     {
-        "Id": 48,
+        "Id": 49,
         "Name": "In EC2-Classic, Elastic Load Balancer supports using ports:", 
         
         "Options": [
@@ -451,7 +536,7 @@
         "Ref":"http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html"
     },
     {
-        "Id": 49,
+        "Id": 50,
         "Name": "You have 3 VPCs with CIDR blocks, A: 10.0.0.0/16, B: 10.0.0.0/16, C: 192.168.0.0/16. Which VPC's can be peered? (Choose 2)", 
         
         "Options": [
@@ -462,7 +547,7 @@
         "Explanation":"Peered VPCs must have different CIDR blocks so that they do not overlap. Obviously the answer 'None of the above' doesn't even make sense as an option in this case."
     },
     {
-        "Id": 50,
+        "Id": 51,
         "Name": "VPC peering can be established between any VPC in any other AWS region", 
         
         "Options": [
@@ -471,7 +556,7 @@
         "Explanation":"VPC peering is currently only allowed between VPCs in the same region."
     },
     {
-        "Id": 51,
+        "Id": 52,
         "Name": "Source/Destination Check should be enabled on the NAT instance.", 
         
         "Options": [
@@ -480,7 +565,7 @@
         "Explanation":"The NAT instance must be able to send/receive traffic that does not have a source/destination of itself."
     },
     {
-        "Id": 52,
+        "Id": 53,
         "Name": "In a VPC configured to use dedicated tenancy, all instances created, even those selected for shared tenancy will be created on dedicated hardware.", 
         
         "Options": [
@@ -490,22 +575,12 @@
         "Ref" :"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html#creatingdedicatedvpc"
     },
     {
-        "Id": 53,
+        "Id": 54,
         "Name": "Opsworks allows you to run Code deployments, Software Configurations, Database Setups, Infrastructure Provisioning and Server Scaling using Chef", 
         
         "Options": [
                 { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
                 { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }]
-    },
-    {
-        "Id": 54,
-        "Name": "CloudFormation supports the creation of wait conditions so that certain provision steps can be executed upon a condition being met elsewhere.", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }],
-        "Explanation":"See link for information.",
-        "Ref" :"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html"
     },
     {
         "Id": 55,
@@ -573,572 +648,8 @@
         "Options": [
                 { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
                 { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }]
-    },
-    {
-        "Id": 61,
-        "Name": "When a CloudFormation stack provisioning error occurs, it will:", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "Rollback (delete) any provisioned resources.", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Provisioned resources will continue to run, and will need to be manually removed.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Continue provisioning the remaining resources and notify of the error that occurred.", "IsAnswer": false }],
-        "Explanation":"Failed stack creation will result in a rollback of all provisioned resources, including those that were created successfully. You will be charged for any resources created.",
-        "Ref" :"http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ContinueUpdateRollback.html"
-    },
-    {
-        "Id": 62,
-        "Name": "Which of the following can be used to output data from Cloud Formation?", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "Fn:GetAtt", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Fn:Get", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Func:GetAtt", "IsAnswer": false }]
-    },
-    {
-        "Id": 63,
-        "Name": "Elastic Beanstalk is a good tool for sys admins who do not have much AWS experience.", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "False", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "True", "IsAnswer": false }],
-        "Explanation":"Elastic Beanstalk is a good tool for Developers who do not have much AWS experience."
-    },
-    {
-        "Id": 64,
-        "Name": "When updating the application or configuration in an Elastic BeanStalk environment what will the impact to the environment be ?", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "Elastic Beanstalk gives Dev or Ops control over the rate of changes. Where possible AWS builds and cuts over to the new service before deleting the old service. The update starts immediately on submission of the instruction.", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "All code releases and configuration changes require a short but complete outage as the traffic is shifted from the old environment to the new.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Elastic Beanstalk gives Dev or Ops control over the time and rate of changes. Where possible AWS builds and cuts over to the new service before deleting the old service.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Elastic Beanstalk gives Dev or Ops control over the rate of changes. Where possible AWS builds and cuts over to the new service before deleting the old service. The update starts immediately on submission of the instruction. However the update can submitted in a 'suspended' state and left released at an appropriate time.lse", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Like CloudFormation, all application and configuration updates are seamless and non impacting", "IsAnswer": false }],
-        "Explanation":"Elastic Beanstalk offers a number of important controls to avoid business impact of code pushes. However it is still the responsibility of the individual to ensure that the timing is appropriate and the impact is understood.",
-        "Ref" :"http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-updating.html"
-    },
-    {
-        "Id": 65,
-        "Name": "What Opswork terminology would you use to refer to your database in the context of your application.", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "Stack", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Layer", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Template", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Section", "IsAnswer": false }]
-    },
-    {
-        "Id": 66,
-        "Name": "CloudFormation does not have built-in support for provisioning the application layer.", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
-        "Explanation":"CloudFormation does have support for Chef and Puppet which allows you to provision your application layer. It also has the ability to utilise the bootstrap scripts for EC2 instance provisioning.",
-        "Ref" :"https://aws.amazon.com/cloudformation/aws-cloudformation-articles-and-tutorials/"
-    },
-    {
-        "Id": 67,
-        "Name": "You cannot create multiple VPC's within one CloudFormation Template", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }]
-    },
-    {
-        "Id": 68,
-        "Name": "A CloudFormation Template is:", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "A collection of provisioned resources in AWS which you can copy.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "A plan for what resources make up a CloudFormation stack.", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "A collection of provisioned resources in AWS.", "IsAnswer": false }]
-    },
-    {
-        "Id": 69,
-        "Name": "You are the AWS specialist in a small development company. At 4pm on Friday you are called in to an urgent meeting where you have been advised that your team needs to demonstrate a working POC to an important customer at noon on Monday. A key feature the app needs to demonstrate is to scale to manage massive traffic as a result of a blitz advertising campaign involving; radio, social media and TV to cover as many demographics as possible. The development team say that they can have the app and load generating rig ready by Monday morning. However they will need multiple environments for testing plus the final one to running the demo. They say that they will need need a fast scaling web & app server farms, DynamoDB, ElastiCache, SQS, load balancers and an RDS database. What is your plan to deliver these in the time provided ?", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "Ask the development team to mock up the development environments on their workstations using the workstation version of DynamoDB. Advise that you will work through the night to build a small DynamoDB instance and the fleets of EC2 instances with all the necessary security and associate them with a Load Balancer. This will be available late Saturday for testing. Negotiate to have the 4 hours before the demo on Monday to refresh the environment, build a full sized version of the DynamoDB & RDS instances and load the new App on the servers.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Propose that the development team to hold off until you work through the night to build a CloudFormation definition of the required environments. Provide that environment to the dev team as a test lab while you copy the Template, AMIs, and sample data to other regions to use as alternate test platforms. Ask the team to deploy to 'Master' instances that you can image into a fully functional AMI to be used for incremental testing and as the basis of the finally Launch Configuration for the Demo version.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Set up a set of IAM accounts for the developers. Use the Console to create Elastic Beanstalk environments with the standard elements, and reference CloudFormation templates for non-standard resources. Teach the dev leads to push the app build from Git to the Elastic Beanstalk and spin up test instances with all the core services identified as needed. Work in parallel with the dev team to build basic security using VPC Security Groups & network ACLs. Two hours before demo time freeze one of the stable test environments and walk your spokesperson through the demo.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Set up a set of IAM accounts for the developers. Use the Console to create Elastic Beanstalk environments with the standard elements, and hand craft the non-standard resources definitions as YAML config files. Teach the dev leads to push the App build from Git to the Elastic Beanstalk and spin up test instances with all the core services identified as needed. Work in parallel with the dev team to build basic security using VPC Security Groups & network ACLs. Two hours before demo time freeze one of the stable test environments and walk your spokesperson through the demo.", "IsAnswer": true }],
-        "Explanation":"Know the right tool for the job. Empower people to do those tasks they can.",
-        "Ref" :"https://www.slideshare.net/AmazonWebServices/aws-january-2016-webinar-series-managing-your-infrastructure-as-code"
-    },
-    {
-        "Id": 70,
-        "Name": "Using CloudFormation you MUST ensure that the order of provisioning is set in your script, or the stack will fail to be provisioned.", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
-        "Explanation":"CloudFormation will automatically work out the provisioning order based on dependencies for each resource.",
-        "Ref" :"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html"
-    },
-    {
-        "Id": 71,
-        "Name": "Elastic Beanstalk does not support running multiple environments for a single application.", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }]
-    },
-    {
-        "Id": 72,
-        "Name": "CloudFormation allows you to script the AWS code.", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
-        "Explanation":"CloudFormation allows you to script your AWS infrastructure as code. You don't have access to the AWS's underlying code."
-    },
-    {
-        "Id": 73,
-        "Name": "When configuring consolidated billing, the root/paying account should not... (Select all that apply) (Choose 2)", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "be configured to use a different payment method to the linked accounts.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "have unused AWS credits.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "be used to provision AWS services such as EC2 instances.", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "have a root account that hasn't had MFA configured.", "IsAnswer": true }],
-        "Explanation":"The paying account in a consolidated billing configuration should only be used for managing billing and should have Multi-Factor Authentication configured on the root account.",
-        "Ref":"http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html"
-    },
-    {
-        "Id": 75,
-        "Name": "In configuring Cross Account Access, which of the following presents the the necessary steps in the correct order?", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "Create an IAM Role with cross account access, grant user access to the role, create a custom policy, apply custom policy to the role and note down ARN, and switch to the role.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Create a custom policy, create an IAM Role with cross account access, apply custom policy to the role and note down ARN, grant user access to the role, and switch to the role.", "IsAnswer": true }],
-        "Explanation":"The custom policy needs to be created before the role, so that that the policy is available to be applied to the role.",
-        "Ref":"http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html"
-    },
-    {
-        "Id": 76,
-        "Name": "If you have a total Reserved Instances footprint of 32 made up of two M3.2xLarge, which two of the following modification requests would be valid? (Choose 2)", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "Three M3.xlarge instances", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Four M4.xlarge instances", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Eight M3.large instances", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Sixteen M3.medium instances", "IsAnswer": true }],
-        "Explanation":"The footprint of the modification request should be equal to the footprint of the original Reserved Instances footprint and the instances should be of the same family as the original reserved instances. The size of the footprint is measured in units and is calculated using the Normalization factors for each instance size.",
-        "Ref":"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modification-instancemove.html"
-    },
-    {
-        "Id": 78,
-        "Name": "You can configure AWS CloudTrail at the paying account level by configuring an S3 bucket and configuring CloudTrail on linked accounts to put logs in the paying account's S3 bucket.", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }]
-    },
-    {
-        "Id": 79,
-        "Name": "What is a tag used for in AWS? Select all that apply. (Choose 3)", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "Tags help you to identify the price of an AWS offering.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Tags are used to name a resource in AWS", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Tags are a key-value pair used to identify resources on AWS.", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Tags can be used to group resources in AWS by department (e.g. development, testing)", "IsAnswer": true }],
-        "Explanation":"Tags are a multi-purpose method for tracking and labelling resources across the AWS offerings. They are in the form of key-value pairs and can either be manually assigned or automatically assigned by other services such as Elastic Beanstalk."
-    },
-    {
-        "Id": 81,
-        "Name": "You have Reserved Instances of type M3.large running RedHat. You submit a modification request to change your reserved instances to two M3.medium and it's rejected. Why?", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "You have not calculated the footprint of your reserved instances correctly meaning the request is not compatible.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "You cannot modify a reserved instance type running the platform RedHat.", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "The instance family M3 does not have a medium size offering.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "You have mistakenly put through a request which asks for a modification between instance families.", "IsAnswer": false }],
-        "Explanation":"Reserved instance modifications are only available for linux type instances excluding RedHat and SUSE.",
-        "Ref":"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html"
-    },
-    {
-        "Id": 83,
-        "Name": "You require compute resources to run an application server for an ongoing basis. What is the most cost-effective EC2 pricing option for this job?", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "On-Demand Instances", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Spot Instances + On-Demand Instances", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Reserved Instances (3 year contract)", "IsAnswer": true }],
-        "Explanation":"For servers that need to be available all the time and will be continuously running at a known capacity, reserved instances will be the most cost-effective pricing option."
-    },
-    {
-        "Id": 84,
-        "Name": "The M3 and M4 instance families are memory optimised instances for use in memory intensive scenarios.", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
-        "Explanation":"M3 and M4 are the main general purpose compute instance families. The R3 instance family is a memory optimised instance type. An easy way to remember this is to remember that the 'R' in R3 stands for RAM."
-    },
-    {
-        "Id": 85,
-        "Name": "From the consolidated billing paying account you can provision services such as EC2 instances in one of the linked accounts.", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
-        "Explanation":"Consolidated billing is not concerned with provisioning of AWS services in linked accounts and you cannot provision services on the linked accounts from the paying account."
-    },
-    {
-        "Id": 87,
-        "Name": "You are in charge of managing the AWS resources used within your company. One of the requirements is that you are able to identify all the resources being used by different teams such as development, and quality assurance teams. How would you achieve this?", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "By having each of the teams assign a tag (eg. Department: Development) to any resource they provision and then configuring a resource group to see all resources with that tag.", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "By requiring each team keep a detailed spreadsheet of each resource ARN they maintain and submit it daily to you via email.", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "By enabling CloudTrail and running monitoring on the logs to find out which IAM user has provisioned each resource so they can be matched up to a team directory which is kept in a database.", "IsAnswer": false}],
-        "Explanation":"Resource Groups are an easy way to view related resources and the results can also be exported in CSV format for use in external systems."
-    },
-    {
-        "Id": 88,
-        "Name": "Tag editor can be used to find untagged resources and to quickly and easily manage tags across the entire AWS account.", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }],
-        "Explanation":"The tag editor is a helpful tool to centrally manage the tags assigned to resources in your AWS account. This is especially useful for finding resources that are untagged or for making bulk-changes to tags."
-    },
-    {
-        "Id": 89,
-        "Name": "You require compute resources to perform a once-off processing of a large dataset which has to be processed within a week. What is the most appropriate cost-effective EC2 pricing option for this job?", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "On-Demand Instances", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Spot Instances + On-Demand Instances", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Reserved Instances (3 year contract)", "IsAnswer": false }],
-        "Explanation":"Spot instances are a cost-effective option for once-off compute requirements and can be accompanied with on-demand instances if there is a time-requirement."
-    },
-    {
-        "Id": 90,
-        "Name": "AWS Import/Export can be used to export data from which of the following?", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "S3, EBS and Glacier", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "S3 and Glacier", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "S3 only", "IsAnswer": true }],
-        "Explanation":"Data that requires exporting will need to be moved to S3 first. Note that Import/Export SnowBall has slightly different options from Import/Export Disk",
-        "Ref":"https://aws.amazon.com/documentation/importexport/"
-    },
-    {
-        "Id": 91,
-        "Name": "Storage Gateway traffic can be throttled.", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }],
-        "Explanation":"See link for information",
-        "Ref":"https://aws.amazon.com/storagegateway/faqs/"
-    },
-    {
-        "Id": 92,
-        "Name": "The Warm Standby DR strategy involves:", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "Creating all the required infrastructure resources on AWS in response to a failure.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Maintaining a separate complete production-ready replica of your system.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Creating and running a production replica on minimal hardware including database replica and instances and scaling it up in the event of a failure to use for production.", "IsAnswer": true }],
-        "Explanation":"The Warm Standby DR strategy is a quicker response time due to the always running (warm) backup system. This offers better RTO and RPO than the Pilot Light and Backup and Restore strategies.",
-        "Ref":"https://d0.awsstatic.com/whitepapers/aws-disaster-recovery.pdf"
-    },
-    {
-        "Id": 93,
-        "Name": "When using AWS Import/Export to export from a versioned S3 bucket, all versions will be exported.", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
-        "Explanation":"Only the most recent version will be exported from S3 using AWS Import/Export.",
-        "Ref":"https://aws.amazon.com/snowball/disk/"
-    },
-    {
-        "Id": 94,
-        "Name": "Snapshots can be created of your gateway-cached and gateway-stored volumes.", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }]
-    },
-    {
-        "Id": 96,
-        "Name": "RDS snapshots in a multi-AZ configuration are taken from which of the following?", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "Primary database instance", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Secondary database instance", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Either the primary, or secondary database instance depending on which is under the least load", "IsAnswer": true }],
-        "Explanation":"Multi-AZ database snapshots are always taken from the secondary instance to avoid placing IO load on the primary instance."
-    },
-    {
-        "Id": 97,
-        "Name": "Virtual tape storage retrieval is always instantaneous", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
-        "Explanation":"Virtual tape storage retrieval is only instantaneous for Virtual Tape Library retrievals. Virtual Tape Shelf retrievals can take up to 24 hours."
-    },
-    {
-        "Id": 98,
-        "Name": "", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
-        "Explanation":"",
-        "Ref":""
-    },
-    {
-        "Id": 99,
-        "Name": "Read replicas are available across different regions for which of the following?", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "MySQL only", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "MariaDB only", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "PostgreSQL only", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "SQL Server only", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "PostgreSQL and MariaDB only", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "MariaDB and MySQL only", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "MySQL and PostgreSQL", "IsAnswer": false }],
-        "Explanation":"AWS is constantly upgrading services. At this time Read Replica Across Regions are only available for MySQL and MariaDB.",
-        "Ref":"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html"
-    },
-    {
-        "Id": 101,
-        "Name": "You can force an RDS Multi-AZ failover by rebooting one of the instances.", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }],
-        "Explanation":"Forcing a failover can be done by restarting the primary instance via either the console or the RebootDBInstance API call.",
-        "Ref":"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_RebootInstance.html"
-    },
-    {
-        "Id": 102,
-        "Name": "If you delete an RDS instance, all backups will be deleted.", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
-        "Explanation":"Only automated backups will be deleted if you delete an RDS instance, manual backups will be retained."
-    },
-    {
-        "Id": 103,
-        "Name": "If you require a tape storage solution which supports unlimited virtual tapes, what service would you use?", 
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "A virtual tape shelf", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "A virtual tape library", "IsAnswer": false }],
-        "Explanation":"Virtual tape shelves are stored on Amazon Glacier and allow you to have unlimited virtual tapes. Virtual Tape Libraries are stored on Amazon S3 and support up to 1500 Virtual Tapes."
-    },
-    {
-        "Id": 104,
-        "Name": "RDS read replicas are supported with the following database engines:", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
-        "Explanation":"",
-        "Ref":""
-    },
-    {
-        "Id": 105,
-        "Name": "Which of the following best describes the Recovery Time Objective (RTO) ?", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "The amount of time it takes to recover a file from Amazon Glacier Storage.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "The amount of time Amazon guarantees to repair outages in the event of the loss of an availability zone.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "The amount of time that it takes for your business to recover from an outage or disruption.", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "The maximum period of time in which data might be lost from an IT service due to a major incident", "IsAnswer": false }],
-        "Explanation":"RTO can include the time to fix the problem without a recovery, the recovery itself, testing and communication to users."
-    },
-    {
-        "Id": 106,
-        "Name": "The Pilot Light strategy will usually include a database server and AMI's as it's core.", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }],
-        "Explanation":"A replicated database would be kept in AWS to use in the event of an onsite failure and AMI's for application servers or webhosts."
-    },
-    {
-        "Id": 107,
-        "Name": "Vertical scaling is preferred for a Warm Standby DR strategy.", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
-        "Explanation":"Horizontal scaling is preferred as it avoids the need for downtime while restarting instances in a vertical scaling setup."
-    },
-    {
-        "Id": 108,
-        "Name": "RDS allows you to replicate your data by: (Choose 2)", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "Creating a snapshot of your database", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Saving a database export to Amazon S3 using the console", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Creating a read replica running in another region", "IsAnswer": true }],
-        "Explanation":"",
-        "Ref":""
-    },
-    {
-        "Id": 109,
-        "Name": "In addition to the base on-premise system requirements, which of the following does the gateway-stored volume require you to have?", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "Enough local storage to hold the amount of cache that you require plus an amount of storage as an upload buffer.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "An equal amount of storage as that of your entire dataset plus an upload buffer.", "IsAnswer": true }]
-    },
-    {
-        "Id": 110,
-        "Name": "How much times does retrieval from Amazon Glacier take?", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "less than 1 hour maximum", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "2 - 4 hours", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "3 - 12 hours", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "3 or more hours", "IsAnswer": true }],
-        "Explanation":"Amazon Glacier data retrievals typically take 3 - 5 hours but can take longer than that.",
-        "Ref":"https://aws.amazon.com/glacier/faqs/#data-retrievals"
-    },
-    {
-        "Id": 111,
-        "Name": "Using which of the following can you scale an RDS instance?", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "Setting up read replicas of your database", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Configuring your database to be multi-AZ", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "By adding new RDS instances and always writing to both databases from your application", "IsAnswer": false }],
-        "Explanation":"Read replicas leverage built-in database engine data replication functionality to scale elastically for read-heavy applications. If write performance is the limitation you will need to look at upgrading to a larger instance size, or sharding, or a different solution. Multi-AZ will improve fault tolerance but will not improve performance.",
-        "Ref":"https://aws.amazon.com/rds/details/read-replicas/"
-    },
-    {
-        "Id": 112,
-        "Name": "Multi-AZ is one type of database scaling.", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
-        "Explanation":"Multi-AZ is not a form of database scaling. It is a mechanism for data redundancy only."
-    },
-    {
-        "Id": 113,
-        "Name": "Which of the following best describes the Recovery Point Objective (RPO)?", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "The amount of time that it takes for your business to recover from an outage or disruption.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "A standards compliant point value which indicates the risk of having to perform a recovery due to a disruption.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "The maximum time between a disruption and the most recent data recovery point.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "The maximum duration of time of which data might be lost from an IT service due to an incident.", "IsAnswer": true }],
-        "Explanation":"How much data can your organisation lose? One hour, A day, none at all?",
-        "Ref":"https://media.amazonwebservices.com/AWS_Disaster_Recovery.pdf"
-    },
-    {
-        "Id": 114,
-        "Name": "RDS automated backups are available for MySQL only if you are not using InnoDB", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
-        "Explanation":"RDS automated backups for MySQL are only available if you are using InnoDB"
-    },
-    {
-        "Id": 115,
-        "Name": "Backup and Restore is the least expensive DR scenario", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }],
-        "Explanation":"Backup and Restore is the least expensive way.  However it results the largest RTO and RPO for your business.",
-        "Ref":"https://d0.awsstatic.com/whitepapers/aws-disaster-recovery.pdf"
-    },
-    {
-        "Id": 116,
-        "Name": "if you create a volume from an EC2 incremental snapshots,it will contain the base snapshot data plus any incremental changes up to that point in time.", 
-        
-        "Options": [
-               { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }],
-        "Explanation":"Snapshots are incremental. See link for further information",
-        "Ref":"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html"
-    },
-    {
-        "Id": 117,
-        "Name": "If you need to backup 500PB of on-premises data to Amazon S3, the best transfer options are: (Choose 2)", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "HTTP upload to S3 via the API", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "AWS Import/Export Disk", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Using AWS Direct Connect", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "AWS Snowball", "IsAnswer": true }],
-        "Explanation":"For large data backups to S3, AWS Import/Export Disk or Snowball is going to be the cheapest and potentially the fastest option.",
-        "Ref":"https://aws.amazon.com/blogs/aws/aws-importexport-snowball-transfer-1-petabyte-per-week-using-amazon-owned-storage-appliances/"
-    },
-    {
-        "Id": 118,
-        "Name": "RDS Multi-AZ data replication is", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "Synchronous", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Asynchronous", "IsAnswer": false }],
-        "Explanation":"Multi-AZ replication is always synchronous unlike cross region read replicas which are asynchronous.",
-        "Ref":"https://aws.amazon.com/rds/details/multi-az/"
-    },
-    {
-        "Id": 119,
-        "Name": "ElastiCache snapshots will degrade performance on your cache cluster.", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }],
-        "Explanation":"The entire cluster is snapshotted and therefore performing a snapshot will degrade performance and should be done during the least busy period."
-    },
-    {
-        "Id": 120,
-        "Name": "AWS DynamoDB does not allow you to replicate data across regions.", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
-        "Explanation":"DynamoDB does allow you to replicate data across regions using streams. See the link for more information.",
-        "Ref":"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.CrossRegionRepl.html"
-    },
-    {
-        "Id": 121,
-        "Name": "What are the hardware requirements for your Storage Gateway on-premise hardware?(Choose 2)", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "4vCPUs, 7.5GB of RAM, 75GB VM image and system data", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "8vCPUs, 4GB of RAM, 75GB VM image and system data", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "4vCPUs, 7.5GB of RAM, 50GB VM image and system data", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "8vCPUs, 7.5GB of RAM, 75GB VM image and system data", "IsAnswer": true }],
-        "Explanation":"On-premise Storage Gateway Virtual Machine requirements are 4 or 8vCPUs, 7.5GB of RAM and 75GB of VM image and system data storage."
-    },
-    {
-        "Id": 122,
-        "Name": "S3 standard storage provides a durability of:", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "99.99%", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "99.9999%", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "99.999999999%", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "99.99999999999%", "IsAnswer": false }],
-        "Explanation":"Objects are stored redundantly across multiple devices within a region to provide a high level of durability.",
-        "Ref":"https://aws.amazon.com/s3/faqs/"
-    },
-    {
-        "Id": 123,
-        "Name": "AWS Import/Export Disk data encryption is optional for", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "Imports and exports", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Imports only", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Exports only", "IsAnswer": false }],
-        "Explanation":"Import/Export Snowball has different requirements"
     }
+
+  
      ]
 }

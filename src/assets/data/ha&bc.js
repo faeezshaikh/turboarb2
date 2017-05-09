@@ -91,6 +91,44 @@
                 { "Id": 1056, "QuestionId": 1010, "Name": "Manual failover", "IsAnswer": true },
                 { "Id": 1056, "QuestionId": 1010, "Name": "S3", "IsAnswer": false }],
         "Explanation":"The mechanism for failover is completely up to your business and will need to adhere to your RTO and RPO requirements."
-    }
+    },
+     {
+        "Id": 8,
+        "Name": "You are migrating a legacy client-server application to AWS. The application responds to a specific DNS domain (e.g. www.example.com) and has a 2-tier architecture, with multiple application servers and a database server. Remote clients use TCP to connect to the application servers. The application servers need to know the IP address of the clients in order to function properly and are currently taking that information from the TCP socket. A Multi-AZ RDS MySQL instance will be used for the database. During the migration you can change the application code, but you have to file a change request. How would you implement the architecture on AWS in order to maximize scalability and high availability?", 
+        "Tag":"HA, Scalability, Cloud Mugration",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "File a change request to implement Alias Resource support in the application. Use Route 53 Alias Resource Record to distribute load on two application servers in different AZs.", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "File a change request to implement Latency Based Routing support in the application. Use Route 53 with Latency Based Routing enabled to distribute load on two application servers in different AZs.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "File a change request to implement Cross-Zone support in the application. Use an ELB with a TCP Listener and Cross-Zone Load Balancing enabled, two application servers in different AZs.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "File a change request to implement Proxy Protocol support in the application. Use an ELB with a TCP Listener and Proxy Protocol enabled to distribute load on two application servers in different AZs.", "IsAnswer": true}],
+            "Explanation":"See link for more info",
+            "Ref":"https://aws.amazon.com/blogs/aws/elastic-load-balancing-adds-support-for-proxy-protocol/"
+    } 
+     ,
+     {
+        "Id": 9,
+        "Name": "You are designing Internet connectivity for your VPC. The Web servers must be available on the Internet. The application must have a highly available architecture. Which alternatives should you consider? Choose 2 answers", 
+        "Tag":"HA",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Assign EIPs to all Web servers. Configure a Route53 record set with all EIPs, with health checks and DNS failover.", "IsAnswer": true },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Configure a NAT instance in your VPC. Create a default route via the NAT Instance and associate it with all subnets. Configure a DNS A record that points to the NAT Instance public IP address.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Configure a CloudFront distribution and configure the origin to point to the private IP addresses of your Web servers. Configure a Route53 CNAME record to your CloudFront distribution.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Place all your Web servers behind ELB. Configure a Route53 CNAME to point to the ELB DNS name.", "IsAnswer": true },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Configure ELB with an EIP. Place all your Web servers behind ELB. Configure a Route53 A record that points to the EIP.", "IsAnswer": false }]
+    } 
+     ,
+     {
+        "Id": 10,
+        "Name": "A newspaper organization has a on-premises application which allows the public to search Its back catalogue and retrieve individual newspaper pages via a website written in Java. They have scanned the old newspapers into JPEGs (approx. 17TB) and used Optical Character Recognition (OCR) to populate a commercial search product. The hosting platform and software are now end of life and the organization wants to migrate its archive to AWS and produce a cost efficient architecture and still be designed for availability and durability. Which is the most appropriate?", 
+        "Tag":"Cloud Migration, HA",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Model the environment using CloudFormation, use an EC2 instance running Apache webserver and an open source search application, stripe multiple standard EBS volumes together to store the JPEGs and search index", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Use a single-AZ RDS MySQL instance to store the search index and the JPEG Images, use an EC2 Instance to serve the website and translate user queries into SQL", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Use a CloudFront download distribution to serve the JPEGs to the end users and install the current commercial search product, along with a Java Container for the website on EC2 instances and use Route53 with DNS round-robin", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Use S3 with standard redundancy to store and serve the scanned files, use CloudSearch for query processing, and use Elastic Beanstalk to host the website across multiple availability zones", "IsAnswer": true },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Use S3 with reduced redundancy to store and serve the scanned files, install the commercial search application on EC2 instances and configure with auto-scaling and an Elastic Load Balancer", "IsAnswer": false }],
+            "Explanation":"Cloud search is the perfect option for the search related content."
+    } 
+   
      ]
 }

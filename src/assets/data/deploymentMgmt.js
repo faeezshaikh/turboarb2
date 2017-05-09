@@ -115,5 +115,28 @@
             { "Id": 1057, "QuestionId": 1010, "Name": "Add a WAF tier by creating a new ELB and an AutoScaling group of EC2 Instances running a host-based WAF. They would redirect Route 53 to resolve to the new WAF tier ELB. The WAF tier would then pass the traffic to the current web tier. The web tier Security Groups would be updated to only allow traffic from the WAF tier Security Group.", "IsAnswer": true },
             { "Id": 1058, "QuestionId": 1010, "Name": "Remove all but TLS 1.2 from the web tier ELB and enable Advanced Protocol Filtering. This will enable the ELB itself to perform WAF functionality.", "IsAnswer": false }]
     } 
+     ,
+     {
+        "Id": 9,
+        "Name": "Your company produces customer commissioned one-of-a-kind skiing helmets, combining high fashion with custom technical enhancements. Customers can show off their individuality on the ski slopes and have access to head-up-displays, GPS, rear-view cams and any other technical Innovation they wish to embed in the helmet. The current manufacturing process is data rich and complex, including assessments to ensure that the custom electronics and materials used to assemble the helmets are to the highest standards. Assessments are a mixture of human and automated assessments. You need to add a new set of assessment to model the failure modes of the custom electronics using GPUs with CUDA, across a cluster of servers with low latency networking. What architecture would allow you to automate the existing process using a hybrid approach, and ensure that the architecture can support the evolution of processes over time.", 
+        "Tag":"Deployment, Scalability",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Use Amazon Simple Workflow (SWF) to manage assessments, movement of data & meta-data. Use an auto-scaling group of G2 instances in a placement group.", "IsAnswer": true},
+            { "Id": 1056, "QuestionId": 1010, "Name": "Use Amazon Simple Workflow (SWF) to manage assessments, movement of data & meta-data. Use an auto-scaling group of C3 instances with SR-IOV (Single Root I/O Visualization).", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Use AWS Data Pipeline to manage movement of data & meta-data and assessments. Use auto-scaling group of C3 with SR-IOV (Single Root I/O Visualization).", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Use AWS Data Pipeline to manage movement of data & meta-data and assessments. Use an auto- scaling group of G2 instances in a placement group.", "IsAnswer": false }]
+    }
+    ,
+     {
+        "Id": 10,
+        "Name": "An administrator is using Amazon CloudFormation to deploy a three tier web application that consists of a web tier and application tier that will utilize Amazon DynamoDB for storage. When creating the CloudFormation template which of the following would allow the application Instance access to the DynamoDB tables without exposing API credentials?", 
+        "Tag":"Deployment, Security, N/w?",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Create an Identity and Access Management Role that has the required permissions to read and write from the .required DynamoDB table and associate the Role to the application instances by referencing an instance profile.", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Create an Identity and Access Management Role that has the required permissions to read and write from the required DynamoDB table and reference the Role in the instance profile property of the application instance.", "IsAnswer": true },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Use the Parameter section in the CloudFormation template to have the user input Access and Secret keys from an already created IAM user that has the permissions required to read and write from the required DynamoDB table.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Create an Identity and Access Management user in the CloudFormation template that has permissions to read and write from the required DynamoDB table, use the GetAtt function to retrieve the Access and Secret keys and pass them to the application instance through user-data.", "IsAnswer": false }]
+    } 
+
      ]
 }

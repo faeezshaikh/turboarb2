@@ -89,5 +89,45 @@
             { "Id": 1059, "QuestionId": 1010, "Name": "Record the user's information in Amazon DynamoDB. When the user uses their mobile app, create temporary credentials using AWS Security Token Service with appropriate permissions. Store these credentials in the mobile app's memory and use them to access Amazon S3. Generate new credentials the next time the user runs the mobile app.", "IsAnswer": false }],
         "Explanation":"We can use either RDS or DynamoDB, however in our given answers, IAM role is mentioned only with RDS, so I would go with Answer B. Question was explicitly focused on security, so IAM with RDS is the best choice."
     } 
+
+    ,
+     {
+        "Id": 8,
+        "Name": "A customer has established an AWS Direct Connect connection to AWS. The link is up and routes are being advertised from the customer's end; however the customer is unable to connect from EC2 instances inside its VPC to servers residing in its datacenter. Which of the following options provide a viable solution to remedy this situation? Choose 2 answers", 
+        "Tag":"Networking",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Modify the instances VPC subnet route table by adding a route back to the customer's on- premises environment.", "IsAnswer": true },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Enable route propagation to the customer gateway (CGW).", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Add a route to the route table with an IPsec VPN connection as the target.", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Enable route propagation to the virtual private gateway (VGW).", "IsAnswer": true },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Modify the route table of all instances using the route' command.", "IsAnswer": false }],
+            "Explanation": "See link for more information",
+            "Ref" :"https://myawsscribble.wordpress.com/2015/09/25/setting-up-and-configuring-aws-directconnect/"
+    } ,
+     {
+        "Id": 9,
+        "Name": "You have deployed a three-tier web application in a VPC with a CIDR block of 10.0.0.0/28. You initially deploy two web servers, two application servers, two database servers and one NAT instance for a total of seven EC2 instances. The web, application and database servers are deployed across two availability zones (AZs). You also deploy an ELB in front of the two web servers, and use Route53 for DNS. Web traffic gradually increases in the first few days following the deployment, so you attempt to double the number of instances in each tier of the application to handle the new load. Unfortunately some of these new Instances fall to launch. Which of the following could be the root cause? Choose 2 answers", 
+        "Tag":"Network",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "AWS reserves the first and the last private IP address in each subnet's CIDR block so you do not have enough addresses left to launch all of the new EC2 instances", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "The Internet Gateway (IGW) of your VPC has scaled-up, adding more instances to handle the traffic spike, reducing the number of available private IP addresses for new instance launches", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "The ELB has scaled-up, adding more instances to handle the traffic spike, reducing the number of available private IP addresses for new instance launches", "IsAnswer": true},
+            { "Id": 1058, "QuestionId": 1010, "Name": "AWS reserves one IP address in each subnet's CIDR block for Route53 so you do not have enough addresses left to launch all of the new EC2 instances", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "AWS reserves the first four and the last IP address in each subnet's CIDR block so you do not have enough addresses left to launch all of the new EC2 instances", "IsAnswer": true }],
+            "Explanation":"See link for info",
+            "Ref":"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html"
+    } 
+    ,
+     {
+        "Id": 10,
+        "Name": "Your company previously configured a heavily used, dynamically routed VPN connection between your on-premises data center and AWS. You recently provisioned a DirectConnect connection and would like to start using this new connection. After configuring DirectConnect settings in the AWS Console, which of the following options will provide the most seamless transition for your users?", 
+        "Tag":"Network",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "Configure your DirectConnect router, update your VPC route tables to point to the DirectConnect connection, configure your VPN connection with a higher BGP priority, and verify network traffic is leveraging the DirectConnect connection.", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "Delete your existing VPN connection to avoid routing loops, configure your DirectConnect router with the appropriate settings, and verify network traffic is leveraging DirectConnect.", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Update your VPC route tables to point to the DirectConnect connection, configure your DirectConnect router with the appropriate settings, verify network traffic is leveraging DirectConnect, and then delete the VPN connection.", "IsAnswer": true },
+            { "Id": 1058, "QuestionId": 1010, "Name": "Configure your DirectConnect router with a higher BGP priority than your VPN router, verify network traffic is leveraging DirectConnect, and then delete your existing VPN connection.", "IsAnswer": false }],
+            "Explanation":"Direct Connect takes priority over Dynamically configured VPN connections."
+    } 
      ]
 }

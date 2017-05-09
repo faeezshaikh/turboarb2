@@ -108,5 +108,30 @@
         "Explanation":"Port 80 is only needed for activation and can be closed once that's complete.",
         "Ref":"http://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html"
     }
+    ,
+     {
+        "Id": 9,
+        "Name": "What is the maximum write throughput that can be provisioned for a single Dynamic DB table?", 
+        "Tag":"Data",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "1,000 write capacity units", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "100,000 write capacity units", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Dynamic DB is designed to scale without limits, but if you go beyond 10,000 you have to contact AWS first.", "IsAnswer": true },
+            { "Id": 1058, "QuestionId": 1010, "Name": "10,000 write capacity units", "IsAnswer": false }],
+            "Explanation":"See link for more info",
+            "Ref":"https://aws.amazon.com/dynamodb/faqs/"
+    } ,
+     {
+        "Id": 10,
+        "Name": "When you resize the Amazon RDS DB instance, Amazon RDS will perform the upgrade during the next maintenance window. If you want the upgrade to be performed now, rather than waiting for the maintenance window, specify the _____ option.", 
+        "Tag":"Data",
+        "Options": [
+            { "Id": 1055, "QuestionId": 1010, "Name": "ApplyNow", "IsAnswer": false },
+            { "Id": 1056, "QuestionId": 1010, "Name": "ApplySoon", "IsAnswer": false },
+            { "Id": 1057, "QuestionId": 1010, "Name": "ApplyThis", "IsAnswer": false },
+            { "Id": 1058, "QuestionId": 1010, "Name": "ApplyImmediately", "IsAnswer": true }],
+            "Explanation":"See link for more info.",
+            "Ref":"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html"
+    } 
      ]
 }

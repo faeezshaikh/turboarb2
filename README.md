@@ -27,6 +27,8 @@ Nice to have:
 3. Slides on login to walk through
 
 
+Till ! # 67 from pdf
+
 
 Disable Prev, Next messages on last first items.
 Warning message before 'Submit'
