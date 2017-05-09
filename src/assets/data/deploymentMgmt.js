@@ -1,7 +1,8 @@
 {
     "quiz": {
         "name": "Deployment",
-        "logo" : "assets/img/SNS.png"
+        "logo" : "assets/img/SNS.png",
+        "time":"20 minutes"
     },
     "questions": [
       {

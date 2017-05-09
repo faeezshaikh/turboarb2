@@ -1,7 +1,8 @@
 {
     "quiz": {
         "name": "Exam 1",
-        "logo" : "assets/img/EC2.png"
+        "logo" : "assets/img/EC2.png",
+        "time":"120 minutes"
     },
     "questions": [
     {

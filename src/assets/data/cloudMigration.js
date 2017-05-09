@@ -1,7 +1,8 @@
 {
     "quiz": {
         "name": "Cloud Migration",
-        "logo" : "assets/img/CloudFormation.png"
+        "logo" : "assets/img/CloudFormation.png",
+        "time":"20 minutes"
     },
     "questions": [{
         "Id": 1,

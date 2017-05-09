@@ -1,7 +1,8 @@
 {
     "quiz": {
         "name": "H.A & Business Cont.",
-        "logo" : "assets/img/VPC.png"
+        "logo" : "assets/img/VPC.png",
+        "time":"20 minutes"
     },
     "questions": [
          {

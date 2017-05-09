@@ -1,7 +1,8 @@
 {
     "quiz": {
         "name": "Scalability",
-        "logo" : "assets/img/EC2.png"
+        "logo" : "assets/img/EC2.png",
+        "time":"20 minutes"
     },
     "questions": [{
         "Id": 1,

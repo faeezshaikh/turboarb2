@@ -1,7 +1,8 @@
 {
     "quiz": {
         "name": "Exam 2",
-        "logo" : "assets/img/VPC.png"
+        "logo" : "assets/img/VPC.png",
+        "time":"120 minutes"
     },
     "questions": [
       {

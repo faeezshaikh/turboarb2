@@ -1,7 +1,8 @@
 {
     "quiz": {
         "name": "Network Design",
-        "logo" : "assets/img/SQS.png"
+        "logo" : "assets/img/SQS.png",
+        "time":"20 minutes"
     },
     "questions": [ {
         "Id": 1,

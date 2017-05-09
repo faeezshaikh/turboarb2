@@ -1,7 +1,8 @@
 {
     "quiz": {
         "name": "Security",
-        "logo" : "assets/img/IAM.png"
+        "logo" : "assets/img/IAM.png",
+        "time":"20 minutes"
     },
     "questions": [ {
         "Id": 1,

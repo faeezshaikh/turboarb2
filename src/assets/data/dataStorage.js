@@ -1,7 +1,8 @@
 {
     "quiz": {
         "name": "Data Storage",
-        "logo" : "assets/img/RDS.png"
+        "logo" : "assets/img/RDS.png",
+        "time":"20 minutes"
     },
     "questions": [
       {

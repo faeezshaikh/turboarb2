@@ -71,6 +71,7 @@ export class DataService {
       note: string;
       icon: string;
       hiScore: any;
+      time: string;
     }
     this.topicMap.forEach((value: string, key: number) => {
         // console.log(key, value);
@@ -80,6 +81,7 @@ export class DataService {
             t.title = resp.quiz.name;
             t.note = resp.questions.length + ' questions';
             t.icon = resp.quiz.logo;
+            t.time = resp.quiz.time;
 
 
             if (this.topics.length != this.topicMap.size) {
