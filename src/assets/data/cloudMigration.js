@@ -66,7 +66,7 @@
             { "Id": 1056, "QuestionId": 1010, "Name": "/24", "IsAnswer": false },
             { "Id": 1057, "QuestionId": 1010, "Name": "/28", "IsAnswer": true },
             { "Id": 1058, "QuestionId": 1010, "Name": "/29", "IsAnswer": false }],
-        "Explanation": "See link for further information",
+        "Explanation": "Ans: /28. See link for further information",
         "Ref":"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html"   
         
     },

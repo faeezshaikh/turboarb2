@@ -121,9 +121,9 @@
         "Name": "You have 2 AWS accounts linked to use consolidated billing. Account 1 has 4 EC2 T2.Small instances running, Account 2 has 2 EC2 T2.Small instances running and has 4 T2.Small Reserved Instances capacity. Assuming all the instances are in the same availability zone, how many on-demand instances do you have to pay for?", 
         
         "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "2", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "4", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "6", "IsAnswer": true }],
+                { "Id": 1055, "QuestionId": 1010, "Name": "2", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "4", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "6", "IsAnswer": false }],
         "Explanation":"Savings for unused Reserved Instances in one AWS account are applied to compatible instances running in other consolidated billing linked accounts."
     }
      ]

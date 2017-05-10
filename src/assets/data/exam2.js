@@ -412,7 +412,7 @@
         "Options": [
                 { "Id": 1055, "QuestionId": 1010, "Name": "Primary database instance", "IsAnswer": false },
                 { "Id": 1056, "QuestionId": 1010, "Name": "Secondary database instance", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Either the primary, or secondary database instance depending on which is under the least load", "IsAnswer": true }],
+                { "Id": 1056, "QuestionId": 1010, "Name": "Either the primary, or secondary database instance depending on which is under the least load", "IsAnswer": false }],
         "Explanation":"Multi-AZ database snapshots are always taken from the secondary instance to avoid placing IO load on the primary instance."
     },
     {
