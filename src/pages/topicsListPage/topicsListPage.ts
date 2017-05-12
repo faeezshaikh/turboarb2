@@ -108,9 +108,10 @@ export class TopicsListPage {
   /////// [Social Sharing ] ///////
 
   shareMsg = "I thought you'd find this app useful for preparing for the AWS Certified Solution Architect - Professional Exam. Check out this app in app store. ";
+  fbUrl = "https://www.facebook.com/awsarchitect";
   shareViaFacebook() {
     console.log('In Share Via Facebook');
-    this.socialSharing.shareViaFacebook(this.shareMsg, "assets/img/EC2.png", null).then(() => {
+    this.socialSharing.shareViaFacebook(this.shareMsg, "assets/img/EC2.png", this.fbUrl).then(() => {
             // Success!
           }).catch(() => {
             // Error!
@@ -122,7 +123,7 @@ export class TopicsListPage {
 
   shareViaTwitter() {
     console.log('In Share Via Twitter');
-     this.socialSharing.shareViaTwitter(this.shareMsg, "assets/img/EC2.png", null).then(() => {
+     this.socialSharing.shareViaTwitter(this.shareMsg, "assets/img/EC2.png", this.fbUrl).then(() => {
             // Success!
           }).catch(() => {
             // Error!
@@ -134,7 +135,7 @@ export class TopicsListPage {
 
   shareViaWhatsapp() {
     console.log('In Share Via WhatsApp');
-    this.socialSharing.shareViaWhatsApp(this.shareMsg,  "assets/img/EC2.png", null).then(() => {
+    this.socialSharing.shareViaWhatsApp(this.shareMsg,  "assets/img/EC2.png", this.fbUrl).then(() => {
             // Success!
           }).catch(() => {
             // Error!
@@ -159,7 +160,7 @@ export class TopicsListPage {
 
   shareViaSMS() {
     console.log('In Share via SMS');
-    this.socialSharing.shareViaSMS(this.shareMsg, "").then(() => {
+    this.socialSharing.shareViaSMS(this.shareMsg, this.fbUrl).then(() => {
             // Success!
           }).catch(() => {
             // Error!
@@ -171,7 +172,7 @@ export class TopicsListPage {
 
    regularShare(){
     // share(message, subject, file, url)
-    this.socialSharing.share(this.shareMsg, null, "assets/img/EC2.png", null).then(() => {
+    this.socialSharing.share(this.shareMsg, null, "assets/img/EC2.png", this.fbUrl).then(() => {
             // Success!
           }).catch(() => {
             // Error!
@@ -188,7 +189,7 @@ export class TopicsListPage {
     this.socialSharing.canShareViaEmail().then(() => {
       // Sharing via email is possible
        // Share via email
-          this.socialSharing.shareViaEmail(this.shareMsg, 'AWS Sol. Arch Professional', ['']).then(() => {
+          this.socialSharing.shareViaEmail(this.shareMsg + ' ' + this.fbUrl, 'AWS Sol. Arch Professional', ['']).then(() => {
             // Success!
           }).catch(() => {
             // Error!
