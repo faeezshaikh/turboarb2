@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.ionicframework.awssolarchpro855239" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>awsSolArchPro</name>
+    <name>AWSSolPro</name>
     <description>AWS Certified Solution Architect Professional </description>
     <author email="cloudpros1@gmail.com" href="https://www.facebook.com/awsarchitect">Cloud Pros1</author>
     <content src="index.html" />
