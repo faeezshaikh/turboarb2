@@ -35,7 +35,8 @@
             <img src="{{topic.icon}}">
           </ion-thumbnail>
           <h2>{{topic.title}}</h2>
-          <p>{{topic.note}}</p>
+          <p>{{topic.note}}, {{topic.time}}</p>
+
           <p>Last Score: {{topic.hiScore || '(Not attempted)'}} {{topic.hiScore ? '%' : '' }}</p>
         </ion-item>
 
@@ -58,7 +59,7 @@
           <img src="{{exam.icon}}">
         </ion-thumbnail>
         <h2>{{exam.title}}</h2>
-        <p>{{exam.note}}</p>
+        <p>{{exam.note}}, {{exam.time}}</p>
          <p>Last Score: {{exam.hiScore || '(Not attempted)'}} {{exam.hiScore ? '%' : '' }}</p>
       </ion-item>
     </ion-item-group>

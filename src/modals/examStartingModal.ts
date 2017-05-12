@@ -11,6 +11,7 @@ export class ExamStartingModal {
 
   note: string;
   title:string;
+  time:string;
    constructor(
     public platform: Platform,
     public params: NavParams,
@@ -18,6 +19,7 @@ export class ExamStartingModal {
   ) {
     this.note = params.get('note');
     this.title= params.get('title');
+    this.time = params.get('time');
   }
 
  

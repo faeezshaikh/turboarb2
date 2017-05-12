@@ -64,9 +64,10 @@ export class TopicDetailPage {
     if (navParams.get('topic') != null) {
 
       this.selectedTopic = navParams.get('topic');  // TODO: Sliding ion-item can provide users to select if they want to randomize a question set. Use Local Storage and if selecetd cll shuffle
-      // if(this.selectedTopic && this.selectedTopic.no > 8) {
-      //   this.openModal('asas');
-      // }
+      if(this.selectedTopic && this.selectedTopic.no > 8) {
+        // this.openModal('asas');
+        this.minutes = 120;
+      }
       dataService.getData(this.selectedTopic.no).then(theResult => {
         this.data = theResult;
         this.questions = theResult.questions;

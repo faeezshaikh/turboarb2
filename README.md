@@ -1,5 +1,6 @@
 # awsSolArchPro
 
+
 Clicking X on ExamStarting Modal starts Exam
 
 Reset Password when tested with invalid or unpresent email does a 400 bad request with no response to user on UI.
