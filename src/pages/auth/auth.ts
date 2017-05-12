@@ -1,5 +1,6 @@
 import {Component} from "@angular/core";
 import {NavController, NavParams, AlertController} from "ionic-angular";
+import { DataService } from "../../providers/data-service";
 import {
   UserRegistrationService,
   CognitoCallback,
@@ -29,7 +30,8 @@ export class LoginPage implements CognitoCallback, LoggedInCallback {
               public navParam:NavParams,
               public alertCtrl:AlertController,
               public userService:UserLoginService,
-              public eventService:EventsService) {
+              public eventService:EventsService,
+              public dataService: DataService) {
     console.log("LoginComponent constructor");
     if (navParam != null && navParam.get("email") != null)
       this.email = navParam.get("email");
@@ -69,6 +71,8 @@ export class LoginPage implements CognitoCallback, LoggedInCallback {
   isLoggedInCallback(message:string, isLoggedIn:boolean) {
     console.log("The user is logged in: " + isLoggedIn);
     if (isLoggedIn) {
+       //  console.log('Already Authenticated..Setting email:',this.email);
+      //this.dataService.setLoggedInUserEmail(this.email);
       this.eventService.sendLoggedInEvent();
       this.nav.setRoot(TopicsListPage);
     }

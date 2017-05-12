@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import {MyLocalStorage} from './my-local-storage';
 
 
 @Injectable()
@@ -13,7 +14,7 @@ export class DataService {
   topics = [];
   loggedInUserEmail: string;
 
-  constructor(public http: Http) {
+  constructor(public http: Http,public storage: MyLocalStorage) {
     // console.log('Hello DataService Provider');
     this.topicMap = new Map<number, string>();
     this.topicMap.set(1, 'assets/data/ha&bc.js');
@@ -100,10 +101,12 @@ export class DataService {
 setLoggedInUserEmail(email) {
   console.log('Email set to :' , email);
   this.loggedInUserEmail = email;
+  this.storage.saveToStorage('email',email);
 }
 
 getLoggedInUserEmail() {
-  console.log('Returning email:' , this.loggedInUserEmail);
-  return this.loggedInUserEmail;
+  console.log('Returning email:' , this.storage.getFromStorage('email'));
+  // return this.loggedInUserEmail;
+  return this.storage.getFromStorage('email');
 }
 }

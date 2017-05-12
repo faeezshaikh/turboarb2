@@ -76,7 +76,9 @@ export class MyApp {
 
   listenToLoginEvents() {
     this.events.subscribe('user:login', () => {
-      this.loggedInUserEmail = this.dataService.getLoggedInUserEmail();
+      this.dataService.getLoggedInUserEmail().then((data) => {
+        this.loggedInUserEmail = data;
+      });
       this.enableMenu(true);
     });
 

@@ -288,6 +288,7 @@ export class UserLoginService {
         }
         else {
           console.log("Session is valid: " + session.isValid());
+           
           callback.isLoggedInCallback(err, session.isValid());
         }
       });

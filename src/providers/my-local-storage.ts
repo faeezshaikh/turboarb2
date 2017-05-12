@@ -21,11 +21,29 @@ export class MyLocalStorage {
      });
   }
 
+
+
   getScore(examTopic:number): any {
        return this.storage.ready().then(() => {
         return this.storage.get(examTopic.toString()).then((val) => {
         //  console.log('Exam Topic:' + examTopic, val);
          return val;
+       })
+     });
+  }
+
+
+    saveToStorage(key:any,value:any) {
+    this.storage.ready().then(() => {
+       this.storage.set(key.toString(),JSON.stringify(value));
+       console.log(key + ' saved successfully..Value is: ' + value);
+       
+     });
+  }
+    getFromStorage(key:string): any {
+       return this.storage.ready().then(() => {
+        return this.storage.get(key.toString()).then((val) => {
+         return JSON.parse(val);
        })
      });
   }
