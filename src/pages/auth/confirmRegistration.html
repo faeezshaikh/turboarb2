@@ -10,11 +10,19 @@
 </ion-header>
 
 <ion-content>
-   <p>&nbsp;</p>
-    <div class="center">
+  <p>&nbsp;</p>
+  <div class="center">
     <img src="assets/img/aws-cognito.png" style="width:20%">
-    </div>
+  </div>
 
+
+  <ion-card>
+
+    <ion-card-content>
+      A confirmation code was sent to the email you entered in the previous screen. Please enter that below.
+    </ion-card-content>
+
+  </ion-card>
 
   <ion-list>
     <ion-item>
@@ -27,30 +35,14 @@
     </ion-item>
 
   </ion-list>
-<!--
-  <ion-grid>
-    <ion-row>
-      <ion-col width-30>
-        <button ion-button clear small (click)="navToResendCode()">Resend Code</button>
-      </ion-col>
-      <ion-col width-30>
-        <button ion-button clear small (click)="navToRegister()">Registration</button>
-      </ion-col>
-      <ion-col width-30>
-        <button ion-button clear small (click)="navToLogin()">Login</button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>-->
-
-
 
   <div class="center">
     Need a Code again? <button margin-bottom ion-button clear small (click)="navToResendCode()">Resend Code</button>
   </div>
-   <div class="center">
+  <div class="center">
     Ready to Register? <button margin-bottom ion-button clear small (click)="navToRegister()">Register</button>
   </div>
-   <div class="center">
+  <div class="center">
     Ready to Login? <button margin-bottom ion-button clear small (click)="navToLogin()">Login</button>
   </div>
 
