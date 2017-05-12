@@ -1,6 +1,19 @@
 # awsSolArchPro
 
 
+1. ionic build android --prod --release
+rm *.apk
+cp /Users/faeezshaikh/git/awsSolArchPro/platforms/android/build/outputs/apk/android-release-unsigned.apk .
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore awsArch-key.keystore android-release-unsigned.apk awsArch-
+
+
+
+
+1. Reset Password , entered invalid email..nothing happened
+2. Error Msg on Registration (blank Emails)..v ugly msg
+3. Sharing - toast showing even on success.
+
+
 Clicking X on ExamStarting Modal starts Exam
 
 Reset Password when tested with invalid or unpresent email does a 400 bad request with no response to user on UI.
