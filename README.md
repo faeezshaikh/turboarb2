@@ -9,6 +9,14 @@ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore awsArch-key.key
 
 
 
+Troubleshooting:
+===============
+/Users/faeezshaikh/Library/Android/sdk/platform-tools/adb kill-server
+/Users/faeezshaikh/Library/Android/sdk/platform-tools/adb start-server
+/Users/faeezshaikh/Library/Android/sdk/platform-tools/adb devices
+
+
+
 1. Reset Password , entered invalid email..nothing happened
 2. Error Msg on Registration (blank Emails)..v ugly msg
 3. Sharing - toast showing even on success.
