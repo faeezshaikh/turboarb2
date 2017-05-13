@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {_POOL_DATA} from "./properties.service";
 import {EventsService} from "./events.service";
-import { DataService } from "./data-service";
+import { MyDataService } from "./my-data-service";
 declare let AWS:any;
 declare let AWSCognito:any;
 
@@ -172,7 +172,7 @@ export class UserRegistrationService {
 @Injectable()
 export class UserLoginService {
 
-  constructor(public cUtil:CognitoUtil, public eventService:EventsService, public dataService: DataService) {
+  constructor(public cUtil:CognitoUtil, public eventService:EventsService, public dataService: MyDataService) {
     console.log("eventservice1: " + eventService);
   }
 

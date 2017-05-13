@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
-import { DataService } from '../../providers/data-service';
+import { MyDataService } from '../../providers/my-data-service';
 import { MyLocalStorage } from '../../providers/my-local-storage';
 import { ModalController, Content } from 'ionic-angular';
 import { ExplanationModal } from '../../modals/explanationModal';
@@ -54,7 +54,7 @@ export class TopicDetailPage {
 
   ////////// [Start of Constructor] ///////////
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public dataService: DataService,
+    public dataService: MyDataService,
     public modalCtrl: ModalController,
     public storage: MyLocalStorage,
     private st: SimpleTimer,

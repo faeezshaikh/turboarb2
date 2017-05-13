@@ -5,7 +5,7 @@ import {MyLocalStorage} from './my-local-storage';
 
 
 @Injectable()
-export class DataService {
+export class MyDataService {
 
   topicMap: Map<number, string>;
 

@@ -10,7 +10,7 @@ import {WhitepapersPage } from '../pages/whitepapers/whitepapers';
 
 import {LoginPage, LogoutPage} from "../pages/auth/auth";
 import {AwsUtil} from "../providers/aws.service";
-import {DataService} from '../providers/data-service';
+import {MyDataService} from '../providers/my-data-service';
 
 
 @Component({
@@ -32,7 +32,7 @@ export class MyApp {
               public events:Events,
               public awsUtil:AwsUtil,
               public menu:MenuController,
-              public dataService: DataService) {
+              public dataService: MyDataService) {
     this.initializeApp();
 
     this.pages = [

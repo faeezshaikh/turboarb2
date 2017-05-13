@@ -8,7 +8,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ContactUsPage } from '../pages/contactUsPage/contactUsPage';
 import { TopicsListPage } from '../pages/topicsListPage/topicsListPage';
 import { TopicDetailPage } from '../pages/topicDetailPage/topicDetailPage';
-import { DataService } from '../providers/data-service';
+import { MyDataService } from '../providers/my-data-service';
 import { MyLocalStorage } from '../providers/my-local-storage';
 import { ExplanationModal } from '../modals/explanationModal';
 import { ExamStartingModal} from '../modals/examStartingModal';
@@ -83,7 +83,7 @@ import {EventsService} from "../providers/events.service";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DataService,
+    MyDataService,
     CognitoUtil,
     AwsUtil,
     UserLoginService,

@@ -5,7 +5,7 @@ import { TopicDetailPage } from '../topicDetailPage/topicDetailPage';
 import { reorderArray} from 'ionic-angular';
 import { MyLocalStorage } from '../../providers/my-local-storage';
 import { ExamStartingModal} from '../../modals/examStartingModal';
-import { DataService } from '../../providers/data-service';
+import { MyDataService } from '../../providers/my-data-service';
 import { MySocialShareService } from '../../providers/my-social-share-service';
 
 
@@ -23,7 +23,7 @@ export class TopicsListPage {
   @ViewChild(Content) content: Content;
 
   exams: Array<{ no: number, title: string, note: string, icon: string, hiScore: string }>;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: MyLocalStorage, public dataService: DataService,
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: MyLocalStorage, public dataService: MyDataService,
               private alertCtrl: AlertController,public modalCtrl: ModalController,
               public mySocialShareService: MySocialShareService) {
 
