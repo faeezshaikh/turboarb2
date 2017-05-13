@@ -20,6 +20,7 @@ export class MySocialShareService {
    public shareMsg  : string = "I thought you'd find this app useful for preparing for the AWS Certified Solution Architect - Professional Exam. Check out this app in app store. ";
    public image     : string   = "assets/img/EC2.png";
    public fbUrl      : string   ="https://www.facebook.com/awsarchitect";
+   public twitterMsg: string = "Check out the AWS Sol Arch Professional Exam App"
 
 
  presentToast(msg:string) {
@@ -36,111 +37,49 @@ export class MySocialShareService {
     this.socialSharing.shareViaFacebook(this.shareMsg, this.image, this.fbUrl).then(() => {
             // Success!
             console.log("Successfully shared via Facebook");
-          }).catch(() => {
-            // Error!
-            let msg = 'Sharing via Facebook not possible. Check if you have the appropriate app installed.';
-            console.log(msg);
+          },(rejected)=> {
+              // Error!
+            let msg = 'Sharing via Facebook.. If the Facebook app does not open, check if you have the latest version installed.';
+            console.log(msg + " : "+ rejected);
             this.presentToast(msg);
+          }).catch(() => {
+           console.log('ERROR! Was not shared via Facebook');
           });;
   }
 
-  //  shareViaFacebook()
-  //  {
-  //     this.platform.ready()
-  //     .then(() =>
-  //     {
-  //        this.socialSharing.canShareVia('com.apple.social.facebook', this.shareMsg, this.image, this.fbUrl)
-  //        .then((data) =>
-  //        {
-
-  //           this.socialSharing.shareViaFacebook(this.shareMsg, this.image, this.fbUrl)
-  //           .then((data) =>
-  //           {
-  //              console.log('Shared via Facebook');
-  //           })
-  //           .catch((err) =>
-  //           {
-  //               // Error!
-  //           let msg = 'Sharing via Facebook not possible. Check if you have the appropriate app installed.';
-  //           console.log(msg);
-  //           this.presentToast(msg);
-  //           });
-
-  //        })
-  //        .catch((err) =>
-  //        {
-  //            // Error!
-  //           let msg = 'Sharing via Facebook not possible. Check if you have the appropriate app installed.';
-  //           console.log(msg);
-  //           this.presentToast(msg);
-  //        });
-
-  //     });
-  //  }
+  
 
 
   shareViaTwitter() {
     console.log('In Share Via Twitter');
-     this.socialSharing.shareViaTwitter(this.shareMsg, "assets/img/EC2.png", this.fbUrl).then(() => {
+     this.socialSharing.shareViaTwitter(this.twitterMsg , "assets/img/EC2.png", this.fbUrl).then(() => {
             // Success!
             console.log("Successfully shared via Twitter");
-          }).catch(() => {
+          },(rejected)=>{
             // Error!
-            let msg = 'Sharing via Twitter not possible. Check if you have the appropriate app installed.';
-            console.log(msg);
+            let msg = 'Sharing via Twitter.. If the Twitter app does not open, check if you have the latest version installed.';
+            console.log(msg + " : "+ rejected);
             this.presentToast(msg);
+          }).catch(() => {
+             console.log('ERROR! Was not shared via Twitter');
           });
   }
 
 
-
-  //  shareViaTwitter()
-  //  {
-  //     this.platform.ready()
-  //     .then(() =>
-  //     {
-
-  //        this.socialSharing.canShareVia('com.apple.social.twitter', this.shareMsg, this.image, this.fbUrl)
-  //        .then((data) =>
-  //        {
-
-  //           this.socialSharing.shareViaTwitter(this.shareMsg, this.image, this.fbUrl)
-  //           .then((data) =>
-  //           {
-  //              console.log('Shared via Twitter');
-  //           })
-  //           .catch((err) =>
-  //           {
-  //              // Error!
-  //           let msg = 'Sharing via Twitter not possible. Check if you have the appropriate app installed.';
-  //           console.log(msg);
-  //           this.presentToast(msg);
-  //           });
-
-  //        });
-
-  //     })
-  //     .catch((err) =>
-  //     {
-  //        console.log('Not able to be shared via Twitter');
-  //         // Error!
-  //           let msg = 'Sharing via Twitter not possible. Check if you have the appropriate app installed.';
-  //           console.log(msg);
-  //           this.presentToast(msg);
-  //     });
-  //  }
 
 
   shareViaWhatsapp() {
     console.log('In Share Via WhatsApp');
     this.socialSharing.shareViaWhatsApp(this.shareMsg,  "assets/img/EC2.png", this.fbUrl).then(() => {
             // Success!
-          }).catch(() => {
+          },(rejected)=> {
             // Error!
-            let msg = 'Sharing via WhatsApp not possible. Check if you have the appropriate app installed.';
-            console.log(msg);
+            let msg = 'Sharing via WhatsApp.. If the WhatsApp app does not open, check if you have the latest version installed.';
+            console.log(msg + " : "+ rejected);
             this.presentToast(msg);
-          });;
+          }).catch(() => {
+              console.log('ERROR! Was not shared via WhatsApp');
+          });
   }
 
 
@@ -154,55 +93,53 @@ export class MySocialShareService {
          .then((data) =>
          {
             console.log('Shared via shareViaInstagram');
+         },(rejected)=> {
+             let msg = 'Sharing via Instagram.. If the Instagram app does not open, check if you have the latest version installed.';
+            console.log(msg + " : "+ rejected);
+            this.presentToast(msg);
          })
          .catch((err) =>
          {
              // Error!
-            let msg = 'Sharing via Instagram not possible. Check if you have the appropriate app installed.';
-            console.log(msg);
-            this.presentToast(msg);
+            console.log('ERROR! Was not shared via Instagram');
          });
 
       });
    }
 
 
+
+   regularShare()
+   {
+      this.platform.ready()
+      .then(() =>{
+           this.socialSharing.share(this.shareMsg, this.subject, this.image, this.fbUrl).then((data) => {
+              console.log('Successfully shared via SharePicker');
+           },(rejected) => {
+              let msg = 'Opening slideshare.. If the slideshare does not open please retry later.';
+              console.log(msg + " : "+ rejected);
+              this.presentToast(msg);
+           }).catch((err) => {
+            console.log('ERROR! Was not shared via SharePicker');
+         });
+
+      });
+   }
+
+
+
+
   shareViaSMS() {
     console.log('In Share via SMS');
-    this.socialSharing.shareViaSMS(this.shareMsg, this.fbUrl).then(() => {
+    this.socialSharing.shareViaSMS(this.shareMsg + " - " + this.fbUrl, "").then(() => {
             // Success!
           }).catch(() => {
             // Error!
             let msg = 'Sharing via SMS not possible. Check if you have the appropriate app installed.';
             console.log(msg);
             this.presentToast(msg);
-          });;
+          });
   }
-
-   regularShare()
-   {
-      this.platform.ready()
-      .then(() =>
-      {
-
-         this.socialSharing.share(this.shareMsg, this.subject, this.image, this.fbUrl)
-         .then((data) =>
-         {
-            console.log('Shared via SharePicker');
-         })
-         .catch((err) =>
-         {
-            console.log('Was not shared via SharePicker');
-             let msg = 'Oops. There was some issue while opening your share slide.';
-            console.log(msg);
-            this.presentToast(msg);
-         });
-
-      });
-   }
-
-
-
 
    shareViaMail() {
     console.log('In Share Via Email');
