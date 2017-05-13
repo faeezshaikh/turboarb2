@@ -25,9 +25,7 @@ export class MyApp {
 
   public loginPage = LoginPage;
   public logoutPage = LogoutPage;
-  // public homePage = ControlPanelPage;
-  // public settingsPage = ControlPanelPage;
-
+  
   constructor(public platform: Platform, 
               public statusBar: StatusBar,
               public splashScreen: SplashScreen,
@@ -69,10 +67,7 @@ export class MyApp {
   }
 
     openPage2(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page);
-    // this.nav.setRoot(page);
+        this.nav.setRoot(page);
         this.menu.close();
   }
 
