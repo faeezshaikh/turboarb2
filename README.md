@@ -1,7 +1,7 @@
 # awsSolArchPro
 
 
-ionic build android --prod --release
+sudo ionic build android --prod --release
 rm *.apk
 cp /Users/faeezshaikh/git/awsSolArchPro/platforms/android/build/outputs/apk/android-release-unsigned.apk .
 jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore awsArch-key.keystore android-release-unsigned.apk awsArch-
@@ -17,6 +17,7 @@ Troubleshooting:
 
 
 Known Issues:
+0. Change icon. too think text
 1. Reset Password , enter invalid email..nothing happened (Get 400 Bad Request) - Reset Password when tested with invalid or unpresent email does a 400 bad request with no response to user on UI.
 2. Error Msg on Registration (blank Emails)..very ugly msg..But dont change since its dynamic
 3. . Update links in Social sharing -? 
