@@ -15,6 +15,7 @@ import { ExamStartingModal} from '../modals/examStartingModal';
 import { IonicStorageModule } from '@ionic/storage';
 import { SimpleTimer } from 'ng2-simple-timer';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { MySocialShareService } from '../providers/my-social-share-service';
 import { VideosPage } from '../pages/videos/videos';
 import { WhitepapersPage } from '../pages/whitepapers/whitepapers';
 
@@ -91,7 +92,8 @@ import {EventsService} from "../providers/events.service";
     MyLocalStorage,
     EventsService,
     SimpleTimer,
-    SocialSharing
+    SocialSharing,
+    MySocialShareService
     // NativeStorage
   ]
 })
