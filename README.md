@@ -8,6 +8,12 @@ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore awsArch-key.key
 /Users/faeezshaikh/Library/Android/sdk/build-tools/23.0.2/zipalign -v 4 android-release-unsigned.apk AWS-Certified-Pro-Arch.apk
 
 
+For iOS Release:
+https://ionicframework.com/docs/v1/guide/publishing.html
+For Signing certs error (Udemy vid) & 
+https://stackoverflow.com/questions/37806538/code-signing-is-required-for-product-type-application-in-sdk-ios-10-0-stic#answer-39498874
+
+
 
 Troubleshooting:
 ===============

@@ -105,7 +105,7 @@
     } 
      ,
     {
-        "Id": 54,
+        "Id": 9,
         "Name": "CloudFormation supports the creation of wait conditions so that certain provision steps can be executed upon a condition being met elsewhere.", 
         
         "Options": [
@@ -116,7 +116,7 @@
     },
     
     {
-        "Id": 61,
+        "Id": 10,
         "Name": "When a CloudFormation stack provisioning error occurs, it will:", 
         
         "Options": [
@@ -127,7 +127,7 @@
         "Ref" :"http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ContinueUpdateRollback.html"
     },
     {
-        "Id": 62,
+        "Id": 11,
         "Name": "Which of the following can be used to output data from Cloud Formation?", 
         
         "Options": [
@@ -136,7 +136,7 @@
                 { "Id": 1056, "QuestionId": 1010, "Name": "Func:GetAtt", "IsAnswer": false }]
     },
     {
-        "Id": 63,
+        "Id": 12,
         "Name": "Elastic Beanstalk is a good tool for sys admins who do not have much AWS experience.", 
         
         "Options": [
@@ -145,7 +145,7 @@
         "Explanation":"Elastic Beanstalk is a good tool for Developers who do not have much AWS experience."
     },
     {
-        "Id": 64,
+        "Id": 13,
         "Name": "When updating the application or configuration in an Elastic BeanStalk environment what will the impact to the environment be ?", 
         
         "Options": [
@@ -158,7 +158,7 @@
         "Ref" :"http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-updating.html"
     },
     {
-        "Id": 65,
+        "Id": 14,
         "Name": "What Opswork terminology would you use to refer to your database in the context of your application.", 
         
         "Options": [
@@ -168,7 +168,7 @@
                 { "Id": 1056, "QuestionId": 1010, "Name": "Section", "IsAnswer": false }]
     },
     {
-        "Id": 66,
+        "Id": 15,
         "Name": "CloudFormation does not have built-in support for provisioning the application layer.", 
         
         "Options": [
@@ -178,7 +178,7 @@
         "Ref" :"https://aws.amazon.com/cloudformation/aws-cloudformation-articles-and-tutorials/"
     },
     {
-        "Id": 67,
+        "Id": 16,
         "Name": "You cannot create multiple VPC's within one CloudFormation Template", 
         
         "Options": [
@@ -186,7 +186,7 @@
                 { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }]
     },
     {
-        "Id": 68,
+        "Id": 17,
         "Name": "A CloudFormation Template is:", 
         
         "Options": [
@@ -195,7 +195,7 @@
                 { "Id": 1056, "QuestionId": 1010, "Name": "A collection of provisioned resources in AWS.", "IsAnswer": false }]
     },
     {
-        "Id": 69,
+        "Id": 18,
         "Name": "You are the AWS specialist in a small development company. At 4pm on Friday you are called in to an urgent meeting where you have been advised that your team needs to demonstrate a working POC to an important customer at noon on Monday. A key feature the app needs to demonstrate is to scale to manage massive traffic as a result of a blitz advertising campaign involving; radio, social media and TV to cover as many demographics as possible. The development team say that they can have the app and load generating rig ready by Monday morning. However they will need multiple environments for testing plus the final one to running the demo. They say that they will need need a fast scaling web & app server farms, DynamoDB, ElastiCache, SQS, load balancers and an RDS database. What is your plan to deliver these in the time provided ?", 
         
         "Options": [
@@ -207,7 +207,7 @@
         "Ref" :"https://www.slideshare.net/AmazonWebServices/aws-january-2016-webinar-series-managing-your-infrastructure-as-code"
     },
     {
-        "Id": 70,
+        "Id": 19,
         "Name": "Using CloudFormation you MUST ensure that the order of provisioning is set in your script, or the stack will fail to be provisioned.", 
         
         "Options": [
@@ -217,7 +217,7 @@
         "Ref" :"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html"
     },
     {
-        "Id": 71,
+        "Id": 20,
         "Name": "Elastic Beanstalk does not support running multiple environments for a single application.", 
         
         "Options": [
@@ -225,7 +225,7 @@
                 { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }]
     },
     {
-        "Id": 72,
+        "Id": 21,
         "Name": "CloudFormation allows you to script the AWS code.", 
         
         "Options": [
@@ -234,7 +234,7 @@
         "Explanation":"CloudFormation allows you to script your AWS infrastructure as code. You don't have access to the AWS's underlying code."
     },
     {
-        "Id": 73,
+        "Id": 22,
         "Name": "When configuring consolidated billing, the root/paying account should not... (Select all that apply) (Choose 2)", 
         
         "Options": [
@@ -246,7 +246,7 @@
         "Ref":"http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html"
     },
     {
-        "Id": 75,
+        "Id": 23,
         "Name": "In configuring Cross Account Access, which of the following presents the the necessary steps in the correct order?", 
         
         "Options": [
@@ -256,7 +256,7 @@
         "Ref":"http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html"
     },
     {
-        "Id": 76,
+        "Id": 24,
         "Name": "If you have a total Reserved Instances footprint of 32 made up of two M3.2xLarge, which two of the following modification requests would be valid? (Choose 2)", 
         
         "Options": [
@@ -268,7 +268,7 @@
         "Ref":"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modification-instancemove.html"
     },
     {
-        "Id": 78,
+        "Id": 25,
         "Name": "You can configure AWS CloudTrail at the paying account level by configuring an S3 bucket and configuring CloudTrail on linked accounts to put logs in the paying account's S3 bucket.", 
         
         "Options": [
@@ -276,7 +276,7 @@
                 { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }]
     },
     {
-        "Id": 79,
+        "Id": 26,
         "Name": "What is a tag used for in AWS? Select all that apply. (Choose 3)", 
         
         "Options": [
@@ -287,7 +287,7 @@
         "Explanation":"Tags are a multi-purpose method for tracking and labelling resources across the AWS offerings. They are in the form of key-value pairs and can either be manually assigned or automatically assigned by other services such as Elastic Beanstalk."
     },
     {
-        "Id": 81,
+        "Id": 27,
         "Name": "You have Reserved Instances of type M3.large running RedHat. You submit a modification request to change your reserved instances to two M3.medium and it's rejected. Why?", 
         
         "Options": [
@@ -299,7 +299,7 @@
         "Ref":"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html"
     },
     {
-        "Id": 83,
+        "Id": 28,
         "Name": "You require compute resources to run an application server for an ongoing basis. What is the most cost-effective EC2 pricing option for this job?", 
         
         "Options": [
@@ -309,7 +309,7 @@
         "Explanation":"For servers that need to be available all the time and will be continuously running at a known capacity, reserved instances will be the most cost-effective pricing option."
     },
     {
-        "Id": 84,
+        "Id": 29,
         "Name": "The M3 and M4 instance families are memory optimised instances for use in memory intensive scenarios.", 
         
         "Options": [
@@ -318,7 +318,7 @@
         "Explanation":"M3 and M4 are the main general purpose compute instance families. The R3 instance family is a memory optimised instance type. An easy way to remember this is to remember that the 'R' in R3 stands for RAM."
     },
     {
-        "Id": 85,
+        "Id": 30,
         "Name": "From the consolidated billing paying account you can provision services such as EC2 instances in one of the linked accounts.", 
         
         "Options": [
@@ -327,7 +327,7 @@
         "Explanation":"Consolidated billing is not concerned with provisioning of AWS services in linked accounts and you cannot provision services on the linked accounts from the paying account."
     },
     {
-        "Id": 87,
+        "Id": 31,
         "Name": "You are in charge of managing the AWS resources used within your company. One of the requirements is that you are able to identify all the resources being used by different teams such as development, and quality assurance teams. How would you achieve this?", 
         
         "Options": [
@@ -337,7 +337,7 @@
         "Explanation":"Resource Groups are an easy way to view related resources and the results can also be exported in CSV format for use in external systems."
     },
     {
-        "Id": 88,
+        "Id": 32,
         "Name": "Tag editor can be used to find untagged resources and to quickly and easily manage tags across the entire AWS account.", 
         
         "Options": [
@@ -346,7 +346,7 @@
         "Explanation":"The tag editor is a helpful tool to centrally manage the tags assigned to resources in your AWS account. This is especially useful for finding resources that are untagged or for making bulk-changes to tags."
     },
     {
-        "Id": 89,
+        "Id": 33,
         "Name": "You require compute resources to perform a once-off processing of a large dataset which has to be processed within a week. What is the most appropriate cost-effective EC2 pricing option for this job?", 
         
         "Options": [
@@ -356,7 +356,7 @@
         "Explanation":"Spot instances are a cost-effective option for once-off compute requirements and can be accompanied with on-demand instances if there is a time-requirement."
     },
     {
-        "Id": 90,
+        "Id": 34,
         "Name": "AWS Import/Export can be used to export data from which of the following?", 
         
         "Options": [
@@ -367,7 +367,7 @@
         "Ref":"https://aws.amazon.com/documentation/importexport/"
     },
     {
-        "Id": 91,
+        "Id": 35,
         "Name": "Storage Gateway traffic can be throttled.", 
         
         "Options": [
@@ -377,7 +377,7 @@
         "Ref":"https://aws.amazon.com/storagegateway/faqs/"
     },
     {
-        "Id": 92,
+        "Id": 36,
         "Name": "The Warm Standby DR strategy involves:", 
         
         "Options": [
@@ -388,7 +388,7 @@
         "Ref":"https://d0.awsstatic.com/whitepapers/aws-disaster-recovery.pdf"
     },
     {
-        "Id": 93,
+        "Id": 37,
         "Name": "When using AWS Import/Export to export from a versioned S3 bucket, all versions will be exported.", 
         
         "Options": [
@@ -398,7 +398,7 @@
         "Ref":"https://aws.amazon.com/snowball/disk/"
     },
     {
-        "Id": 94,
+        "Id": 38,
         "Name": "Snapshots can be created of your gateway-cached and gateway-stored volumes.", 
         
         "Options": [
@@ -406,7 +406,7 @@
                 { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }]
     },
     {
-        "Id": 96,
+        "Id": 39,
         "Name": "RDS snapshots in a multi-AZ configuration are taken from which of the following?", 
         
         "Options": [
@@ -416,7 +416,7 @@
         "Explanation":"Multi-AZ database snapshots are always taken from the secondary instance to avoid placing IO load on the primary instance."
     },
     {
-        "Id": 97,
+        "Id": 40,
         "Name": "Virtual tape storage retrieval is always instantaneous", 
         
         "Options": [
@@ -425,17 +425,7 @@
         "Explanation":"Virtual tape storage retrieval is only instantaneous for Virtual Tape Library retrievals. Virtual Tape Shelf retrievals can take up to 24 hours."
     },
     {
-        "Id": 98,
-        "Name": "", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
-        "Explanation":"",
-        "Ref":""
-    },
-    {
-        "Id": 99,
+        "Id": 41,
         "Name": "Read replicas are available across different regions for which of the following?", 
         
         "Options": [
@@ -450,7 +440,7 @@
         "Ref":"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html"
     },
     {
-        "Id": 101,
+        "Id": 42,
         "Name": "You can force an RDS Multi-AZ failover by rebooting one of the instances.", 
         
         "Options": [
@@ -460,7 +450,7 @@
         "Ref":"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_RebootInstance.html"
     },
     {
-        "Id": 102,
+        "Id": 43,
         "Name": "If you delete an RDS instance, all backups will be deleted.", 
         
         "Options": [
@@ -469,7 +459,7 @@
         "Explanation":"Only automated backups will be deleted if you delete an RDS instance, manual backups will be retained."
     },
     {
-        "Id": 103,
+        "Id": 44,
         "Name": "If you require a tape storage solution which supports unlimited virtual tapes, what service would you use?", 
         "Options": [
                 { "Id": 1055, "QuestionId": 1010, "Name": "A virtual tape shelf", "IsAnswer": true },
@@ -477,7 +467,7 @@
         "Explanation":"Virtual tape shelves are stored on Amazon Glacier and allow you to have unlimited virtual tapes. Virtual Tape Libraries are stored on Amazon S3 and support up to 1500 Virtual Tapes."
     },
     {
-        "Id": 104,
+        "Id": 45,
         "Name": "RDS read replicas are supported with the following database engines:", 
         
         "Options": [
@@ -487,7 +477,7 @@
         "Ref":""
     },
     {
-        "Id": 105,
+        "Id": 46,
         "Name": "Which of the following best describes the Recovery Time Objective (RTO) ?", 
         
         "Options": [
@@ -498,7 +488,7 @@
         "Explanation":"RTO can include the time to fix the problem without a recovery, the recovery itself, testing and communication to users."
     },
     {
-        "Id": 106,
+        "Id": 47,
         "Name": "The Pilot Light strategy will usually include a database server and AMI's as it's core.", 
         
         "Options": [
@@ -507,7 +497,7 @@
         "Explanation":"A replicated database would be kept in AWS to use in the event of an onsite failure and AMI's for application servers or webhosts."
     },
     {
-        "Id": 107,
+        "Id": 48,
         "Name": "Vertical scaling is preferred for a Warm Standby DR strategy.", 
         
         "Options": [
@@ -516,7 +506,7 @@
         "Explanation":"Horizontal scaling is preferred as it avoids the need for downtime while restarting instances in a vertical scaling setup."
     },
     {
-        "Id": 108,
+        "Id": 49,
         "Name": "RDS allows you to replicate your data by: (Choose 2)", 
         
         "Options": [
@@ -527,7 +517,7 @@
         "Ref":""
     },
     {
-        "Id": 109,
+        "Id": 50,
         "Name": "In addition to the base on-premise system requirements, which of the following does the gateway-stored volume require you to have?", 
         
         "Options": [
@@ -535,7 +525,7 @@
                 { "Id": 1056, "QuestionId": 1010, "Name": "An equal amount of storage as that of your entire dataset plus an upload buffer.", "IsAnswer": true }]
     },
     {
-        "Id": 110,
+        "Id": 51,
         "Name": "How much times does retrieval from Amazon Glacier take?", 
         
         "Options": [
@@ -547,7 +537,7 @@
         "Ref":"https://aws.amazon.com/glacier/faqs/#data-retrievals"
     },
     {
-        "Id": 111,
+        "Id": 52,
         "Name": "Using which of the following can you scale an RDS instance?", 
         
         "Options": [
@@ -558,7 +548,7 @@
         "Ref":"https://aws.amazon.com/rds/details/read-replicas/"
     },
     {
-        "Id": 112,
+        "Id": 53,
         "Name": "Multi-AZ is one type of database scaling.", 
         
         "Options": [
@@ -567,7 +557,7 @@
         "Explanation":"Multi-AZ is not a form of database scaling. It is a mechanism for data redundancy only."
     },
     {
-        "Id": 113,
+        "Id": 54,
         "Name": "Which of the following best describes the Recovery Point Objective (RPO)?", 
         
         "Options": [
@@ -579,7 +569,7 @@
         "Ref":"https://media.amazonwebservices.com/AWS_Disaster_Recovery.pdf"
     },
     {
-        "Id": 114,
+        "Id": 55,
         "Name": "RDS automated backups are available for MySQL only if you are not using InnoDB", 
         
         "Options": [
@@ -588,7 +578,7 @@
         "Explanation":"RDS automated backups for MySQL are only available if you are using InnoDB"
     },
     {
-        "Id": 115,
+        "Id": 56,
         "Name": "Backup and Restore is the least expensive DR scenario", 
         
         "Options": [
@@ -598,7 +588,7 @@
         "Ref":"https://d0.awsstatic.com/whitepapers/aws-disaster-recovery.pdf"
     },
     {
-        "Id": 116,
+        "Id": 57,
         "Name": "if you create a volume from an EC2 incremental snapshots,it will contain the base snapshot data plus any incremental changes up to that point in time.", 
         
         "Options": [
@@ -608,7 +598,7 @@
         "Ref":"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html"
     },
     {
-        "Id": 117,
+        "Id": 58,
         "Name": "If you need to backup 500PB of on-premises data to Amazon S3, the best transfer options are: (Choose 2)", 
         
         "Options": [
@@ -620,7 +610,7 @@
         "Ref":"https://aws.amazon.com/blogs/aws/aws-importexport-snowball-transfer-1-petabyte-per-week-using-amazon-owned-storage-appliances/"
     },
     {
-        "Id": 118,
+        "Id": 59,
         "Name": "RDS Multi-AZ data replication is", 
         
         "Options": [
@@ -630,7 +620,7 @@
         "Ref":"https://aws.amazon.com/rds/details/multi-az/"
     },
     {
-        "Id": 119,
+        "Id": 60,
         "Name": "ElastiCache snapshots will degrade performance on your cache cluster.", 
         
         "Options": [
@@ -639,7 +629,7 @@
         "Explanation":"The entire cluster is snapshotted and therefore performing a snapshot will degrade performance and should be done during the least busy period."
     },
     {
-        "Id": 120,
+        "Id": 61,
         "Name": "AWS DynamoDB does not allow you to replicate data across regions.", 
         
         "Options": [
@@ -649,7 +639,7 @@
         "Ref":"http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.CrossRegionRepl.html"
     },
     {
-        "Id": 121,
+        "Id": 62,
         "Name": "What are the hardware requirements for your Storage Gateway on-premise hardware?(Choose 2)", 
         
         "Options": [
@@ -660,7 +650,7 @@
         "Explanation":"On-premise Storage Gateway Virtual Machine requirements are 4 or 8vCPUs, 7.5GB of RAM and 75GB of VM image and system data storage."
     },
     {
-        "Id": 122,
+        "Id": 63,
         "Name": "S3 standard storage provides a durability of:", 
         
         "Options": [

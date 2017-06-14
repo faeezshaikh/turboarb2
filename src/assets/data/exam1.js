@@ -649,8 +649,41 @@
         "Options": [
                 { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
                 { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }]
+    },
+    {
+        "Id": 61,
+        "Name": "Your customer is willing to consolidate their log streams (access logs, application logs, security logs, etc.) in one single system. Once consolidated, the customer wants to analyze these logs in real time based on heuristics. From time to time, the customer needs to validate heuristics, which requires going back to data samples extracted from the last 12 hours. What is the best approach to meet your customer's requirements?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "Configure Amazon CloudTrail to receive custom logs, use EMR to apply heuristics the logs", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Send all the log events to Amazon SQS, setup an Auto Scaling group of EC2 servers to consume the logs and apply the heuristics", "IsAnswer": false },
+                { "Id": 1057, "QuestionId": 1010, "Name": "Setup an Auto Scaling group of EC2 syslogd servers, store the logs on S3, use EMR to apply heuristics on the logs", "IsAnswer": false },
+                { "Id": 1058, "QuestionId": 1010, "Name": "Send all the log events to Amazon Kinesis, develop a client process to apply heuristics on the logs", "IsAnswer": true }],
+        "Explanation":"Amazon Kinesis Streams allows for real-time data processing. With Amazon Kinesis Streams, you can continuously collect data as it is generated and promptly react to critical information about your business and operations.",
+        "Ref" :"https://aws.amazon.com/kinesis/streams/"
+    },
+    {
+        "Id": 62,
+        "Name": "A web-startup runs its very successful social news application on Amazon EC2 with an Elastic Load Balancer, an Auto-Scaling group of Java/Tomcat application-servers, and DynamoDB as data store. The main web-application best runs on m2.xlarge instances since it is highly memory- bound. Each new deployment requires semi-automated creation and testing of a new AMI for the application servers, which takes quite a while and is therefore only done once per week. Recently, a new chat feature has been implemented in node.js and waits to be integrated in the architecture. First tests show that the new component is CPU bound. Because the company has some experience with using Chef, they decided to streamline the deployment process and use AWS OpsWorks as an application life cycle tool to simplify management of the application and reduce the deployment cycles. What configuration in AWS OpsWorks is necessary to integrate the new chat module in the most cost-efficient and flexible way?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "Create one AWS OpsWorks stack, create one AWS OpsWorks layer, create one custom recipe", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Create two AWS OpsWorks stacks, create two AWS OpsWorks layers, create one custom recipe", "IsAnswer": false },
+                { "Id": 1057, "QuestionId": 1010, "Name": "Create one AWS OpsWorks stack, create two AWS OpsWorks layers, create one custom recipe", "IsAnswer": true },
+                { "Id": 1058, "QuestionId": 1010, "Name": "Create two AWS OpsWorks stacks, create two AWS OpsWorks layers, create two custom recipes", "IsAnswer": false }]
+    },
+    {
+        "Id": 63,
+        "Name": "Your team has a tomcat-based java application you need to deploy into development, test and production environments. After some research, you opt to use Elastic Beanstalk due to its tight integration with your developer tools and RDS due to its ease of management. Your QA team lead points out that you need to roll a sanitized set of production data into your environment on a nightly basis. Similarly, other software teams in your org want access to that same restored data via their EC2 instances in your VPC. The optimal setup for persistence and security that meets the above requirements would be the following:", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "Create your RDS instance separately and add its IP address to your application's DB connection strings in your code. Alter its security group to allow access to it from hosts within your VPC's IP address block.", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Create your RDS instance separately and pass its DNS name to your's DB connection string as an environment variable. Alter its security group to allow access to it from hosts in your application subnets.", "IsAnswer": false },
+                { "Id": 1057, "QuestionId": 1010, "Name": "Create your RDS instance as part of your Elastic Beanstalk definition and alter its security group to allow access to it from hosts in your application subnets.", "IsAnswer": true },
+                { "Id": 1058, "QuestionId": 1010, "Name": "Create your RDS instance separately and pass its DNS name to your app's DB connection string as an environment variable. Create a security group for client machines and add it as a valid source for DB traffic to the security group of the RDS instance itself.", "IsAnswer": false }],
+        "Explanation":"Elastic Beanstalk provides support for running Amazon RDS instances in your Elastic Beanstalk environment. This works great for development and testing environments, but is not ideal for a production environment because it ties the lifecycle of the database instance to the lifecycle of your application’s environment.",
+        "Ref" :"http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.RDS.html"
     }
-
   
      ]
 }

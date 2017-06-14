@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.cloudpros.awssolarchpro" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.cloudpros.awssolarchpro" version="0.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>AWS-ArchPro</name>
   <description>AWS Certified Solution Architect Professional </description>
   <author email="cloudpros1@gmail.com" href="https://www.facebook.com/awsarchitect">Cloud Pros1</author>
@@ -13,6 +13,10 @@
   <allow-intent href="sms:*"/>
   <allow-intent href="mailto:*"/>
   <allow-intent href="geo:*"/>
+
+  <allow-intent href="*"/>
+  <allow-navigation href="*"/>
+`
   <platform name="android">
     <allow-intent href="market:*"/>
     <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
@@ -37,6 +41,7 @@
   <platform name="ios">
     <allow-intent href="itms:*"/>
     <allow-intent href="itms-apps:*"/>
+    <allow-navigation href="*" />
     <icon src="resources/ios/icon/icon.png" width="57" height="57"/>
     <icon src="resources/ios/icon/icon@2x.png" width="114" height="114"/>
     <icon src="resources/ios/icon/icon-40.png" width="40" height="40"/>
