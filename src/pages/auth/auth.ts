@@ -25,6 +25,7 @@ import {EventsService} from "../../providers/events.service";
 export class LoginPage implements CognitoCallback, LoggedInCallback {
   email:string;
   password:string;
+  processingSignin = false;
 
   constructor(public nav:NavController,
               public navParam:NavParams,
@@ -51,11 +52,15 @@ export class LoginPage implements CognitoCallback, LoggedInCallback {
 
   signMeIn() {
     console.log("in onLogin");
+    this.processingSignin = true;
+    console.log("processingSignin is:" , this.processingSignin);
     if (this.email == null || this.password == null) {
       this.doAlert("Error", "All fields are required");
+      this.processingSignin = false;
       return;
     }
     this.userService.authenticate(this.email, this.password, this);
+    
   }
 
   cognitoCallback(message:string, result:any) {
@@ -66,6 +71,8 @@ export class LoginPage implements CognitoCallback, LoggedInCallback {
       console.log("Redirect to TopicsListPage");
       this.nav.setRoot(TopicsListPage);
     }
+    this.processingSignin = false;
+      console.log("processingSignin is:" , this.processingSignin);
   }
 
   isLoggedInCallback(message:string, isLoggedIn:boolean) {

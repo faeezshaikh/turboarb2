@@ -44,6 +44,10 @@
       <button ion-button block outline large (click)="signMeIn()">Sign in</button>
     </ion-item>
 
+    <div style="text-align: center">
+      <ion-spinner  *ngIf="processingSignin" name="circles"></ion-spinner>
+    </div>
+
   </ion-list>
 
   <!--<ion-grid>
