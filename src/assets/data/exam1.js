@@ -683,6 +683,17 @@
                 { "Id": 1058, "QuestionId": 1010, "Name": "Create your RDS instance separately and pass its DNS name to your app's DB connection string as an environment variable. Create a security group for client machines and add it as a valid source for DB traffic to the security group of the RDS instance itself.", "IsAnswer": false }],
         "Explanation":"Elastic Beanstalk provides support for running Amazon RDS instances in your Elastic Beanstalk environment. This works great for development and testing environments, but is not ideal for a production environment because it ties the lifecycle of the database instance to the lifecycle of your application’s environment.",
         "Ref" :"http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.RDS.html"
+    },
+    {
+        "Id": 64,
+        "Name": "A read only news reporting site with a combined web and application tier and a database tier that receives large and unpredictable traffic demands must be able to respond to these traffic fluctuations automatically. What AWS services should be used meet these requirements?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "Stateless instances for the web and application tier synchronized using ElastiCache Memcached in an autoscaling group monitored with CloudWatch, and RDS with read replicas.", "IsAnswer": true},
+                { "Id": 1056, "QuestionId": 1010, "Name": "Stateful instances for the web and application tier in an autoscaling group monitored with CloudWatch, and multi-AZ RDS", "IsAnswer": false },
+                { "Id": 1057, "QuestionId": 1010, "Name": "Stateful instances for the web and application tier in an autoscaling group monitored with CloudWatch, and RDS with read replicas", "IsAnswer": false},
+                { "Id": 1058, "QuestionId": 1010, "Name": "Stateless instances for the web and application tier synchronized using ElastiCache Memcached in an autoscaling group monitored with CloudWatch, and multi-AZ RDS.", "IsAnswer": false }],
+        "Explanation":"'A readonly reporting site' - so stateless and read-replicas can be used to scale. Multi-AZ will not provide the scaling requirements."
     }
   
      ]

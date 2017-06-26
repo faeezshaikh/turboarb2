@@ -660,6 +660,17 @@
                 { "Id": 1056, "QuestionId": 1010, "Name": "99.99999999999%", "IsAnswer": false }],
         "Explanation":"Objects are stored redundantly across multiple devices within a region to provide a high level of durability.",
         "Ref":"https://aws.amazon.com/s3/faqs/"
+    },
+    {
+        "Id": 64,
+        "Name": "Your company has an on-premises, multi-tier PHP web application, which recently experienced downtime due to a large burst in web traffic due to a company announcement. Over the coming days, you're expecting similar announcements to drive similar unpredictable bursts, and are looking to find ways to quickly improve your infrastructures ability to handle unexpected increases in traffic. The application currently consists of 2 tiers: A web tier, which consists of a load balancer and several Linux Apache web servers, as well as a database tier, which hosts a Linux server hosting a MySQL database. Which scenario below will provide full site functionality, while helping to improve the availability of your application in the short timeframe required?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "Failover environment: Create an S3 bucket and configure it for website hosting. Migrate your DNS to Route53 using zone file import, and leverage Route53 DNS failover to failover to the S3 hosted website.", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Hybrid environment: Create an AMI, which can be used to launch web servers in EC2. Create an Auto Scaling group, which uses the AMI to scale the web tier based on incoming traffic. Leverage Elastic Load Balancing to balance traffic between on-premises web servers and those hosted In AWS.", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Offload traffic from on-premises environment: Setup a CIoudFront distribution, and configure CloudFront to cache objects from a custom origin. Choose to customize your object cache behavior, and select a TTL that objects should exist in cache.", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Migrate to AWS: Use VM Import/Export to quickly convert an on-premises web server to an AMI. Create an Auto Scaling group, which uses the imported AMI to scale the web tier based on incoming traffic. Create an RDS read replica and setup replication between the RDS instance and on-premises MySQL server to migrate the database.", "IsAnswer": false }],
+        "Explanation":"You can have CloudFront sit in front of your on-prem web environment, via a custom origin (the origin doesn’t have to be in AWS). This would protect against unexpected bursts in traffic by letting CloudFront handle the traffic that it can out of cache, thus hopefully removing some of the load from your on-prem web servers."
     }
     ]
 }
