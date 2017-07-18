@@ -1,6 +1,5 @@
 {
   "name": "awsSolArchPro",
   "app_id": "94e33ee8",
-  "v2": true,
-  "typescript": true
+  "type": "ionic-angular"
 }

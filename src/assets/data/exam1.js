@@ -694,7 +694,19 @@
                 { "Id": 1057, "QuestionId": 1010, "Name": "Stateful instances for the web and application tier in an autoscaling group monitored with CloudWatch, and RDS with read replicas", "IsAnswer": false},
                 { "Id": 1058, "QuestionId": 1010, "Name": "Stateless instances for the web and application tier synchronized using ElastiCache Memcached in an autoscaling group monitored with CloudWatch, and multi-AZ RDS.", "IsAnswer": false }],
         "Explanation":"'A readonly reporting site' - so stateless and read-replicas can be used to scale. Multi-AZ will not provide the scaling requirements."
+    },
+    {
+        "Id": 65,
+        "Name": "Your company is getting ready to do a major public announcement of a social media site on AWS. The website is running on EC2 instances deployed across multiple Availability Zones with an Multi-AZ RDS MySQL Extra Large DB Instance backend. The site performs a high number of small reads and writes per second and relies on an eventual consistency model. After comprehensive tests you discover that there is read contention on RDS MySQL. Which are the best approaches to meet these requirements? Choose 2 answers", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "Add an RDS MySQL read replica in each availability zone.", "IsAnswer": true},
+                { "Id": 1056, "QuestionId": 1010, "Name": "Deploy ElastiCache in-memory cache running in each availability zone.", "IsAnswer": true },
+                { "Id": 1057, "QuestionId": 1010, "Name": "Increase the RDS MySQL instance size and implement provisioned IOPS.", "IsAnswer": false},
+                { "Id": 1058, "QuestionId": 1010, "Name": "Implement sharding to distribute load to multiple RDS MySQL Instances.", "IsAnswer": false }],
+        "Explanation":"Scale horizontally by adding a read-replica and use caching to improve performance."
     }
+  
   
      ]
 }

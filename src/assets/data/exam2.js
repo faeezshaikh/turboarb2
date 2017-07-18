@@ -645,8 +645,8 @@
         "Options": [
                 { "Id": 1055, "QuestionId": 1010, "Name": "4vCPUs, 7.5GB of RAM, 75GB VM image and system data", "IsAnswer": true },
                 { "Id": 1056, "QuestionId": 1010, "Name": "8vCPUs, 4GB of RAM, 75GB VM image and system data", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "4vCPUs, 7.5GB of RAM, 50GB VM image and system data", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "8vCPUs, 7.5GB of RAM, 75GB VM image and system data", "IsAnswer": true }],
+                { "Id": 1057, "QuestionId": 1010, "Name": "4vCPUs, 7.5GB of RAM, 50GB VM image and system data", "IsAnswer": false },
+                { "Id": 1058, "QuestionId": 1010, "Name": "8vCPUs, 7.5GB of RAM, 75GB VM image and system data", "IsAnswer": true }],
         "Explanation":"On-premise Storage Gateway Virtual Machine requirements are 4 or 8vCPUs, 7.5GB of RAM and 75GB of VM image and system data storage."
     },
     {
@@ -656,8 +656,8 @@
         "Options": [
                 { "Id": 1055, "QuestionId": 1010, "Name": "99.99%", "IsAnswer": false },
                 { "Id": 1056, "QuestionId": 1010, "Name": "99.9999%", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "99.999999999%", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "99.99999999999%", "IsAnswer": false }],
+                { "Id": 1057, "QuestionId": 1010, "Name": "99.999999999%", "IsAnswer": true },
+                { "Id": 1058, "QuestionId": 1010, "Name": "99.99999999999%", "IsAnswer": false }],
         "Explanation":"Objects are stored redundantly across multiple devices within a region to provide a high level of durability.",
         "Ref":"https://aws.amazon.com/s3/faqs/"
     },
@@ -668,9 +668,19 @@
         "Options": [
                 { "Id": 1055, "QuestionId": 1010, "Name": "Failover environment: Create an S3 bucket and configure it for website hosting. Migrate your DNS to Route53 using zone file import, and leverage Route53 DNS failover to failover to the S3 hosted website.", "IsAnswer": false },
                 { "Id": 1056, "QuestionId": 1010, "Name": "Hybrid environment: Create an AMI, which can be used to launch web servers in EC2. Create an Auto Scaling group, which uses the AMI to scale the web tier based on incoming traffic. Leverage Elastic Load Balancing to balance traffic between on-premises web servers and those hosted In AWS.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Offload traffic from on-premises environment: Setup a CIoudFront distribution, and configure CloudFront to cache objects from a custom origin. Choose to customize your object cache behavior, and select a TTL that objects should exist in cache.", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Migrate to AWS: Use VM Import/Export to quickly convert an on-premises web server to an AMI. Create an Auto Scaling group, which uses the imported AMI to scale the web tier based on incoming traffic. Create an RDS read replica and setup replication between the RDS instance and on-premises MySQL server to migrate the database.", "IsAnswer": false }],
+                { "Id": 1057, "QuestionId": 1010, "Name": "Offload traffic from on-premises environment: Setup a CIoudFront distribution, and configure CloudFront to cache objects from a custom origin. Choose to customize your object cache behavior, and select a TTL that objects should exist in cache.", "IsAnswer": true },
+                { "Id": 1058, "QuestionId": 1010, "Name": "Migrate to AWS: Use VM Import/Export to quickly convert an on-premises web server to an AMI. Create an Auto Scaling group, which uses the imported AMI to scale the web tier based on incoming traffic. Create an RDS read replica and setup replication between the RDS instance and on-premises MySQL server to migrate the database.", "IsAnswer": false }],
         "Explanation":"You can have CloudFront sit in front of your on-prem web environment, via a custom origin (the origin doesn’t have to be in AWS). This would protect against unexpected bursts in traffic by letting CloudFront handle the traffic that it can out of cache, thus hopefully removing some of the load from your on-prem web servers."
+    },
+    {
+        "Id": 65,
+        "Name": "An AWS customer runs a public blogging website. The site users upload two million blog entries a month. The average blog entry size is 200 KB. The access rate to blog entries drops to negligible 6 months after publication and users rarely access a blog entry 1 year after publication. Additionally, blog entries have a high update rate during the first 3 months following publication, this drops to no updates after 6 months. The customer wants to use CloudFront to improve his user's load times. Which of the following recommendations would you make to the customer?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "Duplicate entries into two different buckets and create two separate CloudFront distributions where S3 access is restricted only to CloudFront identity.", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Create a CloudFront distribution with 'US/Europe' price class for US/Europe users and a different CloudFront distribution with 'All Edge Locations' for the remaining users.", "IsAnswer": false },
+                { "Id": 1057, "QuestionId": 1010, "Name": "Create a CloudFront distribution with Restrict Viewer Access, Forward Query String set to true and minimum TTL of 0.", "IsAnswer": false },
+                { "Id": 1058, "QuestionId": 1010, "Name": "Create a CloudFront distribution with S3 access restricted only to the CloudFront identity and partition the blog entry's location in S3 according to the month it was uploaded to be used with CloudFront behaviors.", "IsAnswer": true }]
     }
     ]
 }
