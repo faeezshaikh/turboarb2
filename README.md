@@ -1,7 +1,7 @@
 # awsSolArchPro
 
 
-sudo ionic build android --prod --release
+sudo cordova build android --prod --release
 rm *.apk
 cp /Users/faeezshaikh/git/awsSolArchPro/platforms/android/build/outputs/apk/android-release-unsigned.apk .
 jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore awsArch-key.keystore android-release-unsigned.apk awsArch-
