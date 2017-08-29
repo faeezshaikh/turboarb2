@@ -705,6 +705,18 @@
                 { "Id": 1057, "QuestionId": 1010, "Name": "Increase the RDS MySQL instance size and implement provisioned IOPS.", "IsAnswer": false},
                 { "Id": 1058, "QuestionId": 1010, "Name": "Implement sharding to distribute load to multiple RDS MySQL Instances.", "IsAnswer": false }],
         "Explanation":"Scale horizontally by adding a read-replica and use caching to improve performance."
+    },
+    {
+        "Id": 66,
+        "Name": "You require the ability to analyze a customer's clickstream data on a website, so they can do behavioral analysis. Your customer needs to know what sequence of pages and ads their customer clicked on. This data will be used in real time to modify the page layouts as customers click through the site, to increase stickiness and advertising click-through. Which option meets the requirements for capturing and analyzing this data?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "Log clicks in weblogs by URL, store to Amazon S3, and then analyze with Elastic MapReduce.", "IsAnswer": false},
+                { "Id": 1056, "QuestionId": 1010, "Name": "Publish web clicks by session to an Amazon SQS queue; then periodically drain these events to Amazon RDS and analyze with SQL.", "IsAnswer": false },
+                { "Id": 1057, "QuestionId": 1010, "Name": "Push web clicks by session to Amazon Kinesis, then analyze behavior using Kinesis workers.", "IsAnswer": true},
+                { "Id": 1058, "QuestionId": 1010, "Name": "Write click events directly to Amazon Redshift, and then analyze with SQL.", "IsAnswer": false }],
+        "Explanation":"Since the requirement is to analyze data in real time best option is to push the clicks to Kinesis and do anyalysis using the Kinesis workers.",
+        "Ref": "http://www.slideshare.net/AmazonWebServices/aws-webcast-introduction-to-amazon-kinesis"
     }
   
   
