@@ -51,7 +51,7 @@ Chat with other users
 Comment on a question
 
 
-Till ! # 74 from pdf / July 18
+Till ! # 76 (Q #66 in Exam2) from pdf / Sep 19
 
 
 FB Mobile App Ads:
