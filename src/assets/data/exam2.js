@@ -681,6 +681,16 @@
                 { "Id": 1056, "QuestionId": 1010, "Name": "Create a CloudFront distribution with 'US/Europe' price class for US/Europe users and a different CloudFront distribution with 'All Edge Locations' for the remaining users.", "IsAnswer": false },
                 { "Id": 1057, "QuestionId": 1010, "Name": "Create a CloudFront distribution with Restrict Viewer Access, Forward Query String set to true and minimum TTL of 0.", "IsAnswer": false },
                 { "Id": 1058, "QuestionId": 1010, "Name": "Create a CloudFront distribution with S3 access restricted only to the CloudFront identity and partition the blog entry's location in S3 according to the month it was uploaded to be used with CloudFront behaviors.", "IsAnswer": true }]
+    },
+    {
+        "Id": 66,
+        "Name": "A large real-estate brokerage is exploring the option of adding a cost-effective location based alert to their existing mobile application. The application backend infrastructure currently runs on AWS. Users who opt in to this service will receive alerts on their mobile device regarding real- estate offers in proximity to their location. For the alerts to be relevant delivery time needs to be in the low minute count. The existing mobile app has 5 million users across the US. Which one of the following architectural suggestions would you make to the customer?", 
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "The mobile application will send device location using SQS, EC2 instances will retrieve the relevant offers from DynamoDB. AWS Mobile Push will be used to send offers to the mobile application.", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Use AWS DirectConnect or VPN to establish connectivity with mobile carriers. EC2 instances will receive the mobile applications location through earner connection; RDS will be used to store and retrieve relevant offers. EC2 instances will communicate with mobile carriers to push alerts back to the mobile application.", "IsAnswer": false },
+                { "Id": 1057, "QuestionId": 1010, "Name": "The mobile application will submit its location to a web service endpoint utilizing Elastic Load Balancing and EC2 instances. DynamoDB will be used to store and retrieve relevant offers. EC2 instances will communicate with mobile carriers/device providers to push alerts back to mobile application.", "IsAnswer": false },
+                { "Id": 1058, "QuestionId": 1010, "Name": "The mobile application will send device location using AWS Mobile Push, EC2 instances will retrieve the relevant offers from DynamoDB. EC2 instances will communicate with mobile carriers/device providers to push alerts back to the mobile application.", "IsAnswer": false }],
+        "Explanation":"AWS using SQS to store the message from mobile apps,and using AWS Mobile Push to send offers to mobile apps."
     }
     ]
 }
