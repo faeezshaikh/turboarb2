@@ -112,12 +112,12 @@
     ,
      {
         "Id": 9,
-        "Name": "What is the maximum write throughput that can be provisioned for a single Dynamic DB table?", 
+        "Name": "What is the maximum write throughput that can be provisioned for a single Dynamo DB table?", 
         "Tag":"Data",
         "Options": [
             { "Id": 1055, "QuestionId": 1010, "Name": "1,000 write capacity units", "IsAnswer": false },
             { "Id": 1056, "QuestionId": 1010, "Name": "100,000 write capacity units", "IsAnswer": false },
-            { "Id": 1057, "QuestionId": 1010, "Name": "Dynamic DB is designed to scale without limits, but if you go beyond 10,000 you have to contact AWS first.", "IsAnswer": true },
+            { "Id": 1057, "QuestionId": 1010, "Name": "Dynamo DB is designed to scale without limits, but if you go beyond 10,000 you have to contact AWS first.", "IsAnswer": true },
             { "Id": 1058, "QuestionId": 1010, "Name": "10,000 write capacity units", "IsAnswer": false }],
             "Explanation":"See link for more info",
             "Ref":"https://aws.amazon.com/dynamodb/faqs/"

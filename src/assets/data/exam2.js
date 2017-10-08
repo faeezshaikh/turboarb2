@@ -152,7 +152,7 @@
                 { "Id": 1055, "QuestionId": 1010, "Name": "Elastic Beanstalk gives Dev or Ops control over the rate of changes. Where possible AWS builds and cuts over to the new service before deleting the old service. The update starts immediately on submission of the instruction.", "IsAnswer": true },
                 { "Id": 1056, "QuestionId": 1010, "Name": "All code releases and configuration changes require a short but complete outage as the traffic is shifted from the old environment to the new.", "IsAnswer": false },
                 { "Id": 1056, "QuestionId": 1010, "Name": "Elastic Beanstalk gives Dev or Ops control over the time and rate of changes. Where possible AWS builds and cuts over to the new service before deleting the old service.", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "Elastic Beanstalk gives Dev or Ops control over the rate of changes. Where possible AWS builds and cuts over to the new service before deleting the old service. The update starts immediately on submission of the instruction. However the update can submitted in a 'suspended' state and left released at an appropriate time.lse", "IsAnswer": false },
+                { "Id": 1056, "QuestionId": 1010, "Name": "Elastic Beanstalk gives Dev or Ops control over the rate of changes. Where possible AWS builds and cuts over to the new service before deleting the old service. The update starts immediately on submission of the instruction. However the update can submitted in a 'suspended' state and left released at an appropriate time.", "IsAnswer": false },
                 { "Id": 1056, "QuestionId": 1010, "Name": "Like CloudFormation, all application and configuration updates are seamless and non impacting", "IsAnswer": false }],
         "Explanation":"Elastic Beanstalk offers a number of important controls to avoid business impact of code pushes. However it is still the responsibility of the individual to ensure that the timing is appropriate and the impact is understood.",
         "Ref" :"http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-updating.html"
@@ -465,16 +465,6 @@
                 { "Id": 1055, "QuestionId": 1010, "Name": "A virtual tape shelf", "IsAnswer": true },
                 { "Id": 1056, "QuestionId": 1010, "Name": "A virtual tape library", "IsAnswer": false }],
         "Explanation":"Virtual tape shelves are stored on Amazon Glacier and allow you to have unlimited virtual tapes. Virtual Tape Libraries are stored on Amazon S3 and support up to 1500 Virtual Tapes."
-    },
-    {
-        "Id": 45,
-        "Name": "RDS read replicas are supported with the following database engines:", 
-        
-        "Options": [
-                { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": false },
-                { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": true }],
-        "Explanation":"",
-        "Ref":""
     },
     {
         "Id": 46,

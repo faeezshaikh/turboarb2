@@ -66,7 +66,7 @@
             { "Id": 1056, "QuestionId": 1010, "Name": "Use Web Identity Federation to retrieve AWS temporary security credentials to enable your NOC members to sign in to the AWS Management Console.", "IsAnswer": false },
             { "Id": 1057, "QuestionId": 1010, "Name": "Use your on-premises SAML 2.0-compllant identity provider (IdP) to retrieve temporary security credentials to enable NOC members to sign in to the AWS Management Console.", "IsAnswer": false },
             { "Id": 1058, "QuestionId": 1010, "Name": "Use OAuth 2.0 to retrieve temporary AWS security credentials to enable your NOC members to sign in to the AWS Management Console.", "IsAnswer": false }],
-            "Explanation":"Use SAML 2.0 for Single Sigon. See link for more information",
+            "Explanation":"Use SAML 2.0 for Single Sign-on. See link for more information",
             "Ref":"http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html"
     } 
     ,
@@ -146,7 +146,6 @@
     {
         "Id": 13,
         "Name": "To ensure that your Amazon CloudHSM encryption keys are not lost you must run a cluster (more than one instance).", 
-        "Explanation": "sdfdsfsdf",
         "Options": [
             { "Id": 1055, "QuestionId": 1010, "Name": "True", "IsAnswer": true },
             { "Id": 1056, "QuestionId": 1010, "Name": "False", "IsAnswer": false }]
@@ -306,14 +305,13 @@
         "Name": "You have been engaged by a company to design and lead the migration to an AWS environment. One of their current problems is that the on-premises high performance SAN is requiring frequent and expensive upgrades to keep up with the variety of workloads. Working with the Capacity Manager you identify the following Storage types and volumes required: 10 TiB of logs archives retained for legal reason. 300 GiB of VM boot/Data volumes and templates currently requiring 400 IOPS. 900 GiB of modelling data requiring 100,000 Read IOPS, and 90,000 Write IOPS. 500 GiB of image thumbnail that are regenerated on the fly if unavailable. 200 GiB of customer Session State data. 100 GiB of premium customer Session State data that allows customers to restart sessions even if off-line for several days. Which of the following best reflect your recommendation for a cost effective storage allocation. (Choose 2)", 
         
         "Options": [
-            { "Id": 1055, "QuestionId": 1010, "Name": "DynamoDB (300 GiB) for the customer Session State data. I2.4xLarge with backup to S3 for the modelling data. Assorted EBS(gp2/io1/std) backed instance as (200 to 400 GiB req’d).", "IsAnswer": false },
+            { "Id": 1055, "QuestionId": 1010, "Name": "DynamoDB (300 GiB) for the customer Session State data. I2.4xLarge with backup to S3 for the modelling data. Assorted EBS(gp2/io1/std) backed instance (200 to 400 GiB) as required.", "IsAnswer": false },
             { "Id": 1056, "QuestionId": 1010, "Name": "S3/Glacier (10 TiB) Life cycle managed for Log archives. S3(RRS) (500 GiB) for the thumbnails. EBS(gp2) (300 GiB) presented as NAS storage for the VM Boot/Data volumes.", "IsAnswer": false },
-            { "Id": 1057, "QuestionId": 1010, "Name": "DynamoDB (100 GiB) for the premium customer Session State data. ElastiCache cluster (200 GiB) for the standard customer Session state data. Assorted EBS(gp2/io1/std) backed instance as (200 to 400 GiB req’d). I2.4xLarge with backup to S3 for the modelling data.", "IsAnswer": true },
+            { "Id": 1057, "QuestionId": 1010, "Name": "DynamoDB (100 GiB) for the premium customer Session State data. ElastiCache cluster (200 GiB) for the standard customer Session state data. Assorted EBS(gp2/io1/std) backed instance (200 to 400 GiB) as required. I2.4xLarge with backup to S3 for the modelling data.", "IsAnswer": true },
             { "Id": 1058, "QuestionId": 1010, "Name": "S3(RRS)/Glacier (10 TiB) Life cycle managed for Log archives. S3(RRS) (500 GiB) for the thumbnails. S3/Glacier (300 GiB) Life cycle managed to self-expire for the VM Boot/Data volumes.", "IsAnswer": false },
-            { "Id": 1059, "QuestionId": 1010, "Name": "DynamoDB (100 GiB) for the premium customer Session State data. ElastiCache cluster (200 GiB) for the standard customer Session state data. Assorted EBS(gp2/io1/std) backed instance as (200 to 400 GiB req’d). EBS(io1) (900 GiB) in RAID10 across a cluster of c3.8xLarge with EBS Optimized storage.", "IsAnswer": false },
+            { "Id": 1059, "QuestionId": 1010, "Name": "DynamoDB (100 GiB) for the premium customer Session State data. ElastiCache cluster (200 GiB) for the standard customer Session state data. Assorted EBS(gp2/io1/std) backed instance (200 to 400 GiB) as required. EBS(io1) (900 GiB) in RAID10 across a cluster of c3.8xLarge with EBS Optimized storage.", "IsAnswer": false },
             { "Id": 1060, "QuestionId": 1010, "Name": "S3/Glacier (10 TiB) Life cycle managed for Log archives. S3(RRS) (500 GiB) for the thumbnails. S3/Glacier (300 GiB) Life cycle managed to self-expire for the VM Boot/Data volumes.", "IsAnswer": true }],
-            "Explanation" :"Once versioning has been enabled on a bucket, it cannot be turned off, only suspended.",
-            "Ref":"Legal implies durable & secure retention. Modeling data implies high IOPS. Session state implies low latency access and options about persistence. There is a gotcha about how to handle VM Boot volumes (Hint: What do you plan to do with them during & after you have moved to AWS?).You need to practice comparing answers to identify the different elements and eliminate the incorrect ones. This question is long, but the principles of selecting the correct storage are straightforward."
+            "Explanation":"Legal implies durable & secure retention. Modeling data implies high IOPS. Session state implies low latency access and options about persistence. There is a gotcha about how to handle VM Boot volumes (Hint: What do you plan to do with them during & after you have moved to AWS?).You need to practice comparing answers to identify the different elements and eliminate the incorrect ones. This question is long, but the principles of selecting the correct storage are straightforward."
         
     },
     {
@@ -445,7 +443,7 @@
     },
     {
         "Id": 42,
-        "Name": " An instance was working fine with it's DHCP address, however with a manually set IP address of 10.2.5.191 if cannot connect to the network. The subnet is defined as 10.2.5.128/26 (10.2.5.128 - 10.2.5.191). What is most likely the cause of the problem?", 
+        "Name": " An instance was working fine with it's DHCP address, however with a manually set IP address of 10.2.5.191 it cannot connect to the network. The subnet is defined as 10.2.5.128/26 (10.2.5.128 - 10.2.5.191). What is most likely the cause of the problem?", 
         
         "Options": [
             { "Id": 1055, "QuestionId": 1010, "Name": "/26 is not a permitted CIDR block size.", "IsAnswer": false },
