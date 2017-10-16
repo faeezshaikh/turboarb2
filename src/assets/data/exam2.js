@@ -332,7 +332,7 @@
         
         "Options": [
                 { "Id": 1055, "QuestionId": 1010, "Name": "By having each of the teams assign a tag (eg. Department: Development) to any resource they provision and then configuring a resource group to see all resources with that tag.", "IsAnswer": true },
-                { "Id": 1056, "QuestionId": 1010, "Name": "By requiring each team keep a detailed spreadsheet of each resource ARN they maintain and submit it daily to you via email.", "IsAnswer": true },
+                { "Id": 1056, "QuestionId": 1010, "Name": "By requiring each team keep a detailed spreadsheet of each resource ARN they maintain and submit it daily to you via email.", "IsAnswer": false},
                 { "Id": 1056, "QuestionId": 1010, "Name": "By enabling CloudTrail and running monitoring on the logs to find out which IAM user has provisioned each resource so they can be matched up to a team directory which is kept in a database.", "IsAnswer": false}],
         "Explanation":"Resource Groups are an easy way to view related resources and the results can also be exported in CSV format for use in external systems."
     },
