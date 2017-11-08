@@ -34,7 +34,9 @@ bug: Timer up causes page to crash when scrollToTop fails on menu list home page
 Bug: going back to list while timer is running will elapse timer on the lists page
 
 
-
+Ionic serve not starting
+=========================
+npm install @ionic/app-scripts@1.1.4
 
 
 
