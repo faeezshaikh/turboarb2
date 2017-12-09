@@ -715,6 +715,17 @@
                 { "Id": 1058, "QuestionId": 1010, "Name": "Write click events directly to Amazon Redshift, and then analyze with SQL.", "IsAnswer": false }],
         "Explanation":"Since the requirement is to analyze data in real time best option is to push the clicks to Kinesis and do anyalysis using the Kinesis workers.",
         "Ref": "http://www.slideshare.net/AmazonWebServices/aws-webcast-introduction-to-amazon-kinesis"
+    },
+    {
+        "Id": 67,
+        "Name": "You have a periodic image analysis application that gets some files in input, analyzes them and for each file writes some data in output to a text file. The number of files in input per day is high and concentrated in a few hours of the day. Currently you have a server on EC2 with a large EBS volume that hosts the input data and the results. It takes almost 20 hours per day to complete the process. What services could be used to reduce the elaboration time and improve the availability of the solution?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "S3 to store I/O files, SQS to distribute elaboration commands to a group of hosts working in parallel, Auto Scaling to dynamically size the group of hosts depending on the length of the SQS queue.", "IsAnswer": false},
+                { "Id": 1056, "QuestionId": 1010, "Name": "S3 to store I/O files, SNS to distribute elaboration commands to a group of hosts working in parallel, Auto Scaling to dynamically size the group of hosts depending on the number of SNS notifications.", "IsAnswer": false },
+                { "Id": 1057, "QuestionId": 1010, "Name": "EBS with Provisioned IOPS (PIOPS) to store I/O files, SNS to distribute elaboration commands to a group of hosts working in parallel, Auto Scaling to dynamically size the group of hosts depending on the number of SNS notifications.", "IsAnswer": false},
+                { "Id": 1058, "QuestionId": 1010, "Name": "EBS with Provisioned IOPS (PIOPS) to store I/O files, SQS to distribute elaboration commands to a group of hosts working in parallel. Auto Scaling to dynamically size the group of hosts depending on the length of the SQS queue.", "IsAnswer": true}],
+        "Explanation":"Autoscaling should typically be dependent on the size of the SQS queue depth. And since S3 is mainly for object storage, the option to use EBS for I/O files makes more sense."
     }
   
   
