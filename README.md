@@ -59,7 +59,7 @@ Chat with other users
 Comment on a question
 
 
-Till ! # 76 (Q #66 in Exam2) from pdf / Sep 19
+Till ! # 78 (Q #68 in Exam1) from pdf / Feb 1
 
 
 FB Mobile App Ads:

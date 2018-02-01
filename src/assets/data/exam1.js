@@ -727,7 +727,19 @@
                 { "Id": 1058, "QuestionId": 1010, "Name": "EBS with Provisioned IOPS (PIOPS) to store I/O files, SQS to distribute elaboration commands to a group of hosts working in parallel. Auto Scaling to dynamically size the group of hosts depending on the length of the SQS queue.", "IsAnswer": true}],
         "Explanation":"Autoscaling should typically be dependent on the size of the SQS queue depth. And since S3 is mainly for object storage, the option to use EBS for I/O files makes more sense."
     }
-  
+    ,
+    {
+        "Id": 68,
+        "Name": "You are implementing a URL whitelisting system for a company that wants to restrict outbound HTTP/S connections to specific domains from their EC2-hosted applications. You deploy a single EC2 instance running proxy software and configure it to accept traffic from all subnets and EC2 instances in the VPC. You configure the proxy to only pass through traffic to domains that you define in its whitelist configuration. You have a nightly maintenance window of 10 minutes where all instances fetch new software updates. Each update is about 200MB in size and there are 500 instances in the VPC that routinely fetch updates. After a few days you notice that some machines are falling to successfully download some, but not all, of their updates within the maintenance window. The download URLs used for these updates are correctly listed in the proxy's whitelist configuration and you are able to access them manually using a web browser on the instances. What might be happening? Choose 2 answers", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "You are running the proxy on an undersized EC2 instance type so network throughput is not sufficient for all instances to download their updates in time", "IsAnswer": true},
+                { "Id": 1056, "QuestionId": 1010, "Name": "You are running the proxy on a sufficiently-sized EC2 instance in a private subnet and its network throughput is being throttled by a NAT running on an undersized EC2 instance", "IsAnswer": false },
+                { "Id": 1057, "QuestionId": 1010, "Name": "The route table for the subnets containing the affected EC2 instances is not configured to direct network traffic for the software update locations to the proxy", "IsAnswer": false},
+                { "Id": 1058, "QuestionId": 1010, "Name": "You have not allocated enough storage to the EC2 instance running the proxy so the network buffer is filling up, causing some requests to fail", "IsAnswer": true},
+                { "Id": 1059, "QuestionId": 1010, "Name": "You are running the proxy in a public subnet but have not allocated enough EIPs to support the needed network throughput through the Internet Gateway (IGW)", "IsAnswer": false}],
+        "Explanation":"Its either an undersized EC2 instance in which case you want to use a bigger instance size. Or there is not enough storage allocated on the instance. Hint: Scale vertically (increase instance size) and scale horizontally (add more storage)"
+    }
   
      ]
 }

@@ -18,6 +18,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 import { MySocialShareService } from '../providers/my-social-share-service';
 import { VideosPage } from '../pages/videos/videos';
 import { WhitepapersPage } from '../pages/whitepapers/whitepapers';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import {
   CognitoUtil,
@@ -93,7 +94,8 @@ import {EventsService} from "../providers/events.service";
     EventsService,
     SimpleTimer,
     SocialSharing,
-    MySocialShareService
+    MySocialShareService,
+    InAppBrowser
     // NativeStorage
   ]
 })

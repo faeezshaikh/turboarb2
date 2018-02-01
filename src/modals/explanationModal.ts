@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Platform, NavParams, ViewController } from 'ionic-angular';
-
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 
 @Component({
@@ -17,7 +17,8 @@ export class ExplanationModal {
    constructor(
     public platform: Platform,
     public params: NavParams,
-    public viewCtrl: ViewController
+    public viewCtrl: ViewController,
+    private iab: InAppBrowser
   ) {
     this.explanation = params.get('Explanation');
     this.ref = params.get('Ref');
@@ -27,8 +28,14 @@ export class ExplanationModal {
   }
 
   openLink() {
-    	window.open(this.ref, '_system', 'location=yes');
-			return false;
+    	// window.open(this.ref, '_blank', 'location=yes');
+      // return false;
+      this.platform.ready().then(() => {
+        // let browser = new InAppBrowser(this.ref,'_blank');
+        this.iab.create(this.ref,'_system',{location:'no',toolbar:'yes',hidden:'no'}); 
+
+    });
+
   }
 
   dismiss() {
