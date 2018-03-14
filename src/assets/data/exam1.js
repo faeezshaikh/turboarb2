@@ -740,6 +740,18 @@
                 { "Id": 1059, "QuestionId": 1010, "Name": "You are running the proxy in a public subnet but have not allocated enough EIPs to support the needed network throughput through the Internet Gateway (IGW)", "IsAnswer": false}],
         "Explanation":"Its either an undersized EC2 instance in which case you want to use a bigger instance size. Or there is not enough storage allocated on the instance. Hint: Scale vertically (increase instance size) and scale horizontally (add more storage)"
     }
+    ,
+    {
+        "Id": 69,
+        "Name": "A company is running a batch analysis every hour on their main transactional DB running on an RDS MySQL instance to populate their central Data Warehouse running on Redshift. During the execution of the batch their transactional applications are very slow. When the batch completes they need to update the top management dashboard with the new data. The dashboard is produced by another system running on-premises that is currently started when a manually-sent email notifies that an update is required. The on-premises system cannot be modified because is managed by another team. How would you optimize this scenario to solve performance issues and automate the process as much as possible?", 
+        
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "Replace RDS with Redshift for the batch analysis and SNS to notify the on-premises system to update the dashboard", "IsAnswer": false},
+                { "Id": 1056, "QuestionId": 1010, "Name": "Replace RDS with Redshift for the batch analysis and SQS to send a message to the on-premises system to update the dashboard", "IsAnswer": false },
+                { "Id": 1057, "QuestionId": 1010, "Name": "Create an RDS Read Replica for the batch analysis and SNS to notify me on-premises system to update the dashboard", "IsAnswer": true},
+                { "Id": 1058, "QuestionId": 1010, "Name": "Create an RDS Read Replica for the batch analysis and SQS to send a message to the on-premises system to update the dashboard.", "IsAnswer": false}],
+        "Explanation":"Use SNS to notify. So right away the options with SQS are invalid. Redshift is mainly used for Data Warehousing. This question asks about separating reporting and analytics from transactional (OLTP) traffic. RDS Read replica is a good option for that."
+    }
   
      ]
 }
