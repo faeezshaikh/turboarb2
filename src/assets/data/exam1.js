@@ -752,6 +752,18 @@
                 { "Id": 1058, "QuestionId": 1010, "Name": "Create an RDS Read Replica for the batch analysis and SQS to send a message to the on-premises system to update the dashboard.", "IsAnswer": false}],
         "Explanation":"Use SNS to notify. So right away the options with SQS are invalid. Redshift is mainly used for Data Warehousing. This question asks about separating reporting and analytics from transactional (OLTP) traffic. RDS Read replica is a good option for that."
     }
+    ,
+    {
+        "Id": 70,
+        "Name": "To serve Web traffic for a popular product, your chief financial officer and IT director have purchased 10 m1.large heavy utilization Reserved Instances (RIs), evenly spread across two availability zones; Route 53 is used to deliver the traffic to an Elastic Load Balancer (ELB). After several months, the product grows even more popular and you need additional capacity. As a result, your company purchases two c3.2xlarge medium utilization RIs. You register the two c3.2xlarge instances with your ELB and quickly find that the m1.large instances are at 100% of capacity and the c3.2xlarge instances have significant capacity that's unused. Which option is the most cost effective and uses EC2 capacity most effectively?", 
+        "Options": [
+                { "Id": 1055, "QuestionId": 1010, "Name": "Configure Autoscaling group and Launch Configuration with ELB to add up to 10 more on- demand m1.large instances when triggered by Cloudwatch. Shut off c3.2xlarge instances.", "IsAnswer": false},
+                { "Id": 1056, "QuestionId": 1010, "Name": "Configure ELB with two c3.2xlarge instances and use on-demand Autoscaling group for up to two additional c3.2xlarge instances. Shut off m1.large instances.", "IsAnswer": false },
+                { "Id": 1057, "QuestionId": 1010, "Name": "Route traffic to EC2 m1.large and c3.2xlarge instances directly using Route 53 latency based routing and health checks. Shut off ELB.", "IsAnswer": false},
+                { "Id": 1058, "QuestionId": 1010, "Name": "Use a separate ELB for each instance type and distribute load to ELBs with Route 53 weighted round robin.", "IsAnswer": true}],
+        "Explanation":"Use Route 53 weighted round robin to distibute the load appropriately by putting the two instance types behind two separate ELBs.",
+        "Ref":"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html"
+    }
   
      ]
 }
