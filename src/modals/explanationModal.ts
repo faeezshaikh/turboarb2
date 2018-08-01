@@ -18,7 +18,7 @@ export class ExplanationModal {
     public platform: Platform,
     public params: NavParams,
     public viewCtrl: ViewController,
-    private iab: InAppBrowser
+    // private iab: InAppBrowser
   ) {
     this.explanation = params.get('Explanation');
     this.ref = params.get('Ref');
@@ -32,7 +32,7 @@ export class ExplanationModal {
       // return false;
       this.platform.ready().then(() => {
         // let browser = new InAppBrowser(this.ref,'_blank');
-        this.iab.create(this.ref,'_system',{location:'no',toolbar:'yes',hidden:'no'}); 
+        // this.iab.create(this.ref,'_system',{location:'no',toolbar:'yes',hidden:'no'}); 
 
     });
 

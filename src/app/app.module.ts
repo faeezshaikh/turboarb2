@@ -19,6 +19,8 @@ import { MySocialShareService } from '../providers/my-social-share-service';
 import { VideosPage } from '../pages/videos/videos';
 import { WhitepapersPage } from '../pages/whitepapers/whitepapers';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 
 import {
   CognitoUtil,
@@ -58,7 +60,7 @@ import {EventsService} from "../providers/events.service";
     WhitepapersPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp),BrowserModule,HttpModule,
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
