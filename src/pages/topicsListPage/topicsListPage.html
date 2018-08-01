@@ -3,7 +3,10 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Practice Exams</ion-title>
+    <div class="titleicon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Ameren_logo.svg/2000px-Ameren_logo.svg.png" width="100px" style="margin-bottom:9px;margin-right:10px;" />
+   </div>
+    <ion-title>Project Lists</ion-title>
   <!--<ion-buttons end>
       <button ion-button icon-only (click)="reorderNow()">
         <ion-icon [name]="reorderIcon"></ion-icon>
@@ -24,12 +27,12 @@
 
   <ion-list>
 
-    <ion-item-divider color="light">Practice </ion-item-divider>
+    <ion-item-divider color="light">Projects </ion-item-divider>
     <ion-item-group [reorder]="reorder" (ionItemReorder)="reorderTopics($event)">
       <!--<ion-item-sliding *ngFor="let topic of topics">
         <ion-item (click)="itemTapped($event, topic)" detail-push>-->
 
-        <ion-item  *ngFor="let topic of topics | slice:0:8; let i = index;" (click)="itemTapped($event, topic)" detail-push>
+        <!-- <ion-item  *ngFor="let topic of topics | slice:0:8; let i = index;" (click)="itemTapped($event, topic)" detail-push>
           
           <ion-thumbnail item-left>
             <img src="{{topic.icon}}">
@@ -38,7 +41,72 @@
           <p>{{topic.note}}, {{topic.time}}</p>
 
           <p>Last Score: {{topic.hiScore || '(Not attempted)'}} {{topic.hiScore ? '%' : '' }}</p>
-        </ion-item>
+        </ion-item> -->
+
+        <ion-grid fixed>
+        <ion-row responsive-sm>
+          <ion-col col-md *ngFor="let topic of topics | slice:0:8; let i = index;" (click)="itemTapped($event, topic)" >
+              <!--  <ion-thumbnail item-left>
+                 <img src="{{topic.icon}}">
+                </ion-thumbnail>
+                <h2>{{topic.title}}</h2>
+                <p>{{topic.note}}, {{topic.time}}</p>
+      
+                <p>Last Score: {{topic.hiScore || '(Not attempted)'}} {{topic.hiScore ? '%' : '' }}</p> -->
+
+
+              
+
+
+                    <ion-card>
+                        <!-- <ion-thumbnail item-center style="width:50%;height:50%">
+                          <img src="{{topic.icon}}">
+                        </ion-thumbnail> -->
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                          <ion-fab right top>
+                            <button ion-fab *ngIf="topic.score>60" color="secondary">
+                              <ion-icon  name=""> <label style="font-family:arial;font-size:1.9rem;font-weight:bold">{{topic.score}}%</label></ion-icon>
+                            </button>
+                            <button ion-fab *ngIf="topic.score<30" color="danger">
+                                <ion-icon  name=""><label style="font-family:arial;font-size:1.9rem;font-weight:bold">{{topic.score}}%</label></ion-icon>
+                              </button>
+                              <button ion-fab *ngIf="topic.score>30 && topic.score<60" color="orange">
+                                  <ion-icon  name=""><label style="font-family:arial;font-size:1.9rem;font-weight:bold">{{topic.score}}%</label></ion-icon>
+                                </button>
+                          </ion-fab>
+                        
+                          <ion-item>
+                            <ion-icon name="football" item-start large></ion-icon>
+                            <h2>{{topic.title}}</h2>
+                            <p>{{topic.note}}, {{topic.time}}</p>
+                          </ion-item>
+                        
+                          <ion-item>
+                            <ion-icon name="wine" item-start large ></ion-icon>
+                            <h2>Institute of Fine Cocktails</h2>
+                            <!-- <p>14 S. Hop Avenue, Madison, WI 53703</p> -->
+                            <p>Last Updated: {{topic.hiScore || '(Not attempted)'}} {{topic.hiScore ? '%' : '' }}</p>
+                          </ion-item>
+                        
+                          <ion-item>
+                            <span item-start>18 min</span>
+                            <span item-start>(2.6 mi)</span>
+                            <button ion-button icon-start clear item-end>
+                              <ion-icon name="navigate"></ion-icon>
+                              Start
+                            </button>
+                          </ion-item>
+                        
+                        </ion-card>
+    
+
+
+
+
+          </ion-col>
+         
+        </ion-row>
+        </ion-grid>
 
         <!--<ion-item-options side="left">
           <button ion-button (click)="favorite(item)"><ion-icon name="star"></ion-icon>Favorite</button>
@@ -52,7 +120,7 @@
       <!--</ion-item-sliding>-->
     </ion-item-group>
    
-    <ion-item-divider color="light">Mock Exams</ion-item-divider>
+    <!-- <ion-item-divider color="light">Mock Exams</ion-item-divider>
     <ion-item-group [reorder]="reorder" (ionItemReorder)="reorderExams($event)">
       <ion-item *ngFor="let exam of topics | slice:8:10; let i = index;" (click)="itemTapped($event, exam)" detail-push>
         <ion-thumbnail item-left>
@@ -62,12 +130,12 @@
         <p>{{exam.note}}, {{exam.time}}</p>
          <p>Last Score: {{exam.hiScore || '(Not attempted)'}} {{exam.hiScore ? '%' : '' }}</p>
       </ion-item>
-    </ion-item-group>
+    </ion-item-group> -->
 
   </ion-list>
 
 
- <ion-fab bottom right >
+ <!-- <ion-fab bottom right >
    <button ion-fab>  <ion-icon name="share"></ion-icon></button>
    <ion-fab-list side="top">
      <button ion-fab (click)="shareViaFacebook()"> <ion-icon name="logo-facebook"></ion-icon></button>
@@ -79,11 +147,28 @@
      <button ion-fab (click)= "shareViaMail()"><ion-icon name="mail"></ion-icon></button>
        
    </ion-fab-list>
-   <!--<ion-fab-list side="left">
-     <button ion-fab>Vimeo</button>
-     <button ion-fab>Twitter</button>
-     <button ion-fab>Twitter</button>
-   </ion-fab-list>-->
- </ion-fab>
+ </ion-fab> -->
 
+
+
+ <ion-fab top right >
+    <button ion-fab color="primary">  <ion-icon name="add"></ion-icon></button>
+  </ion-fab>
 </ion-content>
+
+
+<ion-footer >
+    <ion-toolbar color="primary">
+      <ion-title>
+        <ion-grid>
+
+          <ion-row>   Ameren EA
+              <div class="titleicon">
+                  <label style='text-align:right;color:#ede7e7;padding: 0 12px;font-size:1.8rem'>Contact Us: fshaikh@ameren.com</label>
+             </div>
+          </ion-row>
+        </ion-grid>
+     </ion-title>  
+      
+    </ion-toolbar>
+  </ion-footer>

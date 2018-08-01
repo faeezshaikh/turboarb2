@@ -36,7 +36,7 @@ export class MyApp {
     this.initializeApp();
 
     this.pages = [
-      { title: 'Practice Exams', component: TopicsListPage, icon: 'list' },
+      { title: 'Projects', component: TopicsListPage, icon: 'list' },
       { title: 'Video Resources', component: VideosPage, icon: 'logo-youtube' },
       { title: 'Other Resources', component: WhitepapersPage, icon: 'folder' },
       { title: 'Contact Us', component: ContactUsPage, icon: 'people' }

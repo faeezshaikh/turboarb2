@@ -2,7 +2,9 @@
     "quiz": {
         "name": "Cloud Migration",
         "logo" : "assets/img/CloudFormation.png",
-        "time":"20 minutes"
+        "time":"20 minutes",
+        "score": 50,
+        "sponsor":"Joe Solari"
     },
     "questions": [{
         "Id": 1,

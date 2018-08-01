@@ -73,6 +73,7 @@ export class MyDataService {
       icon: string;
       hiScore: any;
       time: string;
+      score:any;
     }
     this.topicMap.forEach((value: string, key: number) => {
         // console.log(key, value);
@@ -83,6 +84,8 @@ export class MyDataService {
             t.note = resp.questions.length + ' questions';
             t.icon = resp.quiz.logo;
             t.time = resp.quiz.time;
+            t.score = resp.quiz.score;
+            t.sponsor = resp.quiz.sponsor;
 
 
             if (this.topics.length != this.topicMap.size) {

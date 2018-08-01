@@ -2,7 +2,8 @@
     "quiz": {
         "name": "Data Storage",
         "logo" : "assets/img/RDS.png",
-        "time":"20 minutes"
+        "time":"20 minutes",
+        "score": 30
     },
     "questions": [
       {

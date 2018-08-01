@@ -2,7 +2,8 @@
     "quiz": {
         "name": "Costing",
         "logo" : "assets/img/S3.png",
-        "time":"20 minutes"
+        "time":"20 minutes",
+        "score": 90
     },
     "questions": [
          {
