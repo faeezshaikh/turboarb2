@@ -2,7 +2,8 @@
     "quiz": {
         "name": "Security",
         "logo" : "assets/img/IAM.png",
-        "time":"20 minutes"
+        "time":"20 minutes",
+        "sponsor":"Ann D"
     },
     "questions": [ {
         "Id": 1,

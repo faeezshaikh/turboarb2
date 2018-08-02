@@ -3,7 +3,8 @@
         "name": "Costing",
         "logo" : "assets/img/S3.png",
         "time":"20 minutes",
-        "score": 90
+        "score": 90,
+        "sponsor":"Joe Solari"
     },
     "questions": [
          {

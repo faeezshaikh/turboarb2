@@ -3,7 +3,8 @@
         "name": "Scalability",
         "logo" : "assets/img/EC2.png",
         "time":"20 minutes",
-        "score": 10
+        "score": 10,
+        "sponsor":"Paul Straughn"
     },
     "questions": [{
         "Id": 1,

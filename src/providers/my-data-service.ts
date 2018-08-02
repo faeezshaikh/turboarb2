@@ -74,6 +74,7 @@ export class MyDataService {
       hiScore: any;
       time: string;
       score:any;
+      sponsor:any;
     }
     this.topicMap.forEach((value: string, key: number) => {
         // console.log(key, value);

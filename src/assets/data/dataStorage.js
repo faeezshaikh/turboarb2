@@ -3,7 +3,8 @@
         "name": "Data Storage",
         "logo" : "assets/img/RDS.png",
         "time":"20 minutes",
-        "score": 30
+        "score": 30,
+        "sponsor":"Paul Straughn"
     },
     "questions": [
       {

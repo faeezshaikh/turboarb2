@@ -2,7 +2,8 @@
     "quiz": {
         "name": "Network Design",
         "logo" : "assets/img/SQS.png",
-        "time":"20 minutes"
+        "time":"20 minutes",
+        "sponsor":"Paul Straughn"
     },
     "questions": [ {
         "Id": 1,

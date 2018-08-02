@@ -2,7 +2,8 @@
     "quiz": {
         "name": "H.A & Business Cont.",
         "logo" : "assets/img/VPC.png",
-        "time":"20 minutes"
+        "time":"20 minutes",
+        "sponsor":"John Ose"
     },
     "questions": [
          {

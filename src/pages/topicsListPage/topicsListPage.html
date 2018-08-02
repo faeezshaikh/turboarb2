@@ -18,12 +18,7 @@
 
 
 <ion-content>
-<!--<ion-searchbar
-  [(ngModel)]="myInput"
-  [showCancelButton]="shouldShowCancel"
-  (ionInput)="onInput($event)"
-  (ionCancel)="onCancel($event)">
-</ion-searchbar>-->
+
 
   <ion-list>
 
@@ -45,7 +40,12 @@
 
         <ion-grid fixed>
         <ion-row responsive-sm>
-          <ion-col col-md *ngFor="let topic of topics | slice:0:8; let i = index;" (click)="itemTapped($event, topic)" >
+            <ion-searchbar
+            [showCancelButton]="shouldShowCancel"
+            (ionInput)="filterItems($event)"
+            (ionCancel)="onCancel($event)">
+          </ion-searchbar>
+          <ion-col col-md  *ngFor="let topic of topics | slice:0:8; let i = index;" (click)="itemTapped($event, topic)" >
               <!--  <ion-thumbnail item-left>
                  <img src="{{topic.icon}}">
                 </ion-thumbnail>
@@ -83,7 +83,7 @@
                         
                           <ion-item>
                             <ion-icon name="wine" item-start large ></ion-icon>
-                            <h2>Institute of Fine Cocktails</h2>
+                            <h2>Sponsor: {{topic.sponsor}}</h2>
                             <!-- <p>14 S. Hop Avenue, Madison, WI 53703</p> -->
                             <p>Last Updated: {{topic.hiScore || '(Not attempted)'}} {{topic.hiScore ? '%' : '' }}</p>
                           </ion-item>
@@ -162,9 +162,11 @@
       <ion-title>
         <ion-grid>
 
-          <ion-row>   Ameren EA
-              <div class="titleicon">
-                  <label style='text-align:right;color:#ede7e7;padding: 0 12px;font-size:1.8rem'>Contact Us: fshaikh@ameren.com</label>
+          <ion-row> <div class="bottomTitleicon">Ameren EA</div></ion-row>
+          <ion-row>  
+              <div class="bottomTitleicon">
+                 
+                  <label style='text-align:right;color:#ede7e7;padding: 0 12px;font-size:1.5rem'>Contact Us: fshaikh@ameren.com</label>
              </div>
           </ion-row>
         </ion-grid>

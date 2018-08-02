@@ -17,7 +17,7 @@ import { MySocialShareService } from '../../providers/my-social-share-service';
 export class TopicsListPage {
   selectedItem: any;
   icons: string[];
-  topics: Array<{ no: number, title: string, note: string, icon: string, hiScore: string }>;
+  topics: Array<{ no: number, title: string, note: string, icon: string, hiScore: string ,sponsor:any}>;
   reorder: boolean = false;
   reorderIcon: string = "options";
   @ViewChild(Content) content: Content;
@@ -31,12 +31,15 @@ export class TopicsListPage {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
-    this.topics = dataService.getTopicsArray();
+    this.getTopics();
 
     this.getHiScores();
 
   }
 
+  getTopics() {
+    this.topics = this.dataService.getTopicsArray();
+  }
   scrollToTop() {
     if(this.content)
         this.content.scrollToTop();
@@ -142,6 +145,21 @@ export class TopicsListPage {
    shareViaMail() {
        this.mySocialShareService.shareViaMail(); 
   }
+
+  filterItems(ev: any) {
+    this.getTopics();
+    let val = ev.target.value;
+
+    if (val && val.trim() !== '') {
+      this.topics = this.topics.filter(function(item) {
+        return item.title.toLowerCase().includes(val.toLowerCase());
+      });
+    }
+  }
+
+  // onCancel(ev: any) {
+  //   this.topics = this.dataService.getTopicsArray();
+  // }
 
 
   presentAlert(msg) {
